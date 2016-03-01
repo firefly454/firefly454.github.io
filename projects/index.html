@@ -14,7 +14,24 @@ title: Erica Kim's blog
         I investigated this dataset (which ranged from 2006 - 2014) using R and exploratory data analysis techniques, and discovered interesting 
         relationships between various variables. I also created many beautiful, informative, and revealing plots using the 
         awesome ggplot library.
-                </li><br>
+                </li><br><br>
+        My favorite images from the report:<br> 
+        <img src="proj4_image1.png"><br>
+        The above figure is the first plot in this report. 
+        It is important because it is a clear example of how Prosper drastically changed much of its loan servicing 
+        procedures in 2009. In my original, first-pass analysis of the Prosper loan data, I included every single loan. 
+        However, I soon realized that there were distinct differences in loans based on whether they originated before or 
+        after 2009. For example, the Prosper rating variables (“ProsperRating [numeric]” and “ProsperRating [Alpha]”), as 
+        well as “EstimatedEffectiveYield”, “EstimatedLoss”, and “EstimatedReturn”, are only applicable for loans originating 
+        in July 2009 (i.e. in Q3 2009) or later. In contrast, “CreditGrade” is only applicable for loans originating in 2008 or 
+        earlier.
+
+        In this figure, we can see that servicing fee (a new variable that I created) was originally a variable rate prior to 
+        2009, and then became fixed at a set rate of 5% afterwards. This figure visibly demonstrates, and therefore justifies, 
+        that the loans in the Prosper dataset should be separated into two groups: those originating either prior to Q3 2009, 
+        or in/after Q3 2009. <br>
+        <img src="proj4_image2.png"><br>
+        <img src="proj4_image3.png"><br>
                 
         <li><a href="/projects/OpenStreetMap_with_MongoDB.html">Project 3: OpenStreetMap Data Wrangling</a><br>
         I imported information on Cambridge, England from <a href="http://www.openstreetmap.org">OpenStreetMap</a>. I first checked 
