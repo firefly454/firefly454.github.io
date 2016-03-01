@@ -6,7 +6,7 @@ title: Erica Kim's blog
         <h1>My projects</h1>
         <p>For the past few months, I've been enrolled in Udacity's Data Analyst nanodegree program. The following are some of the 
         projects I've worked on, as part of the nanodegree requirements.</p>
-        <li><a href="/projects/EDA2.html">Project 4: Exploratory Data Analysis of Historical Loans</a><br>
+        <h2><a href="/projects/EDA2.html">Project 4: Exploratory Data Analysis of Historical Loans</a></h2><br>
         This report contains an exploratory analysis of loan data from Prosper. <a href="https://www.prosper.com/">Prosper</a> is 
         a peer-to-peer lending marketplace in which prospective borrowers post loan listings while investors select specific 
         listings to then invest in. Investors can select loans based on a variety of factors, such as: the loan amount, the loan 
@@ -14,10 +14,9 @@ title: Erica Kim's blog
         I investigated this dataset (which ranged from 2006 - 2014) using R and exploratory data analysis techniques, and discovered interesting 
         relationships between various variables. I also created many beautiful, informative, and revealing plots using the 
         awesome ggplot library.
-                </li><br><br>
-                <p>
+
         My favorite 3 images from the report:<br> 
-        <img src="proj4_image1.png" alt="proj4, image1" style="width:640px;height:456px;"><br>
+        <li><img src="proj4_image1.png" alt="proj4, image1" style="width:640px;height:456px;"><br>
         The above figure is the first plot in this report. 
         It is important because it is a clear example of how Prosper drastically changed much of its loan servicing 
         procedures in 2009. In my original, first-pass analysis of the Prosper loan data, I included every single loan. 
@@ -30,8 +29,9 @@ title: Erica Kim's blog
         In this figure, we can see that servicing fee (a new variable that I created) was originally a variable rate prior to 
         2009, and then became fixed at a set rate of 5% afterwards. This figure visibly demonstrates, and therefore justifies, 
         that the loans in the Prosper dataset should be separated into two groups: those originating either prior to Q3 2009, 
-        or in/after Q3 2009. <br>
-        <img src="proj4_image2.png" alt="proj4, image1" style="width:640px;height:456px;"><br>
+        or in/after Q3 2009.</li>
+        
+        <li><img src="proj4_image2.png" alt="proj4, image1" style="width:640px;height:456px;"><br>
         The above figure shows Annual Return vs. Estimated Return, with subplots and colors based on the Prosper rating. 
         This is a great plot for several reasons. First, it shows how both Annual Return (one of the variables I calculated) 
         and Estimated Return have a dependence on Prosper rating. Second, it shows that Annual Return and Estimated Return are 
@@ -41,8 +41,10 @@ title: Erica Kim's blog
         had negative Estimated Return values actually ended up having postive Annual Returns.
 
         The main take-home message of this figure is that the actual annual return from a loan is not necessarily well-predicted 
-        by Prosper’s Estimated Return, particularly for lower rated loans. <br>
-        <img src="proj4_image3.png" alt="proj4, image1" style="width:640px;height:456px;"><br>
+        by Prosper’s Estimated Return, particularly for lower rated loans. </li>
+        
+        
+        <li><img src="proj4_image3.png" alt="proj4, image1" style="width:640px;height:456px;"><br>
         The above figure shows the percentage of each loan paid, on the y-axis, vs. the number of months since the 
         loan originated, on the x-axis, with sub-figures for each loan term. As stated in the bottom of the figure, 
         darker points depict open loans, while lighter points depict closed loans that ended up in defaulted or charged-off status. 
@@ -52,13 +54,13 @@ title: Erica Kim's blog
         plot the loan in question in the above figure, we can see whether it falls in the “good” “trend” or the “bad” “trend” (with 
         “trend” in quotation marks, as these points represent loans captured at a single instance in time, rather than indicating some 
         kind of rate or progress). From the analysis done in this report, borrower behavior (i.e. loan repayment progress) seems to 
-        be one of the most useful indicators of a loan’s final status.<br>
-                </p>
-        <li><a href="/projects/OpenStreetMap_with_MongoDB.html">Project 3: OpenStreetMap Data Wrangling</a><br>
+        be one of the most useful indicators of a loan’s final status.</li>
+               
+        <h2><a href="/projects/OpenStreetMap_with_MongoDB.html">Project 3: OpenStreetMap Data Wrangling</a></h2><br>
         I imported information on Cambridge, England from <a href="http://www.openstreetmap.org">OpenStreetMap</a>. I first checked 
         the dataset for validity, accuracy, completeness, consistency, and uniformity, and then cleaned up all of the problems 
         I found. I then exported the cleaned dataset into a MongoDB database. I queried this new database, asking and answering 
         questions like, what are the top 10 amenities in Cambridge, or which pubs serve cask/real ale? Everything was coded in 
         python (using Ipython Notebook).
-        </li> 
+        
 </div><!-- /.blurb -->
