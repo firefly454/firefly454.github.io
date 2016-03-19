@@ -172,6 +172,19 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="o">%</span><span class="k">run</span> project5_final_code2.py
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -951,13 +964,28 @@ UZiZWSUnCjMzq+REYWZmlZwozMys0t8ubhhD7E95CgAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tuning-classifier-and-Final-Scores:">Tuning classifier and Final Scores:<a class="anchor-link" href="#Tuning-classifier-and-Final-Scores:">&#182;</a></h3><p>AdaBoostClassifier worked quite well without having to be extensively tuned, as shown above. However, we can of course potentially achieve even better scores with some additional tuning of parameters. Without tuning, we would just be using AdaBoost's default parameter values. With tuning, however, we could potentially create a better performing model, i.e. a model that fits the general data better and thus has better predictive power.</p>
+<h3 id="Tuning-classifier">Tuning classifier<a class="anchor-link" href="#Tuning-classifier">&#182;</a></h3><p>AdaBoostClassifier worked quite well without having to be extensively tuned, as shown above. However, we can of course potentially achieve even better scores with some additional tuning of parameters. Without tuning, we would just be using AdaBoost's default parameter values. With tuning, however, we could potentially create a better performing model, i.e. a model that fits the general data better and thus has better predictive power.</p>
 <p>AdaBoost's primary parameters are: the underlying base estimator (default is DecisionTreeClassifier), the maximum number of estimators at which boosting is terminated (default value is 50), and the shrinkage rate that each estimator is limited by (default value is 1). We can additionally tune the base estimator - the main parameters to tune for Decision Trees are the max_depth and the min_samples_leaf, both which control how complex the tree gets. These parameters, in general, will determine how underfitted or overfitted the model is. I again used sklearn's GridSearchCV, but expanded the 'parameters' dictionary to search through more parameter values: learning rate, base_estiamtor's max_depth and base_estimator's min_samples_leaf. I also continued to use the same cross-validation method and scoring metric as before. This additional tuning yielded optimal parameter values of:</p>
 <ul>
 <li>'learning_rate': 1</li>
 <li>'base_estimator__max_depth': None</li>
 <li>'base_estimator__min_samples_leaf': 1</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Algorithm-Performance">Algorithm Performance<a class="anchor-link" href="#Algorithm-Performance">&#182;</a></h3><p>Final testing of our algorithm on the data (again, using sklearn's StratifiedShuffleSplit method for cross validation), resulted in the following scores:</p>
+<ul>
+<li>precision: 0.34</li>
+<li>recall: 0.34</li>
+</ul>
+<p>Such scores are quite impressive, considering the very small dataset and the limited # of original features. The tools used in this data science project could also be generalized to a wide variety of other classification problems. In particular, any sort of fraud detection problem would utilize similar steps and tools, and would be similar to this problem in the sense that it is also a binary classification problem (something is either fraudulent or not), and the classes are generally very imbalanced (# of fraud cases is most likely much less than the # of real cases).</p>
 
 </div>
 </div>
