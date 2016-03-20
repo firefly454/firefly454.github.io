@@ -172,19 +172,6 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="o">%</span><span class="k">run</span> project5_final_code2.py
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -208,7 +195,7 @@ div#notebook {
 <li>testified in exchange for prosecution immunity. </li>
 </ul>
 <p>The purpose of this project is to classify actual Enron employees as being or not being "persons of interest" ("POIs"), i.e. among the few that did one of the above actions, using data made public from the investigation.</p>
-<h3 id="Data-Exploration-&amp;-Outlier-Investigation">Data Exploration &amp; Outlier Investigation<a class="anchor-link" href="#Data-Exploration-&amp;-Outlier-Investigation">&#182;</a></h3><p>The primary dataset is a dictionary containing financial and email information for 143 employees, of which 18 are POIs. Example financial features are salary and exercised stock options, with 14 financial features in total. While some financial features were densely populated (e.g. salary, total payments, and total stock value), other financial features had had many "-" values (e.g. loan advances, director fees, and restricted stock deferred). I interpreted these "-" values as intended to be $0.00, and not missing values (the original spreadsheet from which the data came from was used in the actual Enron case (Exhibit 3b.2, FindLaw.com) and presumably completed), and transformed them that way. Thus, in that sense, there were no missing values among the financial featuers. Example email features are the number of emails sent and the number of emails received, with 5 email features in total, and was engineered by Udacity. The secondary and optional dataset for this project is the entire public Enron email corpus, consisting of actual emails (both content and metadata) to and from Enron employees. Using machine learning - in particular, a supervised classification algorithm - we can use these datasets to potentially predict POIs, either those who we already know are POIs, or those who have yet to be discovered...</p>
+<h3 id="Data-Exploration-&amp;-Outlier-Investigation">Data Exploration &amp; Outlier Investigation<a class="anchor-link" href="#Data-Exploration-&amp;-Outlier-Investigation">&#182;</a></h3><p>The primary dataset is a dictionary containing financial and email information for 143 employees, of which 18 are POIs. Example financial features are salary and exercised stock options, with 14 financial features in total. While some financial features were densely populated (e.g. salary, total payments, and total stock value), other financial features had had many "-" values (e.g. loan advances, director fees, and restricted stock deferred). I interpreted these "-" values as intended to be $0.00, and not missing values (the original spreadsheet from which the data came from was used in the actual Enron case (Exhibit 3b.2, FindLaw.com) and presumably completed), and transformed them that way. Thus, in that sense, there were no missing values among the financial featuers. Example email features are the number of emails sent and the number of emails received, with 5 email features in total; these features were engineered by Udacity. The secondary and optional dataset for this project is the entire public Enron email corpus, consisting of actual emails (both content and metadata) to and from Enron employees. Using machine learning - in particular, a supervised classification algorithm - we can use these datasets to potentially predict POIs, either those who we already know are POIs, or those who have yet to be discovered...</p>
 <p>To gain further understanding of the dataset, some exploratory data analyses were performed, in the form of simple two-dimensional scatterplots. An example plot is shown below:</p>
 
 </div>
@@ -401,7 +388,7 @@ SUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that there were a few outliers in these plots. In the case of Total stock value vs. Salary, we see that three data points definitely stick out. When we look at the names, we see that two of them are: "TOTAL" and "THE TRAVEL AGENCY IN THE PARK" Clearly these are not actual Enron employees, and should be removed from the dataset. The third outliter, Kenneth Lay, was the CEO of Enron, and therefore is a valid point that should be included in the dataset. Looking at the original spreadsheet from which the financial data came, I also found that one employee ("LOCKHART EUGENE E") had a value of 0 for every single feature. These values seemed suspicious for an employee, and thus I removed them from the dataset as well.</p>
+<p>We can see that there were a few outliers in these plots. In the case of Total stock value vs. Salary, we see that three data points definitely stick out. When we look at the names, we see that two of them are: "TOTAL" and "THE TRAVEL AGENCY IN THE PARK" Clearly these are not actual Enron employees, and should be removed from the dataset. The third outliter, Kenneth Lay, was the CEO of Enron, and therefore is a valid point that should be included in the dataset. Looking at the original spreadsheet from which the financial data came, I also found that one employee ("LOCKHART EUGENE E") had a value of 0 for every single feature. These values seemed suspicious for an employee, and thus I removed this employee from the dataset as well.</p>
 
 </div>
 </div>
@@ -888,8 +875,8 @@ UZiZWSUnCjMzq+REYWZmlZwozMys0t8ubhhD7E95CgAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Testing-different-classifiers">Testing different classifiers<a class="anchor-link" href="#Testing-different-classifiers">&#182;</a></h3><p>Several different classification algorithms were tested on the dataset, using the k-best selected features list. I decided to forego feature scaling since most of the classifiers (all but K-Nearest Neighbors) I was testing out did not actually benefit from feature scaling. I tested primarily ensemble methods (Gradient Boosting, AdaBoost, and Random Forests), as well as K-Nearest Neighbors and Support Vector Machines. In terms of classifier parameters, I did some basic parameter tuning as well, since classifier performance can depend greatly on parameter values. A variable for the highest-scoring classifier was continually updated automatically within the loop as well.</p>
-<p>Recall scores are shown for each classifier and the particular parameter values used in each case, below (RBF and linear support vector machine clasifiers resulted in zero true positive predictions and thus no scores). Based on these results, I chose to use the AdaBoostClassifier. Some things to note: I used 300 estimators for GradientBoosting and AdaBoost, and only 20 estimators for RandomForest - this is simply because the computation time in training the RandomForest classifier was much higher than those for the other ensemble methods. Additionally, since we performed feature selection using AdaBoostClassifier, this algorithm obviously potentially had an advantage over the other algorithms.</p>
+<h3 id="Testing-different-classifiers">Testing different classifiers<a class="anchor-link" href="#Testing-different-classifiers">&#182;</a></h3><p>Several different classification algorithms were tested on the dataset, using the k-best selected features list. I decided to forego feature scaling since all of the classifiers I was testing out did not actually benefit from feature scaling. I tested primarily ensemble methods (Gradient Boosting, AdaBoost, and Random Forests), as well as Support Vector Machines. In terms of classifier parameters, I did some basic parameter tuning as well, since classifier performance can depend greatly on parameter values. This part of my code essentially consisted of a loop that implemented sklearn's GridSearchCV for each classifier. A variable for the highest-scoring classifier was continually updated automatically within the loop as well.</p>
+<p>Recall scores are shown for each classifier, as well as the particular parameter values used in each case, below. RBF and linear support vector machine clasifiers resulted in zero true positive predictions and thus no scores. Based on these results, I chose to use the AdaBoostClassifier. Some things to note: I used 300 estimators for GradientBoosting and AdaBoost, and only 20 estimators for RandomForest - this is simply because the computation time in training the RandomForest classifier was much higher than those for the other ensemble methods. Additionally, since we performed feature selection using AdaBoostClassifier, this algorithm obviously potentially had an advantage over the other algorithms.</p>
 
 </div>
 </div>
@@ -938,20 +925,6 @@ UZiZWSUnCjMzq+REYWZmlZwozMys0t8ubhhD7E95CgAAAABJRU5ErkJggg==
 <span class="p">[</span><span class="n">mean</span><span class="p">:</span> <span class="mf">0.15600</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.26583</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;max_features&#39;</span><span class="p">:</span> <span class="s">&#39;sqrt&#39;</span><span class="p">,</span> <span class="s">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
  <span class="n">mean</span><span class="p">:</span> <span class="mf">0.21900</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.29587</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;max_features&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
  <span class="n">mean</span><span class="p">:</span> <span class="mf">0.14900</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.24556</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;max_features&#39;</span><span class="p">:</span> <span class="s">&#39;log2&#39;</span><span class="p">,</span> <span class="s">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}]</span>
-
-<span class="o">-------------------------------------------------------------------------</span>
-
-<span class="n">Best</span> <span class="n">estimator</span> <span class="n">found</span> <span class="n">by</span> <span class="n">grid</span> <span class="n">search</span><span class="p">:</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">algorithm</span><span class="o">=</span><span class="s">&#39;auto&#39;</span><span class="p">,</span> <span class="n">leaf_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s">&#39;minkowski&#39;</span><span class="p">,</span>
-           <span class="n">metric_params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-           <span class="n">weights</span><span class="o">=</span><span class="s">&#39;distance&#39;</span><span class="p">)</span>
-<span class="n">Best</span> <span class="n">estimator</span> <span class="n">score</span><span class="p">:</span> <span class="mf">0.19</span>
-<span class="nb">all</span> <span class="n">scores</span>
-<span class="p">[</span><span class="n">mean</span><span class="p">:</span> <span class="mf">0.17500</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.25471</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;weights&#39;</span><span class="p">:</span> <span class="s">&#39;uniform&#39;</span><span class="p">},</span>
- <span class="n">mean</span><span class="p">:</span> <span class="mf">0.16800</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.25841</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;weights&#39;</span><span class="p">:</span> <span class="s">&#39;distance&#39;</span><span class="p">},</span>
- <span class="n">mean</span><span class="p">:</span> <span class="mf">0.07400</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.17755</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;weights&#39;</span><span class="p">:</span> <span class="s">&#39;uniform&#39;</span><span class="p">},</span>
- <span class="n">mean</span><span class="p">:</span> <span class="mf">0.17500</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.26434</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;weights&#39;</span><span class="p">:</span> <span class="s">&#39;distance&#39;</span><span class="p">},</span>
- <span class="n">mean</span><span class="p">:</span> <span class="mf">0.16900</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.23862</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;weights&#39;</span><span class="p">:</span> <span class="s">&#39;uniform&#39;</span><span class="p">},</span>
- <span class="n">mean</span><span class="p">:</span> <span class="mf">0.19000</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="mf">0.25278</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;weights&#39;</span><span class="p">:</span> <span class="s">&#39;distance&#39;</span><span class="p">}]</span>
 </pre></div>
 
 </div>
@@ -968,7 +941,7 @@ UZiZWSUnCjMzq+REYWZmlZwozMys0t8ubhhD7E95CgAAAABJRU5ErkJggg==
 <p>AdaBoost's primary parameters are: the underlying base estimator (default is DecisionTreeClassifier), the maximum number of estimators at which boosting is terminated (default value is 50), and the shrinkage rate that each estimator is limited by (default value is 1). We can additionally tune the base estimator - the main parameters to tune for Decision Trees are the max_depth and the min_samples_leaf, both which control how complex the tree gets. These parameters, in general, will determine how underfitted or overfitted the model is. I again used sklearn's GridSearchCV, but expanded the 'parameters' dictionary to search through more parameter values: learning rate, base_estiamtor's max_depth and base_estimator's min_samples_leaf. I also continued to use the same cross-validation method and scoring metric as before. This additional tuning yielded optimal parameter values of:</p>
 <ul>
 <li>'learning_rate': 1</li>
-<li>'base_estimator__max_depth': None</li>
+<li>'base_estimator__max_depth': 10</li>
 <li>'base_estimator__min_samples_leaf': 1</li>
 </ul>
 
@@ -980,28 +953,42 @@ UZiZWSUnCjMzq+REYWZmlZwozMys0t8ubhhD7E95CgAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Validation">Validation<a class="anchor-link" href="#Validation">&#182;</a></h3><p>Validation is the process of splitting the dataset into training, validation, and test sets. The training set is used to train or fit the various candidate algorithms, the validation set is used to evaluate the different algorithms and select as well as tune the best one, and the test set is used to obtain the final performance metrics of the selected algorithm. Validation is crucial because without it, we would not have any idea of how good or bad an algorithm's actual performance is on real data, resulting in either dangerously underfitted models (i.e. models that do horribly on both training data and other/real data) or overfitted models (i.e. models that do very well on training data, but do horribly on other/real data). In order to validate my analysis, I always used sklearn's StratifiedShuffleSplit cross validation function, which would randomly split the dataset into training and testing sets while also preserving the class proportions (POI and non-POI) in each set. Because the dataset was quite small, with only 143 employees, estimates of performance could vary greatly due to just the random nature of how the splitting occurred. Thus, I used k=500 or k=1000 folds in order to do the splitting 500 or 1,000 times and obtain average performance scores, in order to get a more accurate idea of how the model performed.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Model-Evaluation">Model Evaluation<a class="anchor-link" href="#Model-Evaluation">&#182;</a></h3><p>In order to evaluate the classifier, I relied on two different evaluation metrics: precision and recall. Precision (aka positive predictive value) is the proportion of true positives out of all postives (true and false positives), while recall (or senstivity) is the proportion of true positives out of both true positives and false negatives. To be more specific, in this problem, precision and recall are calculated as:</p>
+<ul>
+<li>precision = POIs who are identified as POIs / 
+(POIs who are identified as POIs AND non-POIs who are mistaken as POIs)</li>
+<li>recall = POIs who are identified as POIs / (POIs who are identified as POIs and POIs who are NOT identified as POIs)</li>
+</ul>
+<p>It is desirable to have high values for both precision and recall; however, there is generally a trade-off between the two scores (i.e. a trade-off between type I and type II errors). In this project, it's not clear if one performance metric should be used more than another. We want to identify as many actual POIs as possible without making too many false positives (i.e. get high precision); however, we don't want to value this metric so much so that the model tends to not identify POIs correctly (that would lead to low recall score). Because both are important to the problem, both metrics are reported.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Algorithm-Performance">Algorithm Performance<a class="anchor-link" href="#Algorithm-Performance">&#182;</a></h3><p>Final testing of our algorithm on the data (again, using sklearn's StratifiedShuffleSplit method for cross validation), resulted in the following scores:</p>
 <ul>
-<li>precision: 0.34</li>
-<li>recall: 0.34</li>
+<li>accuracy: 0.8294</li>
+<li>precision: 0.354199269692</li>
+<li>recall: 0.3395</li>
 </ul>
 <p>Such scores are quite impressive, considering the very small dataset and the limited # of original features. The tools used in this data science project could also be generalized to a wide variety of other classification problems. In particular, any sort of fraud detection problem would utilize similar steps and tools, and would be similar to this problem in the sense that it is also a binary classification problem (something is either fraudulent or not), and the classes are generally very imbalanced (# of fraud cases is most likely much less than the # of real cases).</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
