@@ -6,13 +6,17 @@ title: Erica Kim's blog
         <h1>My projects</h1>
         A few projects that I've worked on, from Udacity.com's data analyst nanodegree program, in order to learn more!
         
-        <h2><a href="/projects/project_5_writeup(1).html">Project 5: Enron Persons-of-Interest Fraud Classifier</a></h2>
-       The dataset consisted of about 143 employees, of which ~18 were “persons of interest”, i.e. people who ultimately did one of the following: went to court, entered a plea agreement, reached a settlement, or went to jail. The information we had on each employee was primarily either of a financial nature (such as total salary, total stock value, exercised stock options, etc.), or related to their email accounts (such as how many emails they sent, how many they received, how many outgoing emails went to a POI, etc.). The main problem I had to solve was essentially a supervised classification problem. In the course of solving this problem, I first performed some exploratory data analysis by creating various scatterplots of the different features as well as looking at the original spreadsheet from which the financial data came from. Through this, I could exclude some obvious and erroneous outliers from the dataset. I then engineered ~8 new features, most of which were ratios of original features (e.g. “exercised_stock_ratio” = “exercised_stock” / “total_stock”). I then performed feature selection, since the total number of features was almost 30 and I was quite certain that not all were relevant to the question of whether an employee was a POI or not. Feature selection whittled the number of features down to 18. I then tested a variety of classification methods: GradientBoosting, Random Forests, AdaBoost, K-Nearest Neighbors, and Naïve-Bayes. Of these, AdaBoost performed the best. I then tuned the parameters of the classifier, using a grid-search algorithm.  
-<br><br>
-The whole data project was coded up in Python, and the entire machine learning parts relied on the Scikit-Learn library. Because the dataset was so small, cross-validation was done using Sklearn’s StratifiedShuffleSplit function. In the end, my classifier had recall and precision scores of over 0.3, which is quite impressive given the very small dataset and limited # of features. The tools used in this data science project could be generalized to a wide variety of other classification problems. In particular, any sort of fraud detection problem would utilize similar steps and tools, and would be similar to this problem in the sense that it is also a binary classification problem (something is either fraudulent or not), and the classes are generally very imbalanced (# of fraud cases is most likely much less than the # of real cases).
+        <h2><a href="/projects/project_5_writeup(1).html">Enron Persons-of-Interest Fraud Classifier</a></h2>
+      In this project, I trained and tested a supervised learning algorithm to classify actual Enron employees as being or not being "persons-of-interest",
+      based on data made public from the infamous Enron corporate scandal.
+
+The whole data project was coded up in Python, and the entire machine learning parts relied on the amazing Scikit-Learn library. Because the dataset was so small, cross-validation was done using Sklearn’s StratifiedShuffleSplit function. 
+In the end, my classifier had recall and precision scores of over 0.3, which is quite impressive given the very small dataset and limited # of features. 
+The tools used in this data science project could be generalized to a wide variety of other classification problems. In particular, any sort of fraud detection problem would utilize similar steps and tools, and would be similar to this 
+problem in the sense that it is also a binary classification problem (something is either fraudulent or not), and the classes are generally very imbalanced (# of fraud cases is most likely much less than the # of real cases).
 <br><br>
         
-        <h2><a href="/projects/project4page.html">Project 4: Exploratory Data Analysis of Historical Loans</a></h2>
+        <h2><a href="/projects/project4page.html">Exploratory Data Analysis of Historical Loans</a></h2>
         
         This report contains an exploratory analysis of loan data from Prosper. <a href="https://www.prosper.com/">Prosper</a> is 
         a peer-to-peer lending marketplace in which prospective borrowers post loan listings while investors select specific 
@@ -22,7 +26,7 @@ The whole data project was coded up in Python, and the entire machine learning p
         relationships between various variables. I also created many beautiful, informative, and revealing plots using the 
         awesome ggplot library.<br><br>
                
-        <h2><a href="/projects/OpenStreetMap_with_MongoDB.html">Project 3: OpenStreetMap Data Wrangling</a></h2>
+        <h2><a href="/projects/OpenStreetMap_with_MongoDB.html">OpenStreetMap Data Wrangling</a></h2>
         
         I imported information on Cambridge, England from <a href="http://www.openstreetmap.org">OpenStreetMap</a>. I first checked 
         the dataset for validity, accuracy, completeness, consistency, and uniformity, and then cleaned up all of the problems 
