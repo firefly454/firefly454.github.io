@@ -14,8 +14,25 @@ AmericanRhetoric.com</a>. The primary webpage contained links to sub-pages, with
 speech.</p>
 
 <h3>First Plot</h3>
+<p> After creating a corpus of all of the speech transcripts, I created a bag-of-words representation of the text, with word stemming,
+stop word filtering, and term frequency - inverse document frequency (TF-IDF). Each speech could then be represented as a 
+vector, with each element representing the frequency of a particular word stem. From that, I then calculated the distances
+between all pairs of speeches (using cosine similarity), and used those distances for 
+<a href="https://en.wikipedia.org/wiki/Ward%27s_method">Ward's method</a> for
+hierarchical clustering, resulting in the following figure.
+</p>
 <img src="dendogram.png" alt="speech dendogram">
 <h3>Second Plot</h3>
+<p>Another way to group the speeches is by using <a href="https://en.wikipedia.org/wiki/K-means_clustering">
+  k-means clustering</a>, which is quite good for sparse and unstructured data. One of the parameters for scikit-learn's
+  k-means clustering algorithm is the number of clusters - I somewhat randomly chose 8 clusters, but with more time and
+  further refining of the project, I would definitely experiment with other cluster numbers. The following figure shows
+  the different speeches, colored by which cluster they belong to. The top 5 words that are nearest to each cluster's centroid
+  are also given, at the bottom left. Additionally, the x,y-coordinates of each speech are the result of multi-dimensional
+  scaling (MDS), which allows one to represent
+  the distance matrix with a lower-dimensional form whilst still somewhat preserving the distances in the original
+  high-dimensional space.
+</p>
 <img src="kmeans_cluster.png" alt="speech cluster">
 </body>
 
