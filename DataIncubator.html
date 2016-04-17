@@ -53,6 +53,26 @@ is closest to JFK's Inaugural address.</p>
 <img src="dendogram.png" alt="speech dendogram">
 
 <h3>Second Plot</h3>
+This plot relies on the distances that were used in the first plot. Basically, all of the speeches are along the
+x-axis and the y-axis, such that the (i,j)-th cell corresponds to the distance between the ith and jth speech. So,
+all of the cells along the diagonal have distance=0, since the distance between a speech and itself is zero. All of
+the other pairs have non-zero distances. What is interesting about this plot is that we can clearly see that there
+are some speeches that are extremely different from practically every other speech - this phenomenon is what gives us
+the dark red horizontal and vertical bands. We can see that these speeches are the same speeches in the lonely bottom, green
+branch of the dendogram plot above. The speeches that are outliers are:
+<ul>
+  <li>JFK's <i>Civil Rights Address</i></li>
+  <li>Lou Gehrig's <i>Farewell to Baseball Address</i> (not so surprising this is an outlier)</li>
+  <li>Gerald Ford's <i>National Address Pardoning Richard M. Nixon</i></li>
+  <li>Joseph N Welch's <i>Have You No Sense of Decency</i> (ditto)</li>
+  <li>William Jennings Bryan's <i>Against Imperialism</i></li>
+  <li>Edward Moore Kennedy's <i>1980 DNC Address</i></li>
+</ul>
+Obviously, this is something that I'd want to investigate more, and see if this
+phenomenon is real, but as a first pass, this seems very interesting. 
+<img src="heatmap.png" alt="speech distances">
+
+<h3>Third Plot</h3>
 <p>Another way to group the speeches is by using <a href="https://en.wikipedia.org/wiki/K-means_clustering">
   k-means clustering</a>, which is quite good for sparse and unstructured data. One of the parameters for scikit-learn's
   k-means clustering algorithm is the number of clusters - I made an initial choice of 8 clusters, but with more time and
