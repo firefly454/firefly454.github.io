@@ -19,6 +19,10 @@ Again, current political candidates' speeches would be ideal for
 such a project - they talk a lot, as well as flip-flop a lot, and
 using a computer to figure out what they supposedly care about is much easier and more enjoyable than listening to all 
 of that talk!</p>
+<p>This project would be interesting to the general public, as it involves famous, notable people, both villainous and
+(literally) saintly, as well as current politicans. It could even be interactive, by allowing a user to upload something
+they have written (or any piece of text not in the corpus) and then returning a list of the closest speakers and speeches/texts 
+as well as the most common, important words that led to how the user's text was clustered.</p>
 
 <h3>Data Source</h3>
 <p>In order to get transcripts of famous speeches, I used Python's BeautifulSoup to scrape <a href="http://www.americanrhetoric.com/top100speechesall.html">
@@ -85,6 +89,13 @@ nothing to do with the generally feminist topics of the former speeches.
 </ul>
 <img src="kmeans_cluster.png" alt="speech cluster">
 
+<h3>
+  <p>These figures are definitely exploratory in nature. First of all, the corpus I generated is relatively small,
+  consisting of ~100 speeches. I definitely would increase this, with more web scraping. Second of all, the plots
+  are not the best-formatted. I am learning d3.js and dipmle.js right now, and would love to use those tools, 
+  instead of python, to
+  create pretty, interactive data visualizations! </p>
+</h3>
 </body>
 
 </html>
