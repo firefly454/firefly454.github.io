@@ -6,32 +6,24 @@
 <h1>Data Incubator Application - Project Proposal</h1>
 
 <h3>Description and Proposal</h3>
-<p>
-What people say is important. We remember people by the famous
-words they said, whether it be Martin Luther King Jr.'s 
-"I have a dream", to J.F.K.'s, "Ask not what your country can do for you - ask what you can do for your country." In this day and age, what people say is even more important as everything can be recorded and
-and archived indefinitely. We acutely see this in the news - the Huffington Post published an article 
-today (April 17, 2015), titled,
-<a href="http://www.huffingtonpost.com/seth-abramson/release-of-clintons-wall-street-speeches_b_9698632.html">"Release of Clinton's Wall Street Speeches Could End Her Candidacy for President."</a>
-</p>
-<p>
-So, I propose to collect a large number of speeches, news editorials, interviews, and other dialogues or texts given by famous people. Using machine learning techniques, I can transform language into numbers, and therefore mathematically describe how similar different texts are to one another. I can even
-cluster texts based on their similarity, and therefore discover surprising connections between different people, based on specific words or even particular themes. 
-</p>
-<p>
-  However, it would be even more interesting to take new texts - the political speeches of current 
-presidential candidates, in particular - and see which cluster each falls into. 
-We could ask and answer questions like, is Donald Trump's rhetoric geometrically closer to that of Mother Theresa or of Adolf Hitler? By looking at a timeline of a single person's speeches, we can see how themes change with respect to time, 
-and thus objectively determine whether a politican is truly consistent or actually more of a flip-flopper. 
-This project would be interesting to the general public, as it involves famous people (both villainous and
-saintly), and could easily be an analytical tool for anyone interested in the current presidential
-primaries or the upcoming U.S. presidential election. All of this 
-could easily be made user interactive as well - users could upload any sort of text (either something they have written
-or orated, or some other person's words), and then 
-get returned a list of which speakers are closest to them, what words or phrases jump out as the most important in making 
-that distinction, and interesting, interactive visualizations to further explore the relationships between their text and
-the famous words of others'.
-</p>
+<p>I propose to generate a corpus containing speeches, newspaper editorials, interview answers, and so on, labelled by
+their speakers/writers. With a large enough corpus, I can use an unsupervised machine learning algorithm to quickly cluster the
+texts into groups. These groups may reveal surprising connections between different people. However, it would be even more interesting to take new texts - the political speeches of current 
+presidential candidates, in particular - and see which cluster each falls into. We could ask AND answer questions like: Is
+Donald Trump's rhetoric geometrically closer to that of Mother Theresa or Adolf Hitler? As many famous figures give
+many speeches, I also propose to work with people's individual corpuses. We could then see what the major themes
+are that create each cluster, and thus are seemingly most important
+to that person (assuming a politican's talk is genuine). By including the speech's date as a variable, we could even
+create a timeline showing how themes change with respect to time.
+Again, current political candidates' speeches would be ideal for
+such a project - they talk a lot, as well as flip-flop a lot, and
+using a computer to figure out what they supposedly care about is much easier and more enjoyable than listening to all 
+of that talk!</p>
+<p>This project would be interesting to the general public, as it involves famous, notable people, both villainous and
+(literally) saintly, as well as current politicans. It could even be interactive, by allowing a user to upload something
+they have written (or any piece of text not in the corpus) and then returning a list of the closest speakers and speeches/texts 
+as well as the most common, important words that led to how the user's text was clustered. Having interesting, interactive visualizations of the relationships between their text and
+the famous words of others would engage users as well</p>
 
 <h3>Initial Data Source</h3>
 <p>In order to get transcripts of famous speeches, I used Python's BeautifulSoup to scrape <a href="http://www.americanrhetoric.com/top100speechesall.html">
