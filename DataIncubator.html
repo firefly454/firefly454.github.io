@@ -38,7 +38,7 @@ and powerful as <i>I have a Dream</i>.</p>
 <h3>Second Plot</h3>
 <p>Another way to group the speeches is by using <a href="https://en.wikipedia.org/wiki/K-means_clustering">
   k-means clustering</a>, which is quite good for sparse and unstructured data. One of the parameters for scikit-learn's
-  k-means clustering algorithm is the number of clusters - I somewhat randomly chose 8 clusters, but with more time and
+  k-means clustering algorithm is the number of clusters - I made an initial choice of 8 clusters, but with more time and
   further refining of the project, I would definitely experiment with other cluster numbers. The following figure shows
   the different speeches, colored by which cluster they belong to. The top 5 words that are nearest to each cluster's centroid
   are also given, at the bottom left. Additionally, the x,y-coordinates of each speech are the result of multi-dimensional
@@ -50,18 +50,27 @@ and powerful as <i>I have a Dream</i>.</p>
 slightly different results than Ward's method, is the top 5 words for each cluster. Note that
 the top 5 words are in their stemmed form, thus showing up as "peac" rather than "peace".
 We can see some
-cool patterns here. For example, the 2nd cluster has "live, negro, societi, ring, today". 
-In that cluster are: J.F.K.'s <i>Inaugural Address</i>,
-MLK Jr.'s <i>I've been to the Mountaintop</i>,
-Gen. Douglas MacArthur's <i>Duty, Honor, Country</i>,
-Clarence Seward Darrow's <i>Mercy for Leopold and Loeb</i> (a speech that spanned 3 days!),
-anarchist Emma Goldman's <i>Address to the Jury</i>,
-Cesar Estrada Chavez's <i>Speech on Ending His 25 Day Fast</i>, and
-more (18 speeches in total). The specifics of these speeches seem relatively disparate, but
-it seems as if they all deal with justice, equality, and society. In contrast, the 5th cluster's top 5 words
-are "women, suffrag, right, men, woman." There are only two speeches in this cluster: Edward Moore Kennedy's
-<i>19800 DNC Address</i> and Joseph N. Welch's <i>Have You No Sense of Decency</i>
-</p>
+cool patterns here. For example, the 7th cluster's top 5 words are: "peace, war, unit, state, forc". Speeches that
+are grouped into this cluster are denoted by maroon dots, and include: 
+<ul>
+  <li>Franklin Delano Roosevelt: <i>Pearl Harbor Address to the Nation</i></li>
+  <li>George Catlett Marshall: <i>The Marshall Plan</i></li>
+  <li>Gen. Douglas MacArthur: <i> Farewell Address to Congress</i></li>
+  <li>Harry S. Truman: <i>The Truman Doctrine</i></li>
+  <li>Thomas Woodrow Wilson: <i>War Message</i></li>
+  <li>Rabert Marion La Follette: <i>Free Speech in Wartime</i></li>
+  <li>Lyndon Baines Johnson: <i>On Vietnam</i></li>
+</ul>
+
+In contrast, the 3rd cluster's top 5 words
+are "women, woman, vote, declar, human." Of the 7 speeches in this cluster,
+3 are by suffrage leaders (Carrie Chapman Catt and Anna Howard Shaw), 1 is by birth control activist and
+feminist Margaret Sanger, and 1 is Hillary Clinton's <i>Women's Rights are Human Rights</i>. 
+Interestingly, the other 2 speeches are Bill Clinton's <i>Oklahoma Bombing Memorial Address</i> 
+and Lyndon B. Johnson's <i>Let Us Continue</i> - the former is a speech memorializing the Oklahoma
+Bombing tragedy, while the latter is a speech given soon after JFK's assassination and 
+memorializing JFK.
+</ul>
 <img src="kmeans_cluster.png" alt="speech cluster">
 
 <h3> Ipython Notebook</h3>
