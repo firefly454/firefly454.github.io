@@ -10,7 +10,7 @@
 What people say is important. We remember people by the famous
 words they said, whether it be Martin Luther King Jr.'s 
 "I have a dream", to J.F.K.'s, "Ask not what your country can do for you - ask what you can do for your country." In this day and age, what people say is even more important as everything can be recorded and
-and archived indefinitely. We acutely see this in the news - the Huffington Post published an article 
+ archived indefinitely. We acutely see this in the news - the Huffington Post published an article 
 today (April 17, 2015), titled,
 <a href="http://www.huffingtonpost.com/seth-abramson/release-of-clintons-wall-street-speeches_b_9698632.html">"Release of Clinton's Wall Street Speeches Could End Her Candidacy for President."</a>
 </p>
@@ -54,11 +54,11 @@ Hillary Diane Rodham Clinton are paired together, despite their seemingly differ
 topics (Bill's speech is called <i>Oklahoma Bombing Memorial Address</i>, while Hillary's is 
 <i>Women's Rights are Human Rights</i>). J.F.K.'s <i>Cuban Missile Crisis Address</i> is paired
 up with Dwight D. Eisenhouwer's <i>Atoms for Peace</i>. Interestingly, the closest speech to
-Martin Luther King, Jr.'s <i>I have a Dream</i> is J.F.K.'s 
+Martin Luther King Jr.'s <i>I have a Dream</i> is J.F.K.'s 
 <i>Ich bin ein Berliner</i>. Admittedly, I do not know the content of J.F.K.'s speech - 
-only the anecdote that the title actually translates something to <i>I am a jelly-filled
+only that the title actually translates from German to <i>I am a jelly-filled
 donut</i> - however, I am now curious to read the transcript, and see if it is as inspiring
-and powerful as <i>I have a Dream</i>. Another surprise is that Nixon's resignation speech
+and powerful as Martin Luther King Jr.'s. Another surprise is that Nixon's resignation speech
 is closest to JFK's Inaugural address.</p>
 <img src="dendogram.png" alt="speech dendogram">
 
@@ -72,7 +72,7 @@ the dark red horizontal and vertical bands. We can see that these speeches are t
 branch of the dendogram plot above. The speeches that are outliers are:
 <ul>
   <li>JFK's <i>Civil Rights Address</i></li>
-  <li>Lou Gehrig's <i>Farewell to Baseball Address</i> (not so surprising this is an outlier)</li>
+  <li>Lou Gehrig's <i>Farewell to Baseball Address</i> (not so surprising that this is an outlier)</li>
   <li>Gerald Ford's <i>National Address Pardoning Richard M. Nixon</i></li>
   <li>Joseph N Welch's <i>Have You No Sense of Decency</i> (ditto)</li>
   <li>William Jennings Bryan's <i>Against Imperialism</i></li>
@@ -87,7 +87,7 @@ phenomenon is real, but as a first pass, this seems very interesting.
   k-means clustering</a>, which is quite good for sparse and unstructured data. One of the parameters for scikit-learn's
   k-means clustering algorithm is the number of clusters - I made an initial choice of 8 clusters, but with more time and
   further refining of the project, I would definitely experiment with other cluster numbers. The following figure shows
-  the different speeches, colored by which cluster they belong to. The top 5 words that are nearest to each cluster's centroid
+  the different speeches, colored by which cluster they belong to. The top 7 words that are nearest to each cluster's centroid
   are also given, at the bottom left. Additionally, the x,y-coordinates of each speech are the result of multi-dimensional
   scaling (MDS), which allows one to represent
   the distance matrix with a lower-dimensional form whilst still somewhat preserving the distances in the original
@@ -97,7 +97,7 @@ phenomenon is real, but as a first pass, this seems very interesting.
 slightly different results than Ward's method, is the top 7 words for each cluster. Note that
 the top 7 words are in their stemmed form, thus "peace" showing up as its stem, "peac".
 We can see some
-cool patterns here. For example, the 2nd cluster's top 5 words are: "war,
+cool patterns here. For example, the 2nd cluster's top 7 words are: "war,
 peac, militari, power, unit, state, presid". Speeches that
 are grouped into this cluster are denoted by maroon dots, and include: 
 <ul>
@@ -110,21 +110,22 @@ are grouped into this cluster are denoted by maroon dots, and include:
   <li>Lyndon Baines Johnson: <i>On Vietnam</i></li>
 </ul>
 
-In contrast, the 4rd cluster's top 5 words
+K-means clustering accurately creates a martial speech cluster. In contrast, the 4rd cluster's top 7 words
 are "women, woman, vote, law, war, parti, half." Of the 6 speeches in this cluster,
 3 are by suffrage leaders (Carrie Chapman Catt and Anna Howard Shaw), 1 is by birth control activist and
 feminist Margaret Sanger, and 1 is Hillary Clinton's <i>Women's Rights are Human Rights</i>. 
 Interestingly, the 5th speech is Bill Clinton's <i>Oklahoma Bombing Memorial Address</i>, which has
-nothing to do with the generally feminist topics of the former speeches.
+nothing to do with the generally feminist topics of the former speeches, and deserves further inquiry. 
 </ul>
 <img src="kmeans_cluster.png" alt="speech cluster">
 
 <h2>A few words...</h2>
   <p>These figures are definitely exploratory in nature. First of all, the corpus I generated is relatively small,
   consisting of ~100 speeches. I definitely would increase this, with more web scraping. Second of all, the plots
-  are not the best-formatted. I am learning d3.js and dipmle.js right now, and would love to use those tools, 
+  are not the best-formatted, particularly with the overlapping texts in the 3rd plot, the lack of
+  understandable labels in the 2nd plot, etc. I am learning d3.js and dipmle.js right now, and would love to use those tools, 
   instead of python, to
-  create pretty, interactive data visualizations! </p>
+  create more beautiful and interactive data visualizations! :) </p>
 </body>
 
 </html>
