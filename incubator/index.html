@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<h1>Data Incubator Application - Project Proposal</h1>
+
+<h3>Description and Proposal</h3>
+<p>
+What people say is important. We remember people by the famous
+words they said, whether it be Martin Luther King Jr.'s 
+"I have a dream", to J.F.K.'s, "Ask not what your country can do for you - ask what you can do for your country." In this day and age, what people say is even more important as everything can be recorded and
+and archived indefinitely. We acutely see this in the news - the Huffington Post published an article 
+today (April 17, 2015), titled,
+<a href="http://www.huffingtonpost.com/seth-abramson/release-of-clintons-wall-street-speeches_b_9698632.html">"Release of Clinton's Wall Street Speeches Could End Her Candidacy for President."</a>
+</p>
+<p>
+So, I propose to collect a large number of speeches, news editorials, interviews, and other dialogues or texts given by famous people. Using machine learning techniques, I can transform language into numbers, and therefore mathematically describe how similar different texts are to one another. I can even
+cluster texts based on their similarity, and therefore discover surprising connections between different people, based on specific words or even particular themes. 
+</p>
+<p>
+  However, it would be even more interesting to take new texts - the political speeches of current 
+presidential candidates, in particular - and see which cluster each falls into. 
+We could ask and answer questions like, is Donald Trump's rhetoric geometrically closer to that of Mother Theresa or of Adolf Hitler? By looking at a timeline of a single person's speeches, we can see how themes change with respect to time, 
+and thus objectively determine whether a politican is truly consistent or actually more of a flip-flopper. 
+This project would be interesting to the general public, as it involves famous people (both villainous and
+saintly), and could easily be an analytical tool for anyone interested in the current presidential
+primaries or the upcoming U.S. presidential election. All of this 
+could easily be made user interactive as well - users could upload any sort of text (either something they have written
+or orated, or some other person's words), and then 
+get returned a list of which speakers are closest to them, what words or phrases jump out as the most important in making 
+that distinction, and interesting, interactive visualizations to further explore the relationships between their text and
+the famous words of others'.
+</p>
+
+<h3>Initial Data Source</h3>
+<p>In order to get transcripts of famous speeches, I used Python's BeautifulSoup to scrape <a href="http://www.americanrhetoric.com/top100speechesall.html">
+AmericanRhetoric.com</a>. The primary webpage contained links to sub-pages, with each sub-page containing the transcript of a single
+speech.</p>
+
+<h3>First Plot</h3>
+<p> After creating a corpus of all of the speech transcripts, I created a bag-of-words representation of the text, with word stemming,
+stop word filtering, and term frequency - inverse document frequency (TF-IDF). Each speech could then be represented as a 
+vector, with each element representing the frequency of a particular word stem. I then calculated the distances
+between all pairs of speeches (using cosine similarity), and used those distances for 
+<a href="https://en.wikipedia.org/wiki/Ward%27s_method">Ward's method</a> for
+hierarchical clustering, resulting in the following dendogram plot.</p>
+
+<p>We can see that there are about 2 relatively large primary clusters (in red and teal) and 1 very tiny primary 
+cluster (in green). If we look closely at the low-level clusters, we see some intuitive patterns
+and some not-so-intuitive patterns. For example, William Jefferson Clinton (i.e. Bill Clinton) and
+Hillary Diane Rodham Clinton are paired together, despite their seemingly different speech
+topics (Bill's speech is called <i>Oklahoma Bombing Memorial Address</i>, while Hillary's is 
+<i>Women's Rights are Human Rights</i>). J.F.K.'s <i>Cuban Missile Crisis Address</i> is paired
+up with Dwight D. Eisenhouwer's <i>Atoms for Peace</i>. Interestingly, the closest speech to
+Martin Luther King, Jr.'s <i>I have a Dream</i> is J.F.K.'s 
+<i>Ich bin ein Berliner</i>. Admittedly, I do not know the content of J.F.K.'s speech - 
+only the anecdote that the title actually translates something to <i>I am a jelly-filled
+donut</i> - however, I am now curious to read the transcript, and see if it is as inspiring
+and powerful as <i>I have a Dream</i>. Another surprise is that Nixon's resignation speech
+is closest to JFK's Inaugural address.</p>
+<img src="dendogram.png" alt="speech dendogram">
+
+<h3>Second Plot</h3>
+This plot relies on the distances that were used in the first plot. Basically, all of the speeches are along the
+x-axis and the y-axis, such that the (i,j)-th cell corresponds to the distance between the ith and jth speech. So,
+all of the cells along the diagonal have distance=0, since the distance between a speech and itself is zero. All of
+the other pairs have non-zero distances. What is interesting about this plot is that we can clearly see that there
+are some speeches that are extremely different from practically every other speech - this phenomenon is what gives us
+the dark red horizontal and vertical bands. We can see that these speeches are the same speeches in the lonely bottom, green
+branch of the dendogram plot above. The speeches that are outliers are:
+<ul>
+  <li>JFK's <i>Civil Rights Address</i></li>
+  <li>Lou Gehrig's <i>Farewell to Baseball Address</i> (not so surprising this is an outlier)</li>
+  <li>Gerald Ford's <i>National Address Pardoning Richard M. Nixon</i></li>
+  <li>Joseph N Welch's <i>Have You No Sense of Decency</i> (ditto)</li>
+  <li>William Jennings Bryan's <i>Against Imperialism</i></li>
+  <li>Edward Moore Kennedy's <i>1980 DNC Address</i></li>
+</ul>
+Obviously, this is something that I'd want to investigate more, and see if this
+phenomenon is real, but as a first pass, this seems very interesting. 
+<img src="heatmap.png" alt="speech distances">
+
+<h3>Third Plot</h3>
+<p>Another way to group the speeches is by using <a href="https://en.wikipedia.org/wiki/K-means_clustering">
+  k-means clustering</a>, which is quite good for sparse and unstructured data. One of the parameters for scikit-learn's
+  k-means clustering algorithm is the number of clusters - I made an initial choice of 8 clusters, but with more time and
+  further refining of the project, I would definitely experiment with other cluster numbers. The following figure shows
+  the different speeches, colored by which cluster they belong to. The top 5 words that are nearest to each cluster's centroid
+  are also given, at the bottom left. Additionally, the x,y-coordinates of each speech are the result of multi-dimensional
+  scaling (MDS), which allows one to represent
+  the distance matrix with a lower-dimensional form whilst still somewhat preserving the distances in the original
+  high-dimensional space.
+</p>
+<p>The most interesting thing about this plot, other than the fact that k-means clustering gives
+slightly different results than Ward's method, is the top 7 words for each cluster. Note that
+the top 7 words are in their stemmed form, thus "peace" showing up as its stem, "peac".
+We can see some
+cool patterns here. For example, the 2nd cluster's top 5 words are: "war,
+peac, militari, power, unit, state, presid". Speeches that
+are grouped into this cluster are denoted by maroon dots, and include: 
+<ul>
+  <li>Franklin Delano Roosevelt: <i>Pearl Harbor Address to the Nation</i></li>
+  <li>George Catlett Marshall: <i>The Marshall Plan</i></li>
+  <li>Gen. Douglas MacArthur: <i> Farewell Address to Congress</i></li>
+  <li>Harry S. Truman: <i>The Truman Doctrine</i></li>
+  <li>Thomas Woodrow Wilson: <i>War Message</i></li>
+  <li>Rabert Marion La Follette: <i>Free Speech in Wartime</i></li>
+  <li>Lyndon Baines Johnson: <i>On Vietnam</i></li>
+</ul>
+
+In contrast, the 4rd cluster's top 5 words
+are "women, woman, vote, law, war, parti, half." Of the 6 speeches in this cluster,
+3 are by suffrage leaders (Carrie Chapman Catt and Anna Howard Shaw), 1 is by birth control activist and
+feminist Margaret Sanger, and 1 is Hillary Clinton's <i>Women's Rights are Human Rights</i>. 
+Interestingly, the 5th speech is Bill Clinton's <i>Oklahoma Bombing Memorial Address</i>, which has
+nothing to do with the generally feminist topics of the former speeches.
+</ul>
+<img src="kmeans_cluster.png" alt="speech cluster">
+
+<h2>A few words...</h2>
+  <p>These figures are definitely exploratory in nature. First of all, the corpus I generated is relatively small,
+  consisting of ~100 speeches. I definitely would increase this, with more web scraping. Second of all, the plots
+  are not the best-formatted. I am learning d3.js and dipmle.js right now, and would love to use those tools, 
+  instead of python, to
+  create pretty, interactive data visualizations! </p>
+</body>
+
+</html>
+
