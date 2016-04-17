@@ -6,7 +6,7 @@
 <h1>Data Incubator Application - Project Proposal</h1>
 
 <h3>Project Description</h3>
-
+<p></p>
 
 <h3>Data Source</h3>
 <p>In order to get transcripts of famous speeches, I used Python's BeautifulSoup to scrape <a href="http://www.americanrhetoric.com/top100speechesall.html">
@@ -21,17 +21,17 @@ between all pairs of speeches (using cosine similarity), and used those distance
 <a href="https://en.wikipedia.org/wiki/Ward%27s_method">Ward's method</a> for
 hierarchical clustering, resulting in the following dendogram plot.</p>
 
-<p>We can see that there are about 3 relatively large primary clusters (in red) and 1 very tiny primary 
+<p>We can see that there are about 2 relatively large primary clusters (in red) and 1 very tiny primary 
 cluster (in green). If we look closely at the low-level clusters, we see some intuitive patterns
 and some not-so-intuitive patterns. For example, William Jefferson Clinton (i.e. Bill Clinton) and
-Hillary Diane Rodham Clinton are paired closely together, despite their seemingly different speech
+Hillary Diane Rodham Clinton are paired together, despite their seemingly different speech
 topics (Bill's speech is called <i>Oklahoma Bombing Memorial Address</i>, while Hillary's is 
 <i>Women's Rights are Human Rights</i>). J.F.K.'s <i>Cuban Missile Crisis Address</i> is paired
 up with Dwight D. Eisenhouwer's <i>Atoms for Peace</i>. Interestingly, the closest speech to
-Martin Luther King, Jr.'s amazing and powerful <i>I have a Dream</i> is J.F.K.'s 
-<i>Ich bin ein Berliner</i>. Admittedly, I do not actually know the content of J.F.K.'s speech - 
+Martin Luther King, Jr.'s <i>I have a Dream</i> is J.F.K.'s 
+<i>Ich bin ein Berliner</i>. Admittedly, I do not know the content of J.F.K.'s speech - 
 only the anecdote that the title actually translates something to <i>I am a jelly-filled
-donut</i> - however, I am now very curious to read the transcript, and see if it is as inspiring
+donut</i> - however, I am now curious to read the transcript, and see if it is as inspiring
 and powerful as <i>I have a Dream</i>.</p>
 <img src="dendogram.png" alt="speech dendogram">
 
@@ -48,7 +48,7 @@ and powerful as <i>I have a Dream</i>.</p>
 </p>
 <p>The most interesting thing about this plot, other than the fact that k-means clustering gives
 slightly different results than Ward's method, is the top 5 words for each cluster. Note that
-the top 5 words are in their stemmed form, thus showing up as "peac" rather than "peace".
+the top 5 words are in their stemmed form, thus "peace" showing up as its stem, "peac".
 We can see some
 cool patterns here. For example, the 7th cluster's top 5 words are: "peace, war, unit, state, forc". Speeches that
 are grouped into this cluster are denoted by maroon dots, and include: 
