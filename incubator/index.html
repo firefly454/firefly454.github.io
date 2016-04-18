@@ -63,7 +63,44 @@ is closest to JFK's Inaugural address - two very different presidents at two ver
 in their careers.</p>
 <img src="dendogram.png" alt="speech dendogram">
 
+<h3>Second Plot</h3>
+<p>Another way to group the speeches is by using <a href="https://en.wikipedia.org/wiki/K-means_clustering">
+  k-means clustering</a>, which is quite good for sparse and unstructured data. One of the parameters for scikit-learn's
+  k-means clustering algorithm is the number of clusters - I made an initial choice of 8 clusters, but with more time and
+  further refining of the project, I would definitely experiment with other cluster numbers. The following figure shows
+  the different speeches, colored by which cluster they belong to. The top 7 words that are nearest to each cluster's centroid
+  are also given, at the bottom left. Additionally, the x,y-coordinates of each speech are the result of multi-dimensional
+  scaling (MDS), which allows one to represent
+  the distance matrix with a lower-dimensional form whilst still somewhat preserving the distances in the original
+  high-dimensional space.
+</p>
+<p>The most interesting thing about this plot, other than the fact that k-means clustering gives
+slightly different results than Ward's method, is the top 7 words for each cluster. Note that
+the top 7 words are in their stemmed form, thus "peace" showing up as its stem, "peac".
+We can see some
+cool patterns here. For example, the 2nd cluster's top 7 words are: "war,
+peac, militari, power, unit, state, presid". Speeches that
+are grouped into this cluster are denoted by maroon dots, and include: 
+<ul>
+  <li>Franklin Delano Roosevelt: <i>Pearl Harbor Address to the Nation</i></li>
+  <li>George Catlett Marshall: <i>The Marshall Plan</i></li>
+  <li>Gen. Douglas MacArthur: <i> Farewell Address to Congress</i></li>
+  <li>Harry S. Truman: <i>The Truman Doctrine</i></li>
+  <li>Thomas Woodrow Wilson: <i>War Message</i></li>
+  <li>Rabert Marion La Follette: <i>Free Speech in Wartime</i></li>
+  <li>Lyndon Baines Johnson: <i>On Vietnam</i></li>
+</ul>
 
+K-means clustering accurately creates this seemingly war-focused speech cluster. In contrast, the 4rd cluster's top 7 words
+are "women, woman, vote, law, war, parti, half." Of the 6 speeches in this cluster,
+3 are by suffrage leaders (Carrie Chapman Catt and Anna Howard Shaw), 1 is by birth control activist and
+feminist Margaret Sanger, and 1 is Hillary Clinton's <i>Women's Rights are Human Rights</i>. 
+Interestingly, the 5th speech is Bill Clinton's <i>Oklahoma Bombing Memorial Address</i>, which has
+nothing to do with the generally feminist topics of the former speeches, and deserves further inquiry. 
+
+<p>What would be very interesting is to overlay this figure with a political spectrum. Do democrats and republicans
+speak in different ways?</p>
+</ul>
 
 <style>
 
@@ -1460,45 +1497,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 </script>
 
 
-<h3>Second Plot</h3>
-<p>Another way to group the speeches is by using <a href="https://en.wikipedia.org/wiki/K-means_clustering">
-  k-means clustering</a>, which is quite good for sparse and unstructured data. One of the parameters for scikit-learn's
-  k-means clustering algorithm is the number of clusters - I made an initial choice of 8 clusters, but with more time and
-  further refining of the project, I would definitely experiment with other cluster numbers. The following figure shows
-  the different speeches, colored by which cluster they belong to. The top 7 words that are nearest to each cluster's centroid
-  are also given, at the bottom left. Additionally, the x,y-coordinates of each speech are the result of multi-dimensional
-  scaling (MDS), which allows one to represent
-  the distance matrix with a lower-dimensional form whilst still somewhat preserving the distances in the original
-  high-dimensional space.
-</p>
-<p>The most interesting thing about this plot, other than the fact that k-means clustering gives
-slightly different results than Ward's method, is the top 7 words for each cluster. Note that
-the top 7 words are in their stemmed form, thus "peace" showing up as its stem, "peac".
-We can see some
-cool patterns here. For example, the 2nd cluster's top 7 words are: "war,
-peac, militari, power, unit, state, presid". Speeches that
-are grouped into this cluster are denoted by maroon dots, and include: 
-<ul>
-  <li>Franklin Delano Roosevelt: <i>Pearl Harbor Address to the Nation</i></li>
-  <li>George Catlett Marshall: <i>The Marshall Plan</i></li>
-  <li>Gen. Douglas MacArthur: <i> Farewell Address to Congress</i></li>
-  <li>Harry S. Truman: <i>The Truman Doctrine</i></li>
-  <li>Thomas Woodrow Wilson: <i>War Message</i></li>
-  <li>Rabert Marion La Follette: <i>Free Speech in Wartime</i></li>
-  <li>Lyndon Baines Johnson: <i>On Vietnam</i></li>
-</ul>
-
-K-means clustering accurately creates this seemingly war-focused speech cluster. In contrast, the 4rd cluster's top 7 words
-are "women, woman, vote, law, war, parti, half." Of the 6 speeches in this cluster,
-3 are by suffrage leaders (Carrie Chapman Catt and Anna Howard Shaw), 1 is by birth control activist and
-feminist Margaret Sanger, and 1 is Hillary Clinton's <i>Women's Rights are Human Rights</i>. 
-Interestingly, the 5th speech is Bill Clinton's <i>Oklahoma Bombing Memorial Address</i>, which has
-nothing to do with the generally feminist topics of the former speeches, and deserves further inquiry. 
-
-<p>What would be very interesting is to overlay this figure with a political spectrum. Do democrats and republicans
-speak in different ways?</p>
-</ul>
-<img src="kmeans_cluster.png" alt="speech cluster">
+<!-- <img src="kmeans_cluster.png" alt="speech cluster"> -->
 
 <h3>Third Plot</h3>
 This plot relies on the distances that were used in the first plot. Basically, all of the speeches are along the
