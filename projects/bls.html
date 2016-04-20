@@ -45,13 +45,14 @@ title: Erica Kim's blog
       opened up Jupyter Notebook (formally Ipython Notebook), to do the rest of the data munging and analysis. <br><br>
       
       <pre>
-              def open_file():
+def open_file():
     with open("fatalities.txt", "r") as ins:
         array = []
         for line in ins:
             array.append(line)
     return array
-
+        </pre>
+        
 def clean_up(array):
     for line_num,line in enumerate(array):
         # Remove newline character
