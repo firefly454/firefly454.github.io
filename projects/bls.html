@@ -33,10 +33,10 @@ title: Erica Kim's blog
       Here is the first page of the 35-page document:<br><br>
       <img src="bls_fatalities1.png" alt="BLS pdf example" width="75%"><br><br>
       
-      Parsing a pdf in Python (or in any language) is not straight-forward. 
+      Parsing a pdf in python (or in any language) is not straight-forward. 
      A pdf is just a stable, static image that prints easily, and is not meant for text/number extraction. 
      However, I don't want to print the document - I want the 
-      information in a nice, tidy format, preferably a Python Pandas dataframe! While there are a few python libraries as well as stand-alone websites that
+      information in a nice, tidy format, preferably a python Pandas dataframe! While there are a few python libraries as well as stand-alone websites that
       claim to do pdf parsing, I didn't have too much luck with what I tried, with information not getting parsed correctly.
       
       <h4>Transforming data from PDF tables to Pandas dataframes</h4>
@@ -48,14 +48,14 @@ title: Erica Kim's blog
       
       Here, I'm opening the file ("fatalities.txt") and appending each line into an array.
       
-      <pre>
-        def open_file():
-                with open("fatalities.txt", "r") as ins:
-                        array = []
-                        for line in ins:
-                                array.append(line)
-                return array
-        </pre><br>
+<pre>
+def open_file():
+        with open("fatalities.txt", "r") as ins:
+                array = []
+                for line in ins:
+                        array.append(line)
+        return array
+</pre><br>
         
         However, there are lots of issues: 
         <ul>
@@ -158,6 +158,38 @@ def create_df(array):
         cols = ['industry','naics','total','violence','transportation','fires','falls','exposure','contact']
         df = df[cols]
         return df
+        </pre>
+        
+        Ok, phew, that accomplishes all that, and now we have a mostly functioning dataframe. We can now create
+        some helper functions, so that we can:
+        <ul>
+                <li>Create new features, such as the percent of all fatalities for an industry that are
+                due to violence (i.e. divide 'violence' column by 'total' column. NOTE: the original
+                data is quite messy, such that some rows have 0 'total' fatalities but non-zero entries
+                for specific categories - in those cases, we will insert a NaN rather than an Inf</li>
+                <li>Create 'sub-dataframes', that will aid in plotting</li>
+                <li>Melt dataframes to get a long format</li>
+        </ul>
+        
+        <pre>
+def modify_df(df):
+    df['violenceP']=df.violence/df.total
+    df['transportationP']=df.transportation/df.total
+    df['firesP']=df.fires/df.total
+    df['fallsP']=df.falls/df.total
+    df['exposureP']=df.exposure/df.total
+    df['contactP']=df.contact/df.total
+    # replace any inf values with nan values
+    df=df.replace([np.inf, -np.inf], np.nan)
+    return df
+
+def df_subset(df,column_name,num,specific):
+    # Industries with most fatalities
+    if specific == False:
+        tempdf=df[df.naics==0][5:].sort_values(by=column_name,ascending=False)[0:num]
+    else:
+        tempdf=df[df.naics!=0][5:].sort_values(by=column_name,ascending=False)[0:num]
+    return tempdf                
         </pre>
      
 </div><!-- /.blurb -->
