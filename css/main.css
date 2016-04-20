@@ -25,13 +25,14 @@ h1 {
 }
 pre {
         font-family: "Courier 10 Pitch", Courier, monospace;
-        font-size: 95%;
-        line-height: 140%;
+        font-size: 80%;
+        line-height: 100%;
         white-space: pre;
         white-space: pre-wrap;
         white-space: -moz-pre-wrap;
         white-space: -o-pre-wrap;
-        background-color: #D3D3D3;
+        background-color: #F0F8FF;
+        border: solid 1px #e1e1e1;
     }       
 
 p {
