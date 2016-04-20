@@ -1,13 +1,7 @@
-<html> 
-<head> 
-    <script src="jquery.js"></script> 
-    <script> 
-    $(function(){
-      $("#includedContent").load("bls_code1.html"); 
-    });
-    </script> 
-</head> 
-<body>
+ ---
+ layout: default
+  title: Erica Kim's blog
+  ---
 <div class="blurb">
         <h2>Working with data from the Bureau of Labor Statistics, part 1</h2>
         <h4>Introduction</h4>
@@ -53,7 +47,6 @@
       opened up Jupyter Notebook (formally Ipython Notebook), to do the rest of the data munging and analysis. <br><br>
       
       Here, I'm opening the file ("fatalities.txt") and appending each line into an array.
-      <div id="includedContent"></div>
       
       <pre>
         def open_file():
@@ -168,5 +161,4 @@ def create_df(array):
         </pre>
      
 </div><!-- /.blurb -->
-</body>
-</html>
+
