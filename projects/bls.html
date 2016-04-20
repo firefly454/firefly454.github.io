@@ -21,7 +21,7 @@ title: Erica Kim's blog
         There are lots and lots of data files on the website (it IS a government statistics organization, after all), for any 
         data junkie to be quite happy with. However, these are 
         maddeningly horrific and ugly files! While some of the datasets are in relatively clean Microsoft Excel
-        format, the majority are either contained in tables within PDF files (!), or in easy-to-parse but very cryptic plain text
+        format, the majority are either contained in tables within PDF files, or in easy-to-parse but very cryptic plain text
         files.<br><br>
         
         For the first part of this section, I'll give an example of working with one of the BLS's pdf files. I will investigate
@@ -61,16 +61,28 @@ title: Erica Kim's blog
       <ul><li><strong>Duplicated rows - so many duplicated rows</strong></li></ul>
       Third, there are many duplicated rows. In the 2nd example, both the Public administration row and the Executive, legislative,
       and other general government support rows are repeated twice. This occurs dozens of times throughout the document. Is this intentional, 
-      or some kind of error? <br><br>
+      or some kind of error?
 
+        <ul><li><strong>PDF... really?!</strong></li></ul>
       Fourth, and maybe most annoyingly, parsing a pdf in python (or in any language) is not straight-forward. 
      A pdf is just a stable, static image that prints easily, and is not meant for text/number extraction. 
      However, I don't want to print the document - I want the 
       information in a nice, tidy format, preferably a python Pandas dataframe! While there are a few python libraries as well as stand-alone websites that
       claim to do pdf parsing, I didn't have too much luck with what I tried, with information not getting parsed correctly.
       
+      <h3>Solutions</h3>
+      The most important thing is that we are aware of these issues, particularly points 1-3. We can use the Total column, and just 
+      keep in mind that the
+      different fatality categories do not necessarily add up to 'Total', for whatever reason. For point 2, I will treat each row
+      as its own separate industry category, but differentiate between industries in <strong>bold</strong> font (that lack NAICS
+      codes) and sub-industries in normal font that do have NAICS code, calling the former "non-specific industries" and the latter
+      "specific industries" (and filtering on the presence or absence of NAICS code). For point 3, I will just be careful 
+      to not add in duplicate rows when creating
+      the dataframe. And for the fourth point...
+      
       <h3>Transforming data from PDF tables to Pandas dataframes</h3>
-      So, I did something (maybe) a little weird. I copy and pasted each table from the pdf file into my favorite text editor (Sublime Text).
+      
+      So, I did something (maybe) a little weird for this. I copy and pasted each table from the pdf file into my favorite text editor (Sublime Text).
       Is there a better way to do this? Probably. But considering I don't normally deal with pdf's, and maybe will never have to again after
       this exercise, the relatively dumb way is faster in the short-run. The result of this was that
        each row of the table was correctly placed into its own line in the text file. I then saved the file as a normal text file, and then
