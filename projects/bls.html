@@ -37,25 +37,28 @@ title: Erica Kim's blog
       <img src="bls_fatalities2.png" alt="BLS pdf example 2" width="90%"><br><br>
       <img src="bls_fatalities3.png" alt="BLS pdf example 3" width="90%"><br><br>
       <h3>What is wrong with this image??</h3>
+      <ul><li><strong>Total column is unclear</strong></li></ul>
       If you look closely, you can see some quirky things with the data. So many quirky things... 
-      First, we can see that the table has 9 primary columns: <i>Industry, NAICS code, Total fatal injuries, Violence and other
+      First, we can see that the table has 9 primary columns: Industry, NAICS code, Total fatal injuries, Violence and other
       injuries by persons or animals, Transportation incidents, Fires and explosions, Falls slips trips, Exposure to
-      harmful substances or environments,</i> and <i>Contact wiht objects and equipment</i>. <it>NAICS</it> stands for the North American
+      harmful substances or environments, and Contact wiht objects and equipment. NAICS stands for the North American
       Industry Classification System, and is just the numeric code for each industry/sub-industry/etc. Common sense would tell
       us that "Total" should be the sum (or total) of the last 6 columns that give the various fatality causes. However, we can
-      very quickly see that this is not the case, if you look at the first example and the rows for <it>Soybean farming, Wheat farming,
-      Corn farming, Rice farming,</it> etc. What <it>total</it> is, then, is quite cryptic. <br><br>
+      very quickly see that this is not the case, if you look at the first example and the rows for Soybean farming, Wheat farming,
+      Corn farming, Rice farming, etc. What total is, then, is quite cryptic. 
       
+      <ul><li><strong>Relationship between industries and sub(-sub)-industries is unclear</strong></li></ul>
       Second, we see that there are both primary industries and sub-industries (and sub-sub-industries) represented in the 
       data. Primary industries
-      do not have a <it>NAICS</it> code, while sub-industries (and sub-sub industries) do. Another distinction between the former and the latter is
-      that each sub-industry is indented. We can see this in the first example, where <it>Crop production</it> contains Oilseed and grain
+      do not have a NAICS code, while sub-industries (and sub-sub industries) do. Another distinction between the former and the latter is
+      that each sub-industry is indented. We can see this in the first example, where Crop production contains Oilseed and grain
       farming, which contains Soybean farming, Wheat farming, Corn farming, Rice farming, and Other grain farming, and so on. Now,
       common sense would then tell us that the sub-industries numbers should add up to make the priamary industry's numbers, but again,
       this is not the case. If we look at the 2nd example, we see that Executive, legislative, and other general government support
       has 4 total deaths, while its sub-industry Public finance activities has just 1 total death. We can see this same issue very
-      clearly in the third example as well. So, the relationships between the various industries and sub(-sub)-industries is unclear. <br><br>
+      clearly in the third example as well. So, the relationships between the various industries and sub(-sub)-industries is unclear. 
       
+      <ul><li><strong>Duplicated rows - meaning?</strong></li></ul>
       Third, there are many duplicated rows. In the 2nd example, both the Public administration row and the Executive, legislative,
       and other general government support rows are repeated twice. This occurs dozens of times throughout the document. Is this intentional, 
       or some kind of error? <br><br>
