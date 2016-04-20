@@ -31,13 +31,13 @@ title: Erica Kim's blog
         Industry by event or exposure, 2014 (PDF 272K)".<br><br>
    
       Here is the first page of the 35-page document:<br><br>
-      <img src="bls_fatalities1.png" alt="BLS pdf example 1" width="90%"><br><br>
+      <img src="bls_fatalities1.png" alt="BLS pdf example 1" width="95%"><br><br>
       
       Here are some other sections from the same document:<br><br>
-      <img src="bls_fatalities2.png" alt="BLS pdf example 2" width="90%"><br><br>
-      <img src="bls_fatalities3.png" alt="BLS pdf example 3" width="90%"><br><br>
+      <img src="bls_fatalities2.png" alt="BLS pdf example 2" width="95%"><br><br>
+      <img src="bls_fatalities3.png" alt="BLS pdf example 3" width="95%"><br><br>
       <h3>What is wrong with this image??</h3>
-      <ul><li><strong>Total column is unclear</strong></li></ul>
+      <ul><li><strong>"Total" column is unclear</strong></li></ul>
       If you look closely, you can see some quirky things with the data. So many quirky things... 
       First, we can see that the table has 9 primary columns: Industry, NAICS code, Total fatal injuries, Violence and other
       injuries by persons or animals, Transportation incidents, Fires and explosions, Falls slips trips, Exposure to
@@ -58,7 +58,7 @@ title: Erica Kim's blog
       has 4 total deaths, while its sub-industry Public finance activities has just 1 total death. We can see this same issue very
       clearly in the third example as well. So, the relationships between the various industries and sub(-sub)-industries is unclear. 
       
-      <ul><li><strong>Duplicated rows - meaning?</strong></li></ul>
+      <ul><li><strong>Duplicated rows - so many duplicated rows</strong></li></ul>
       Third, there are many duplicated rows. In the 2nd example, both the Public administration row and the Executive, legislative,
       and other general government support rows are repeated twice. This occurs dozens of times throughout the document. Is this intentional, 
       or some kind of error? <br><br>
@@ -72,7 +72,7 @@ title: Erica Kim's blog
       <h3>Transforming data from PDF tables to Pandas dataframes</h3>
       So, I did something (maybe) a little weird. I copy and pasted each table from the pdf file into my favorite text editor (Sublime Text).
       Is there a better way to do this? Probably. But considering I don't normally deal with pdf's, and maybe will never have to again after
-      this exercise, the relatively dumb way seemed faster. The result of this was that
+      this exercise, the relatively dumb way is faster in the short-run. The result of this was that
        each row of the table was correctly placed into its own line in the text file. I then saved the file as a normal text file, and then
       opened up Jupyter Notebook (formally Ipython Notebook), to do the rest of the data munging and analysis. <br><br>
       
@@ -95,7 +95,7 @@ def open_file():
                 <li>We need to get rid of extraneous whitespace characters</li>
                 <li>The original PDF table uses "--" to signify the number 0 - let's fix this</li>
                 <li>Everything is a string - let's change the numeric values into integers</li>
-                <li>The original PDF contains duplicated rows - let's get rid of these</li>
+                <li>As mentioned before, the original PDF contains duplicated rows - let's get rid of these</li>
                 
         </ul> 
         <pre>
@@ -221,6 +221,10 @@ def df_subset(df,column_name,num,specific):
         tempdf=df[df.naics!=0][5:].sort_values(by=column_name,ascending=False)[0:num]
     return tempdf                
         </pre>
+     
      <h3>Exploratory analysis time!</h3>
+     
+     Now that that's all done, let's make some pictures!<br><br>
+     
 </div><!-- /.blurb -->
 
