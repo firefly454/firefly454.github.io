@@ -40,112 +40,124 @@ title: Erica Kim's blog
       claim to do pdf parsing, I didn't have too much luck with what I tried, with information not getting parsed correctly.
       
       <h4>Transforming data from PDF tables to Pandas dataframes</h4>
-      So, I did something (maybe) a little weird. I copy and pasted the pdf file into my favorite text editor (Sublime Text), which
-      correctly put each row of the table into its own line in the text file. I then saved the file as a normal text file, and then
+      So, I did something (maybe) a little weird. I copy and pasted each table from the pdf file into my favorite text editor (Sublime Text).
+      Is there a better way to do this? Probably. But considering I don't normally deal with pdf's, and maybe will never have to again after
+      this exercise, the relatively dumb way seemed faster. The result of this was that
+       each row of the table was correctly placed into its own line in the text file. I then saved the file as a normal text file, and then
       opened up Jupyter Notebook (formally Ipython Notebook), to do the rest of the data munging and analysis. <br><br>
       
+      Here, I'm opening the file ("fatalities.txt") and appending each line into an array.
       <pre>
-def open_file():
-    with open("fatalities.txt", "r") as ins:
-        array = []
-        for line in ins:
-            array.append(line)
-    return array
-        </pre><br><br>
-
-<pre>
-def clean_up(array):
-    for line_num,line in enumerate(array):
-        # Remove newline character
-        line = array[line_num].strip("\n")
-        if "--" in line:
-            # Change "--" to 0
-            line = re.sub("--", "0", line)
-        array[line_num] = line
-    return array
+        def open_file():
+                with open("fatalities.txt", "r") as ins:
+                        array = []
+                        for line in ins:
+                                array.append(line)
+                return array
+        </pre><br>
+        
+        However, there are lots of issues: 
+        <ul>
+                <li>Each row of the table is just one big entry in the array. I want to break down each
+        row correctly, so that "industry", "naics code", "total fatal injuries", "violence", "transportation", "fires", "exposure",
+        and "contact" are all placed in their cells/columns</li>
+                <li>We need to get rid of extraneous whitespace characters</li>
+                <li>The original PDF table uses "--" to signify the number 0 - let's fix this</li>
+                <li>Everything is a string - let's change the numeric values into integers</li>
+                <li>The original PDF contains duplicated rows - let's get rid of these</li>
+                <li></li>
+        </ul> 
+        <pre>
+        def clean_up(array):
+                for line_num,line in enumerate(array):
+                        # Remove newline character
+                        line = array[line_num].strip("\n")
+                        if "--" in line:
+                                # Change "--" to 0
+                                line = re.sub("--", "0", line)
+                        array[line_num] = line
+                return array
     
-def create_df(array):
-    # Transform data from text to appropriate arrays
-    industry=[]
-    naics=[]
-    total=[]
-    violence=[]
-    transportation=[]
-    fires=[]
-    falls=[]
-    exposure=[]
-    contact=[]
+        def create_df(array):
+                # Transform data from text to appropriate arrays
+                industry=[]
+                naics=[]
+                total=[]
+                violence=[]
+                transportation=[]
+                fires=[]
+                falls=[]
+                exposure=[]
+                contact=[]
     
-    regex = re.compile("[A-Z]")
-    regex2 = re.compile("[a-z]")
-    last_industry_name = "hello"    # silly initial value
-                                    # we need this variable so that duplicate rows don't get added
+                regex = re.compile("[A-Z]")
+                regex2 = re.compile("[a-z]")
+                last_industry_name = "hello"    # silly initial value
+                                                # we need this variable so that duplicate rows don't get added
     
-    for line_num,line in enumerate(array):
-        words = line.split()
-        linetitle = []            
-        for w in words:
-            if regex.match(w[0]):
-                words = words[1:]
-                linetitle.append(w)
-                industry_row=' '.join(linetitle)
-            elif regex2.match(w[0]):
-                words = words[1:]
-                linetitle.append(w)
-                industry_row=' '.join(linetitle)
-            elif w[0] == "(":
-                words = words[1:]
-                linetitle.append(w)
-                industry_row=' '.join(linetitle)
-        if industry_row != last_industry_name: # get rid of duplicate rows in pdf
-            for w_num,w in enumerate(words):
-                words[w_num]=w.replace(",","") # remove commas in numbers
-            if len(words) == 7:                # does not include NAICS code
-                industry.append(industry_row)
-                naics.append(0)
-                total.append(int(words[0]))
-                violence.append(int(words[1]))
-                transportation.append(int(words[2]))
-                fires.append(int(words[3]))
-                falls.append(int(words[4]))
-                exposure.append(int(words[5]))
-                contact.append(int(words[6]))
-                last_industry_name = industry_row
-            elif len(words) == 8:             # does include NAICS code
-                industry.append(industry_row)
-                naics.append(int(words[0]))
-                total.append(int(words[1]))
-                violence.append(int(words[2]))
-                transportation.append(int(words[3]))
-                fires.append(int(words[4]))
-                falls.append(int(words[5]))
-                exposure.append(int(words[6]))
-                contact.append(int(words[7]))
-                last_industry_name = industry_row
-            else:
-                # Some kind of error, may have to manually fix
-                print line_num
-        else:
-            pass
-            # many, many duplicated rows in pdf file
-    # Create dictionary of arrays
-
-    d={'industry':industry,
-       'naics': naics,
-       'total': total,
-       'violence': violence,
-       'transportation': transportation,
-       'fires': fires,
-       'falls': falls,
-       'exposure': exposure,
-       'contact': contact}
+                for line_num,line in enumerate(array):
+                        words = line.split()
+                        linetitle = []            
+                        for w in words:
+                                if regex.match(w[0]):
+                                        words = words[1:]
+                                        linetitle.append(w)
+                                        industry_row=' '.join(linetitle)
+                                elif regex2.match(w[0]):
+                                        words = words[1:]
+                                        linetitle.append(w)
+                                        industry_row=' '.join(linetitle)
+                                elif w[0] == "(":
+                                        words = words[1:]
+                                        linetitle.append(w)
+                                        industry_row=' '.join(linetitle)
+                        if industry_row != last_industry_name: # get rid of duplicate rows in pdf
+                                for w_num,w in enumerate(words):
+                                        words[w_num]=w.replace(",","") # remove commas in numbers
+                                if len(words) == 7:                # does not include NAICS code
+                                        industry.append(industry_row)
+                                        naics.append(0)
+                                        total.append(int(words[0]))
+                                        violence.append(int(words[1]))
+                                        transportation.append(int(words[2]))
+                                        fires.append(int(words[3]))
+                                        falls.append(int(words[4]))
+                                        exposure.append(int(words[5]))
+                                        contact.append(int(words[6]))
+                                        last_industry_name = industry_row
+                                elif len(words) == 8:             # does include NAICS code
+                                        industry.append(industry_row)
+                                        naics.append(int(words[0]))
+                                        total.append(int(words[1]))
+                                        violence.append(int(words[2]))
+                                        transportation.append(int(words[3]))
+                                        fires.append(int(words[4]))
+                                        falls.append(int(words[5]))
+                                        exposure.append(int(words[6]))
+                                        contact.append(int(words[7]))
+                                        last_industry_name = industry_row
+                                else:
+                                        # Some kind of error, look at it manually
+                                        print line_num
+                        else:
+                                pass
+                                # many, many duplicated rows in pdf file
+                # Create dictionary of arrays
+                d={'industry':industry,
+                'naics': naics,
+                'total': total,
+                'violence': violence,
+                'transportation': transportation,
+                'fires': fires,
+                'falls': falls,
+                'exposure': exposure,
+                'contact': contact}
    
-    # Create pandas dataframe object from dictionary
-    df = pd.DataFrame(d)
-    cols = ['industry','naics','total','violence','transportation','fires','falls','exposure','contact']
-    df = df[cols]
-    return df
-              
-      </pre>
+                # Create pandas dataframe object from dictionary
+                df = pd.DataFrame(d)
+                cols = ['industry','naics','total','violence','transportation','fires','falls','exposure','contact']
+                df = df[cols]
+                 return df
+        </pre>
      
 </div><!-- /.blurb -->
