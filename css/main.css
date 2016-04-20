@@ -23,6 +23,11 @@ h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
+pre{
+    color: #F0F8FF;
+    font-family:'Courier';
+}
+
 p {
     font-size: 1.5em;
     line-height: 1.4em;
