@@ -24,8 +24,8 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 pre{
-    color: #F0F8FF;
-    font-family:'Courier';
+    background-color: #F0F8FF;
+    font-family:'Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;';
 }
 
 p {
