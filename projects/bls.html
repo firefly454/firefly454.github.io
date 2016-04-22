@@ -5,6 +5,9 @@ title: Erica Kim's blog
 <div class="blurb">
         <h2>Working with data from the Bureau of Labor Statistics, part 1<br>
         (or how I learned to scrape data from a multi-page pdf table)</h2>
+        
+        <a href="#final_pictures">Click here to just see the final pictures :)</a>
+        
         <h3>Introduction</h3>
         <a href="http://www.bls.gov/">The Bureau of Labor Statistics (BLS)</a> website has many datasets pertaining obviously
         to labor statistics - in particular, the main subjects are: 
@@ -250,7 +253,7 @@ def df_melt(df):
               var_name="type",value_name="counts")
     return tempdf
         </pre>
-     
+     <div id="final_pictures">
      <h3>Exploratory analysis time!</h3>
      
      Now that that's all done, let's see some pictures! Pandas is so great in that we can create
@@ -296,7 +299,7 @@ def df_melt(df):
      highest proportion of violent deaths are: Convenience stores, Gasoline stations with convenience stores, Gasoline stations, Grocery stores,
      Food and beverage stores, and Drinking places (alcoholic beverages). <br><br>
      <img src="bls_images/violenceP_gr20_specific_top10.png" alt="top 10 violenceP >20 fatalities, specific industries" width="80%"><br><br>
-     
+     </div>
      <h3>Conclusion and... what next?</h3>
      I showed how one can parse a multi-page table in a pdf file, and how one can produce some pretty images quite easily with the
      resulting pandas dataframes. However, there is so much more we can do with this data! Next steps in the project are:
