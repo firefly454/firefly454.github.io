@@ -198,8 +198,7 @@ def create_df(array):
                 due to violence (i.e. divide 'violence' column by 'total' column. NOTE: the original
                 data is quite messy, such that some rows have 0 'total' fatalities but non-zero entries
                 for specific categories - in those cases, we will insert a NaN rather than an Inf</li>
-                <li>Create 'sub-dataframes', that will aid in plotting</li>
-                <li>Melt dataframes to get a long format</li>
+                <li>Plot date in the same format</li>
         </ul>
         
         <pre>
@@ -255,7 +254,7 @@ def create_barchart(df,column_name,num,title_string):
       <h4>Top 10 sub-sectors with most VIOLENT fatalities, 2014</h4>
      This bar chart shows the top 10 specific industries with the most fatalities caused by Violence, in 2014. Unsurprisingly,
      Justice, public order, and safety activities had the most violent fatalities. <br><br>
-     <img src="bls_images/violence__top10.ng" alt="top 10 total fatalities, non-specific industries" width="80%">
+     <img src="bls_images/violence_top10.ng" alt="top 10 total fatalities, non-specific industries" width="80%">
      
     <h4>Top 10 sub-sectors with highest VIOLENT fatalities by proportion, 2014</h4>
      We can also look at a bar chart that shows the top 10 specific industries with the highest PROPORTION of fatalities caused by 
