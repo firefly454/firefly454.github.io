@@ -88,14 +88,13 @@ title: Working wiht data from the Bureau of Labor Statistics, part 1
       keep in mind that the
       different fatality categories do not necessarily add up to 'Total', for whatever reason. For point 2, I will just look at
       the sub-sector level, which corresonds to rows that have 3-digit NAICS codes. This is the most general level described in the
-      table, and works well for giving a correspondingly general view of workplace fatalities. For point 3, I will just be careful 
-      to not add in duplicate rows when creating
-      the dataframe. If rows are completely identical, I will only input one copy. When Industry name and NAICS code are identical but other column values are not, I will input both rows, and use an average. 
-      for the actual analysis. And for the fourth point...
+      table, and works well for giving a correspondingly general view of workplace fatalities. Point 3 is mostly fixed by only using
+      sub-sector levels. However, when we still have identical sub-sector levels in the table, I will just input both, and keep this in mind for any
+      specific, future analysis (for example, use the mean values). And for the fourth point...
       
       <h3>Transforming data from PDF tables to Pandas dataframes</h3>
       
-      So, I did something (maybe) a little weird for this. I copy and pasted each table from the pdf file into my favorite text editor (Sublime Text).
+      So, I did something (maybe) a little funny for this. I copy and pasted each table from the pdf file into my favorite text editor (Sublime Text).
       Is there a better way to do this? Probably. But considering I don't normally deal with pdf's, and maybe will never have to again after
       this exercise, the relatively dumb way is faster in the short-run. The result of this was that
        each row of the table was correctly placed into its own line in the text file. I then saved the file as a normal text file, and then
@@ -191,12 +190,12 @@ def create_df(array):
     return df
         </pre>
         
-        Ok, phew, that accomplishes all that, and now we have a very nice dataframe that looks like this:<br><br>
+        Ok! That was not so bad, actually, and now we have a very nice dataframe that looks like this:<br><br>
         
         <img src="bls_images/bls_df.png" alt="dataframe head" width="95%"><br><br>
         
-        We can now create
-        some helper functions, so that we can:
+        We can also create
+        some helper functions, in order to:
         <ul>
                 <li>Create new features, such as the percent of all fatalities for an industry that are
                 due to violence (i.e. divide 'violence' column by 'total' column. NOTE: the original
@@ -258,7 +257,7 @@ def create_barchart(df,column_name,num,title_string):
       <h4>Top 10 sub-sectors with most VIOLENT fatalities, 2014</h4>
      This bar chart shows the top 10 specific industries with the most fatalities caused by Violence, in 2014. Unsurprisingly,
      Justice, public order, and safety activities had the most violent fatalities. <br><br>
-     <img src="bls_images/violence_top10.ng" alt="top 10 total fatalities, non-specific industries" width="80%">
+     <img src="bls_images/violence_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%">
      
     <h4>Top 10 sub-sectors with highest VIOLENT fatalities by proportion, 2014</h4>
      We can also look at a bar chart that shows the top 10 specific industries with the highest PROPORTION of fatalities caused by 
