@@ -1,12 +1,13 @@
 ---
 layout: default
-title: Working wiht data from the Bureau of Labor Statistics, part 1
+title: Working with data from the Bureau of Labor Statistics, part 1
 ---
 <div class="blurb">
         <h2>Working with data from the Bureau of Labor Statistics, part 1<br>
         (or how I learned to scrape data from a multi-page pdf table)</h2>
         
         <a href="#final_pictures">CLICK here to SKIP to the end, and see PICTURES</a>
+        <a href="/bls2.html">CLICK here to see part 2 of Working with data from the Bureau of Labor Statistics</a>
         
         <h3>Introduction</h3>
         <a href="http://www.bls.gov/">The Bureau of Labor Statistics (BLS)</a> website has many datasets pertaining obviously
@@ -28,6 +29,7 @@ title: Working wiht data from the Bureau of Labor Statistics, part 1
         format, the majority are either contained in tables within PDF files, or in easy-to-parse but very cryptic plain text
         files.<br><br>
         
+        <h3>2014 Census of Fatal Occupational Injuries</h3>
         For the first part of this section, I'll give an example of working with one of the BLS's pdf files. I will investigate
         Workplace Injuries, specifically focusing on the number of different types of fatalities in each industry. The primary
         file is "cftb0286.pdf", and can be found <a href="http://www.bls.gov/iif/oshcfoi1.htm">here</a>, under 
@@ -250,9 +252,9 @@ def create_barchart(df,column_name,num,title_string):
      deaths, the majority were caused by transportation. Indeed, transportation was the leading cause of workplace fatalities in
      many of the top sub-sectors. Only Construction of buildings, Administrative and support services, and
      Specialty trade contractors differed from this trend, with 
-     falls as all of their leading causes of death.
+     falls as all of their leading causes of death.<br><br>
      
-     <img src="bls_images/total_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%"><br><br>
+     <img src="bls_images/total_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%">
      
       <h4>Top 10 sub-sectors with most VIOLENT fatalities, 2014</h4>
      This bar chart shows the top 10 specific industries with the most fatalities caused by Violence, in 2014. Unsurprisingly,
