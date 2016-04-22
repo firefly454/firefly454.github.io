@@ -258,7 +258,9 @@ def df_melt(df):
      
      Now that that's all done, let's see some pictures! Pandas is so great in that we can create
      plots directly from dataframes, rather than using matplotlib or seaborn. Here are a few images:
+     
      <h4>Top 10 primary industries with most fatalities, 2014</h4>
+     
      This bar chart contains the top 10 primary industries with the most fatalities in 2014, with each bar colored by the 6
      different fatality causes. 
      Fatality causes are abbreviated as follows:
@@ -275,20 +277,22 @@ def df_melt(df):
      many of the top general industries. Only Retail trade, Manufacturing, and Construction differed from this trend, with 
      violence, contact, and falls as their leading causes of death, respectively.
      
-     <h4>Top 10 specific industries with most fatalities, 2014</h4>
      <img src="bls_images/total_nonspecific_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%"><br><br>
+     
+     <h4>Top 10 specific industries with most fatalities, 2014</h4>
      
      The next bar chart contains the top 10 SPECIFIC industries with the most fatalities in 2014. These are the sub(-sub)-industries,
      i.e. the rows in the original table that contained a non-empty NAICS field. 
      Most of these industries are connected to either the transportation of goods or the construction field, with 
      Transportation and Falls as the major causes
-     of fatalities in these industries.
+     of fatalities in these industries.<br><br>
      
-     <h4>Top 10 specific industries with most VIOLENT fatalities, 2014</h4>
-     <img src="bls_images/total_specific_top10.png" alt="top 10 total fatalities, specific industries" width="80%"><br><br>
      
+     <img src="bls_images/total_specific_top10.png" alt="top 10 total fatalities, specific industries" width="80%">
+     
+      <h4>Top 10 specific industries with most VIOLENT fatalities, 2014</h4>
      The next bar chart shows the top 10 specific industries with the most fatalities caused by Violence, in 2014. <br><br>
-     <img src="bls_images/violence_specific_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%">
+     <img src="bls_images/violence_specific_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%"
      
     <h4>Top 10 specific industries with highest VIOLENT fatalities by proportion, 2014</h4>
      We can also look at a bar chart that shows the top 10 specific industries with the highest PROPORTION of fatalities caused by 
