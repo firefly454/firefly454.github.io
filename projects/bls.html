@@ -55,16 +55,17 @@ title: Working wiht data from the Bureau of Labor Statistics, part 1
       very quickly see that this is not the case, if you look at the first example and the rows for Soybean farming, Wheat farming,
       Corn farming, Rice farming, etc. What total is, then, is quite cryptic. 
       
-      <ul><li><strong>Relationship between industries and sub(-sub)-industries is unclear</strong></li></ul>
-      Second, we see that there are both primary industries and sub-industries (and sub-sub-industries) represented in the 
-      data. Primary industries
-      do not have a NAICS code, while sub-industries (and sub-sub industries) do. Another distinction between the former and the latter is
-      that each sub-industry is indented in the pdf file. We can see this in the first example, where Crop production contains Oilseed and grain
+      <ul><li><strong>Hierarchical relationship between industries</strong></li></ul>
+      Second, we see that there are varying levels of industries within the table, with levels differentiated by the amount of
+      indentation in the industry field name as well as the number of digits in the NAICS code field. We can see this in the first example,
+      where Crop production contains Oilseed and grain
       farming, and Oilseed and grain farming contains Soybean farming, Wheat farming, Corn farming, Rice farming, and Other grain farming, and so on. 
       I would expect that the sub-industries numbers should add up to make the priamary industry's numbers, but 
       this is not the case. If we look at the 4th example, we see that Executive, legislative, and other general government support
       has 4 total deaths, while its sub-industry, Public finance activities, has just 1 total death. We can see this same issue throughout all
-      of the images, and in the entire original pdf table. So, the relationships between the various industries and sub(-sub)-industries is unclear. 
+      of the images, and in the entire original pdf table. Additionally, we
+      should only make comparisons within the same industry hierarchical level. It would not make sense to compare the entire Natural
+      resources and mining sector with the sub-industry Sugar beet farming.
       
       <ul><li><strong>Many duplicated rows</strong></li></ul>
       Third, there are numerous duplicated rows. In the 4th example, the Public administration row is repeated twice. 
@@ -85,10 +86,9 @@ title: Working wiht data from the Bureau of Labor Statistics, part 1
       <h3>Solutions</h3>
       The most important thing is that we are aware of these issues, particularly points 1-3. We can use the Total column, and just 
       keep in mind that the
-      different fatality categories do not necessarily add up to 'Total', for whatever reason. For point 2, I will treat each row
-      as its own separate industry category, but differentiate between industries in <strong>bold</strong> font (that lack NAICS
-      codes) and sub-industries in normal font that do have NAICS code, calling the former "non-specific industries" and the latter
-      "specific industries" (and filtering on the presence or absence of NAICS code). For point 3, I will just be careful 
+      different fatality categories do not necessarily add up to 'Total', for whatever reason. For point 2, I will just look at
+      the sub-sector level, which corresonds to rows that have 3-digit NAICS codes. This is the most general level described in the
+      table, and works well for giving a correspondingly general view of workplace fatalities. For point 3, I will just be careful 
       to not add in duplicate rows when creating
       the dataframe. If rows are completely identical, I will only input one copy. When Industry name and NAICS code are identical but other column values are not, I will input both rows, and use an average. 
       for the actual analysis. And for the fourth point...
@@ -124,95 +124,71 @@ def open_file():
                 
         </ul> 
         <pre>
+def open_file():
+    with open("fatalities.txt", "r") as ins:
+        array = []
+        for line in ins:
+            array.append(line)
+    return array
+
 def clean_up(array):
-        for line_num,line in enumerate(array):
-                # Remove newline character
-                line = array[line_num].strip("\n")
-                if "--" in line:
-                        # Change "--" to 0
-                        line = re.sub("--", "0", line)
-                array[line_num] = line
-        return array
+    for line_num,line in enumerate(array):
+        line = array[line_num].strip("\n")      # Remove newline character
+        if "--" in line:                        # Change "--" to 0
+            line = re.sub("--", "0", line)
+        array[line_num] = line
+    return array
     
 def create_df(array):
-        # Transform data from text to appropriate arrays
-        industry=[]
-        naics=[]
-        total=[]
-        violence=[]
-        transportation=[]
-        fires=[]
-        falls=[]
-        exposure=[]
-        contact=[]
+    industry=[]
+    naics=[]
+    total=[]
+    violence=[]
+    transportation=[]
+    fires=[]
+    falls=[]
+    exposure=[]
+    contact=[]
     
-        regex = re.compile("[A-Z]")
-        regex2 = re.compile("[a-z]")
-        last_industry_name = "hello"    # silly initial value
-                                        
-        for line_num,line in enumerate(array):
-                words = line.split()
-                linetitle = []            
-                for w in words:
-                        if regex.match(w[0]):
-                                words = words[1:]
-                                linetitle.append(w)
-                                industry_row=' '.join(linetitle)
-                        elif regex2.match(w[0]):
-                                words = words[1:]
-                                linetitle.append(w)
-                                industry_row=' '.join(linetitle)
-                        elif w[0] == "(":
-                                words = words[1:]
-                                linetitle.append(w)
-                                industry_row=' '.join(linetitle)
-                if industry_row != last_industry_name: # get rid of duplicate rows in pdf
-                        for w_num,w in enumerate(words):
-                                words[w_num]=w.replace(",","") # remove commas in numbers
-                        if len(words) == 7:                # does not include NAICS code
-                                industry.append(industry_row)
-                                naics.append(0)
-                                total.append(int(words[0]))
-                                violence.append(int(words[1]))
-                                transportation.append(int(words[2]))
-                                fires.append(int(words[3]))
-                                falls.append(int(words[4]))
-                                exposure.append(int(words[5]))
-                                contact.append(int(words[6]))
-                                last_industry_name = industry_row
-                        elif len(words) == 8:             # does include NAICS code
-                                industry.append(industry_row)
-                                naics.append(int(words[0]))
-                                total.append(int(words[1]))
-                                violence.append(int(words[2]))
-                                transportation.append(int(words[3]))
-                                fires.append(int(words[4]))
-                                falls.append(int(words[5]))
-                                exposure.append(int(words[6]))
-                                contact.append(int(words[7]))
-                                last_industry_name = industry_row
-                        else:
-                                # Some kind of error, look at it manually
-                                print line_num
-                else:
-                        pass
-                        # many, many duplicated rows in pdf file
-        # Create dictionary of arrays
-        d={'industry':industry,
-        'naics': naics,
-        'total': total,
-        'violence': violence,
-        'transportation': transportation,
-        'fires': fires,
-        'falls': falls,
-        'exposure': exposure,
-        'contact': contact}
-   
-        # Create pandas dataframe object from dictionary
-        df = pd.DataFrame(d)
-        cols = ['industry','naics','total','violence','transportation','fires','falls','exposure','contact']
-        df = df[cols]
-        return df
+    regex = re.compile("[A-Za-z(]")
+
+    for line_num,line in enumerate(array):
+        words = line.split()
+        linetitle = []            
+        for w in words:
+            if regex.match(w[0]):
+                words = words[1:]
+                linetitle.append(w)
+                industry_row=' '.join(linetitle)
+        for w_num,w in enumerate(words):
+            words[w_num]=w.replace(",","")      # remove commas in numbers
+        if len(words)==8:                       # NAICS code is non-blank entry
+            if len(words[0])==3:                # NAICS code is 3-digits, meaning sub-sector level
+                industry.append(industry_row)
+                naics.append(int(words[0]))
+                total.append(int(words[1]))
+                violence.append(int(words[2]))
+                transportation.append(int(words[3]))
+                fires.append(int(words[4]))
+                falls.append(int(words[5]))
+                exposure.append(int(words[6]))
+                contact.append(int(words[7]))
+                last_industry_name = industry_row
+                
+    # Create pandas dataframe object from dictionary
+    d={'industry':industry,
+       'naics': naics,
+       'total': total,
+       'violence': violence,
+       'transportation': transportation,
+       'fires': fires,
+       'falls': falls,
+       'exposure': exposure,
+       'contact': contact}
+    df = pd.DataFrame(d)
+    cols = ['industry','naics','total','violence','transportation','fires','falls','exposure','contact']
+    df = df[cols]
+    return df
         </pre>
         
         Ok, phew, that accomplishes all that, and now we have a mostly functioning dataframe. We can now create
@@ -234,24 +210,20 @@ def modify_df(df):
     df['fallsP']=df.falls/df.total
     df['exposureP']=df.exposure/df.total
     df['contactP']=df.contact/df.total
-    # replace any inf values with nan values
-    df=df.replace([np.inf, -np.inf], np.nan)
+    df=df.replace([np.inf, -np.inf], np.nan)   # replace any inf values with nan values
     return df
 
-def df_subset(df,column_name,num,specific):
-    # Industries with most fatalities
-    if specific == False:
-        tempdf=df[df.naics==0][5:].sort_values(by=column_name,ascending=False)[0:num]
-    else:
-        tempdf=df[df.naics!=0][5:].sort_values(by=column_name,ascending=False)[0:num]
-    return tempdf  
-    
-def df_melt(df):
-    tempdf = pd.melt(df[['industry','naics','violence',\
-             'transportation','fires','falls','exposure','contact']], 
-              id_vars=["industry","naics"],
-              var_name="type",value_name="counts")
-    return tempdf
+def create_barchart(df,column_name,num,title_string):
+    tempdf=df.sort_values(by=column_name,ascending=False)[0:num]
+    tempdff=tempdf[['industry','violence','transportation','fires','falls','exposure','contact']]
+    tempdff=tempdff.set_index('industry')
+    a=tempdff.index
+    ax=tempdff.plot.barh(stacked=True,figsize=(8, 6),title=title_string);
+    labels = [ '\n'.join(wrap(l, 37)) for l in a ]
+    ax.set_xlabel("# of deaths")
+    ax.set_yticklabels(labels)
+    fig=ax.get_figure()
+    return fig
         </pre>
      <div id="final_pictures">
      <h3>Exploratory analysis time!</h3>
