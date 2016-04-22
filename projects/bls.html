@@ -281,7 +281,7 @@ def df_melt(df):
      
      <h4>Top 10 specific industries with most fatalities, 2014</h4>
      
-     The next bar chart contains the top 10 SPECIFIC industries with the most fatalities in 2014. These are the sub(-sub)-industries,
+     This bar chart contains the top 10 SPECIFIC industries with the most fatalities in 2014. These are the sub(-sub)-industries,
      i.e. the rows in the original table that contained a non-empty NAICS field. 
      Most of these industries are connected to either the transportation of goods or the construction field, with 
      Transportation and Falls as the major causes
@@ -291,8 +291,8 @@ def df_melt(df):
      <img src="bls_images/total_specific_top10.png" alt="top 10 total fatalities, specific industries" width="80%">
      
       <h4>Top 10 specific industries with most VIOLENT fatalities, 2014</h4>
-     The next bar chart shows the top 10 specific industries with the most fatalities caused by Violence, in 2014. <br><br>
-     <img src="bls_images/violence_specific_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%"
+     This bar chart shows the top 10 specific industries with the most fatalities caused by Violence, in 2014. <br><br>
+     <img src="bls_images/violence_specific_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%">
      
     <h4>Top 10 specific industries with highest VIOLENT fatalities by proportion, 2014</h4>
      We can also look at a bar chart that shows the top 10 specific industries with the highest PROPORTION of fatalities caused by 
@@ -308,13 +308,18 @@ def df_melt(df):
      Food and beverage stores, and Drinking places (alcoholic beverages). <br><br>
      <img src="bls_images/violenceP_gr20_specific_top10.png" alt="top 10 violenceP >20 fatalities, specific industries" width="80%">
      </div>
+     
      <h3>Conclusion and... what next?</h3>
      I showed how one can parse a multi-page table in a pdf file, and how one can produce some pretty images quite easily with the
      resulting pandas dataframes. However, there is so much more we can do with this data! Next steps in the project are:
      <ul>
              <li>Create interactive plots or dashboards, so that users can select whichever variables and filters they wish to see,
-             rather than just being limited to only the static figures I (the creator) choose to display</li>
-             <li>Getting other datasets from the Bureau of Labor Statistics to create a richer analysis</li>
+             rather than just being limited to only the static figures I choose to display.</li>
+             <li>Getting other datasets from the Bureau of Labor Statistics to create a richer analysis. For example,
+             if we include a dataset that contains total employment numbers in 2014 for each industry, then we could look at
+             the percentages of employees, rather than the absolute number of employees, that
+             incur workplace fatalities (as the latter is
+             somewhat meaningless when we do not have a sense of how many employees there are in total).</li>
      </ul>
      Stay tuned, and thanks for reading!
 </div><!-- /.blurb -->
