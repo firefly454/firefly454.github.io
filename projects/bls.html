@@ -231,9 +231,9 @@ def create_barchart(df,column_name,num,title_string):
      Now that that's all done, let's see some pictures! Pandas is so great in that we can create
      plots directly from dataframes, rather than using matplotlib or seaborn. Here are a few images:
      
-     <h4>Top 10 primary industries with most fatalities, 2014</h4>
+     <h4>Top 10 sub-sectors with most fatalities, 2014</h4>
      
-     This bar chart contains the top 10 primary industries with the most fatalities in 2014, with each bar colored by the 6
+     This bar chart contains the top 10 sub-sectors with the most fatalities in 2014, with each bar colored by the 6
      different fatality causes. 
      Fatality causes are abbreviated as follows:
      <ul>
@@ -246,44 +246,37 @@ def create_barchart(df,column_name,num,title_string):
      </ul>
      Service providing had the most fatalities in that year, with ~2250 deaths. Of these
      deaths, the majority were caused by transportation. Indeed, transportation was the leading cause of workplace fatalities in
-     many of the top general industries. Only Retail trade, Manufacturing, and Construction differed from this trend, with 
-     violence, contact, and falls as their leading causes of death, respectively.
+     many of the top sub-sectors. Only Construction of buildings, Administrative and support services, and
+     Specialty trade contractors differed from this trend, with 
+     falls as all of their leading causes of death.
      
-     <img src="bls_images/total_nonspecific_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%"><br><br>
+     <img src="bls_images/total_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%"><br><br>
      
-     <h4>Top 10 specific industries with most fatalities, 2014</h4>
+      <h4>Top 10 sub-sectors with most VIOLENT fatalities, 2014</h4>
+     This bar chart shows the top 10 specific industries with the most fatalities caused by Violence, in 2014. Unsurprisingly,
+     Justice, public order, and safety activities had the most violent fatalities. <br><br>
+     <img src="bls_images/violence__top10.ng" alt="top 10 total fatalities, non-specific industries" width="80%">
      
-     This bar chart contains the top 10 SPECIFIC industries with the most fatalities in 2014. These are the sub(-sub)-industries,
-     i.e. the rows in the original table that contained a non-empty NAICS field. 
-     Most of these industries are connected to either the transportation of goods or the construction field, with 
-     Transportation and Falls as the major causes
-     of fatalities in these industries.<br><br>
-     
-     
-     <img src="bls_images/total_specific_top10.png" alt="top 10 total fatalities, specific industries" width="80%">
-     
-      <h4>Top 10 specific industries with most VIOLENT fatalities, 2014</h4>
-     This bar chart shows the top 10 specific industries with the most fatalities caused by Violence, in 2014. <br><br>
-     <img src="bls_images/violence_specific_top10.png" alt="top 10 total fatalities, non-specific industries" width="80%">
-     
-    <h4>Top 10 specific industries with highest VIOLENT fatalities by proportion, 2014</h4>
+    <h4>Top 10 sub-sectors with highest VIOLENT fatalities by proportion, 2014</h4>
      We can also look at a bar chart that shows the top 10 specific industries with the highest PROPORTION of fatalities caused by 
-     Violence, in 2014.<br><br>
-     <img src="bls_images/violenceP_specific_top10.png" alt="top 10 violenceP fatalities, specific industries" width="80%">
+     Violence, in 2014. <br><br>
+     <img src="bls_images/violenceP_top10.png" alt="top 10 violenceP fatalities, specific industries" width="80%">
      
-     <h4>Top 10 specific industries with >20 total deaths AND highest VIOLENT fatalities by proportion, 2014</h4>
-     If we look at the x-axis in the above plot, we see that the actual total number of deaths is either 1 or 2. So, while these
-     industries' fatalities are 100% caused by violence, it would be inaccurate to say that these industries are really dangerous. Let's
+     <h4>Top 10 sub-sectors with >20 total deaths AND highest VIOLENT fatalities by proportion, 2014</h4>
+     If we look at the x-axis in the above plot, we see that the actual total number of deaths for many of the sub-sectors is quite small. So, while these
+     industries' fatalities have a high percentage of fatalities caused by violence, it would be misleading to say that these industries are actually violent. Let's
      filter the data by only including industries that have at least 20 total deaths, to get the next plot. Here, we see that many of the
-     industries that have a high proportion of deaths due to violence are quite similar. The top 6 industries with the
-     highest proportion of violent deaths are: Convenience stores, Gasoline stations with convenience stores, Gasoline stations, Grocery stores,
-     Food and beverage stores, and Drinking places (alcoholic beverages). <br><br>
-     <img src="bls_images/violenceP_gr20_specific_top10.png" alt="top 10 violenceP >20 fatalities, specific industries" width="80%">
+     industries that have a high proportion of deaths due to violence are quite similar. The top 4 industries with the
+     highest proportion of violent deaths are: Gasoline stations, Food and beverage stores, Miscellaneous store retailers, and Food services
+     and drinking places. Interestingly, Professional, scientific, and techinical services ranked #9 for most violent fatalities by
+     proportion.<br><br>
+     <img src="bls_images/violenceP_gr20_top10.png" alt="top 10 violenceP >20 fatalities, specific industries" width="80%">
      </div>
      
      <h3>Conclusion and... what next?</h3>
      I showed how one can parse a multi-page table in a pdf file, and how one can produce some pretty images quite easily with the
-     resulting pandas dataframes. However, there is so much more we can do with this data! Next steps in the project are:
+     resulting pandas dataframes. Specifically, I also showed how the original pdf table from the Buraeu of Labor Statistics is somewhat
+     messy and requires a bit of understanding the material before one can delve in. However, there is so much more we can do with this data! Next steps in the project are:
      <ul>
              <li>Create interactive plots or dashboards, so that users can select whichever variables and filters they wish to see,
              rather than just being limited to only the static figures I choose to display.</li>
