@@ -196,40 +196,6 @@ def create_df(array):
         
         <img src="bls_images/bls_df.png" alt="dataframe head" width="95%"><br><br>
         
-        We can also create
-        some helper functions, in order to:
-        <ul>
-                <li>Create new features, such as the percent of all fatalities for an industry that are
-                due to violence (i.e. divide 'violence' column by 'total' column. NOTE: the original
-                data is quite messy, such that some rows have 0 'total' fatalities but non-zero entries
-                for specific categories - in those cases, we will insert a NaN rather than an Inf</li>
-                <li>Plot date in the same format</li>
-        </ul>
-        
-        <pre>
-def modify_df(df):
-    df['violenceP']=df.violence/df.total
-    df['transportationP']=df.transportation/df.total
-    df['firesP']=df.fires/df.total
-    df['fallsP']=df.falls/df.total
-    df['exposureP']=df.exposure/df.total
-    df['contactP']=df.contact/df.total
-    df=df.replace([np.inf, -np.inf], np.nan)   # replace any inf values with nan values
-    return df
-
-def create_barchart(df,column_name,num,title_string):
-    tempdf=df.sort_values(by=column_name,ascending=False)[0:num]
-    tempdff=tempdf[['industry','violence','transportation','fires','falls','exposure','contact']]
-    tempdff=tempdff.set_index('industry')
-    a=tempdff.index
-    ax=tempdff.plot.barh(stacked=True,figsize=(8, 6),title=title_string);
-    labels = [ '\n'.join(wrap(l, 37)) for l in a ]
-    ax.set_xlabel("# of deaths")
-    ax.set_yticklabels(labels)
-    fig=ax.get_figure()
-    return fig
-        </pre>
-     <div id="final_pictures">
      <h3>Exploratory analysis time!</h3>
      
      Now that that's all done, let's see some pictures! Pandas is so great in that we can create
@@ -277,7 +243,7 @@ def create_barchart(df,column_name,num,title_string):
      <img src="bls_images/violenceP_gr20_top10.png" alt="top 10 violenceP >20 fatalities, specific industries" width="80%">
      </div>
      -->
-     <img src="bls_images/fatalities_by_category2.png" alt="fatalities by category" width="600",height="400"><br><br>
+     <img src="bls_images/fatalities_by_category2.png" alt="fatalities by category" width="600",height="400"><br><br><br>
      <img src="bls_images/total_top102.png" alt="fatalities by category" width="800",height="600">
      <h3>Conclusion and... what next?</h3>
      I showed how one can parse a multi-page table in a pdf file, and how one can produce some pretty images quite easily with the
