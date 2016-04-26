@@ -73,6 +73,7 @@ different industries and determine which industries have the most layoffs or the
 Because the text file is very organized, with columns delimited by tabs, getting the data is relatively simple. The only
 tricky part is to separate the series_id into different columns, and even this is a piece of cake:<br><br>
 
+<pre>
 JOLTS_file = "jt.data.0.Current.txt"
 
 # separate first column into multiple columns
@@ -107,6 +108,7 @@ df2.index=df2.index.to_datetime()                            # again, set index 
 bad_inds=["100000", "000000", "600000","900000","929000","510099","110099","300000","923000","480099","540099","400000","700000"]
 criterion = df['industry'].map(lambda x: x not in bad_inds)
 df = df[criterion]
+</pre>
 
 We now have a clean dataframe:<br><br>
 <img src="bls_images/bls2_df.png" alt="dataframe head" width="100%"><br><br>
