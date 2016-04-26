@@ -6,8 +6,8 @@ title: Working with data from the Bureau of Labor Statistics, part 1
         <h2>Working with data from the Bureau of Labor Statistics, part 1</h2>
         <h3>2014 Census of Fatal Occupational Injuries, or how to scrape data from pdfs</h3>
         
-        <a href="#final_pictures">CLICK here to SKIP to the end, and see PICTURES</a><br>
-        <a href="/projects/bls2.html">CLICK here to see part 2 of Working with data from the Bureau of Labor Statistics</a>
+        <a href="#final_pictures">Skip to final pictures</a><br>
+        <a href="/projects/bls2.html">See part 2 of Working with data from the Bureau of Labor Statistics</a>
         
         <h3>Introduction</h3>
         <a href="http://www.bls.gov/">The Bureau of Labor Statistics (BLS)</a> website has many datasets pertaining obviously
@@ -24,10 +24,9 @@ title: Working with data from the Bureau of Labor Statistics, part 1
         </ul>
         
         There are lots and lots of data files on the website (it IS a government statistics organization, after all), for any 
-        data junkie to be quite happy with. However, these are 
-        maddeningly horrific and ugly files! While some of the datasets are in relatively clean Microsoft Excel
+        data junkie to be quite happy with. However, while some of the datasets are in relatively clean Microsoft Excel
         format, the majority are either contained in tables within PDF files, or in easy-to-parse but very cryptic plain text
-        files.<br><br>
+        files.
         
         <h3>2014 Census of Fatal Occupational Injuries</h3>
         For the first part of this section, I'll give an example of working with one of the BLS's pdf files. I will investigate
@@ -37,21 +36,22 @@ title: Working with data from the Bureau of Labor Statistics, part 1
         Industry by event or exposure, 2014 (PDF 272K)".<br><br>
    
       Here is the first page of the 35-page document:<br><br>
-      <img src="bls_images/bls_fatalities_p1.png" alt="BLS pdf example 1" width="95%"><br><br>
+      <img src="bls_images/bls_fatalities_p1.png" alt="BLS pdf example 1" width="100%"><br><br>
       
       Here are some other sections from the same document:<br><br>
       from page 12:<br><br>
-      <img src="bls_images/bls_fatalities_p12.png" alt="BLS pdf example 2" width="95%"><br><br>
+      <img src="bls_images/bls_fatalities_p12.png" alt="BLS pdf example 2" width="100%"><br><br>
       from page 31:<br><br>
-      <img src="bls_images/bls_fatalities_p31.png" alt="BLS pdf example 3" width="95%"><br><br>
+      <img src="bls_images/bls_fatalities_p31.png" alt="BLS pdf example 3" width="100%"><br><br>
       from page 33:<br><br>
-      <img src="bls_images/bls_fatalities_p33.png" alt="BLS pdf example 3" width="95%"><br><br>
+      <img src="bls_images/bls_fatalities_p33.png" alt="BLS pdf example 3" width="100%">
+      
       <h3>What is wrong with these images??</h3>
       <ul><li><strong>"Total" column is unclear</strong></li></ul>
-      If you look closely, you can see some quirky things with the data. So many quirky things... 
+      If you look closely, you can see some quirky things with the data. 
       First, we can see that the table has 9 primary columns: Industry; NAICS code; Total fatal injuries; Violence and other
       injuries by persons or animals; Transportation incidents; Fires and explosions; Falls, slips, trips; Exposure to
-      harmful substances or environments; and Contact wiht objects and equipment. NAICS stands for the North American
+      harmful substances or environments; and Contact with objects and equipment. NAICS stands for the North American
       Industry Classification System, and is just the numeric code for each industry/sub-industry/etc. Based on the name, I would assume "Total" 
       to be the sum (or total) of the last 6 columns that give the various fatality causes. However, we can
       very quickly see that this is not the case, if you look at the first example and the rows for Soybean farming, Wheat farming,
@@ -78,26 +78,26 @@ title: Working with data from the Bureau of Labor Statistics, part 1
       page 12 and then page 31. In this case, the NAICS numbers are identical, while the actual death figures are different.
       This occurs dozens of throughout the document. How do we deal with such inconsistencies?
 
-        <ul><li><strong>PDF... really?!</strong></li></ul>
+        <ul><li><strong>PDF...</strong></li></ul>
       Fourth, parsing a pdf in python (or in any language) is not straight-forward. 
      A pdf is just a stable, static image that prints easily, and is not meant for text/number extraction. 
      However, I don't want to print the document - I want the 
-      information in a nice, tidy format, preferably a python Pandas dataframe! While there are a few python libraries as well as stand-alone websites that
-      claim to do pdf parsing, I didn't have too much luck with what I tried, with information not getting parsed correctly.
+      information in a nice, tidy format, preferably a python Pandas dataframe. While there are a few python libraries as well as stand-alone websites that
+      supposedly do pdf parsing, I didn't have too much luck with what I tried, with information not getting parsed correctly.
       
       <h3>Solutions</h3>
-      The most important thing is that we are aware of these issues, particularly points 1-3. We can use the Total column, and just 
+      The most important thing is that we are aware of these issues, particularly the first three points. We can use the Total column, and just 
       keep in mind that the
       different fatality categories do not necessarily add up to 'Total', for whatever reason. For point 2, I will just look at
       the sub-sector level, which corresonds to rows that have 3-digit NAICS codes. This is the most general level described in the
       table, and works well for giving a correspondingly general view of workplace fatalities. Point 3 is mostly fixed by only using
       sub-sector levels. However, when we still have identical sub-sector levels in the table, I will just input both, and keep this in mind for any
-      specific, future analysis (for example, use the mean values). And for the fourth point...
+      specific, future analysis (for example, I could use the mean numeric values of rows with identical industry/NAICS values). And for the fourth point...
       
       <h3>Transforming data from PDF tables to Pandas dataframes</h3>
       
       So, I did something (maybe) a little funny for this. I copy and pasted each table from the pdf file into my favorite text editor (Sublime Text).
-      Is there a better way to do this? Probably. But considering I don't normally deal with pdf's, and maybe will never have to again after
+      Is there a better way to do this? Probably. But considering I don't normally deal with pdfs, and maybe will never have to again after
       this exercise, the relatively dumb way is faster in the short-run. The result of this was that
        each row of the table was correctly placed into its own line in the text file. I then saved the file as a normal text file, and then
       opened up Jupyter Notebook (formally Ipython Notebook), to do the rest of the data munging and analysis. <br><br>
@@ -192,14 +192,17 @@ def create_df(array):
     return df
         </pre>
         
-        Ok! That was not so bad, actually, and now we have a very nice dataframe that looks like this:<br><br>
+        Ok! That was not so bad, and now we have a very nice dataframe that looks like this:<br><br>
         
-        <img src="bls_images/bls_df.png" alt="dataframe head" width="95%"><br><br>
+        <img src="bls_images/bls_df.png" alt="dataframe head" width="100%">
         
+        <div id="final_pictures">
      <h3>Exploratory analysis time!</h3>
      
-     Now that that's all done, let's see some pictures! Pandas is so great in that we can create
-     plots directly from dataframes, rather than using matplotlib or seaborn. Here are a few images:<br><br><br>
+     Now that that's all done, let's see some pictures! We can easily create beautiful ggplot-style looking figures with
+     "matplotlib.style.use('ggplot')". However, I just create my own plotting functions because of my 
+     personal preferences and notions on what make a figure both clear and aesthetically pleasing.
+     Here are a few images:<br><br>
      <!--
      <h4>Top 10 sub-sectors with most fatalities, 2014</h4>
      
@@ -243,23 +246,22 @@ def create_df(array):
      <img src="bls_images/violenceP_gr20_top10.png" alt="top 10 violenceP >20 fatalities, specific industries" width="80%">
      </div>
      -->
-     <img src="bls_images/fatalities_by_category2.png" alt="fatalities by category" width="600",height="400"><br><br><br>
-     <img src="bls_images/total_top102.png" alt="fatalities by category" width="800",height="600">
-     <h3>Conclusion and... what next?</h3>
-     I showed how one can parse a multi-page table in a pdf file, and how one can produce some pretty images quite easily with the
-     resulting pandas dataframes. Specifically, I also showed how the original pdf table from the Buraeu of Labor Statistics is somewhat
-     messy and requires a bit of understanding the material before one can delve in. However, there is so much more we can do with this data! Next steps in the project are:
-     <ul>
-             <li>Create interactive plots or dashboards, so that users can select whichever variables and filters they wish to see,
-             rather than just being limited to only the static figures I choose to display.</li>
-             <li>Getting other datasets from the Bureau of Labor Statistics to create a richer analysis. For example,
-             if we include a dataset that contains total employment numbers in 2014 for each industry, then we could look at
-             the percentages of employees, rather than the absolute number of employees, that
-             incur workplace fatalities (as the latter is
-             somewhat meaningless when we do not have a sense of how many employees there are in total).</li>
-     </ul>
-     Stay tuned, and thanks for reading! <br><br>
-     <a href="/projects/bls2.html">CLICK here to see part 2 of Working with data from the Bureau of Labor Statistics:<br>
-     Job Openings and Labor Turnover Survey, or how to work with coded survey files (in progress)</a>
+     <img src="bls_images/fatalities_by_category2.png" alt="fatalities by category" width="600",height="400"><br><br>
+     The above figure shows that Transportation incidents are the leading cause of workplace fatalities. This is not so
+     surprising, as transportation incidents are one of the leading causes of accidental deaths in the U.S. <br><br>
+     <img src="bls_images/total_top102.png" alt="fatalities by category" width="800",height="600"><br><br>
+     
+     <h3>Conclusion</h3>
+     I showed how the original pdf table from the Bureau of Labor Statistics is somewhat
+     messy and requires some understanding of the material before one can delve in. 
+     However, there is so much more we can do with this data. We could get other datasets from the 
+     Bureau of Labor Statistics to create a richer analysis. For example,
+     if we include a dataset that contains total employment numbers in 2014 for each industry, then we could look at
+     the percentages of employees, rather than the absolute number of employees, that
+     incur workplace fatalities.<br><br>
+    
+     <a href="/projects/bls2.html"><strong>See part 2 of Working with data from the Bureau of Labor Statistics:<br>
+     Job Openings and Labor Turnover Survey,<br>or how to work with coded survey files</strong></a>
+     </div>
 </div><!-- /.blurb -->
 
