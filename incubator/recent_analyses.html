@@ -8,10 +8,7 @@
 		font-size: 14px;
 		color: gray;
 	}
-	#wideimage{
-		width:100%;
-		margin: 0px auto;
-	}
+	
 	#red {color: #E24A33;}
 	#blue {color: #348ABD;}
 	#important {font-weight: bold;}
@@ -239,13 +236,13 @@ For example, <span id="blue">Healthcare reform</span> was a very important issue
 
 <p>Clustering Donald Trump's transcripts, in this project, is difficult for a few reasons. First, he really has only publicly spoken in the past 2 years, and 99% (if not 100%) of these speeches and interviews are related to the 2016 presidential election. For instance, some of the most frequent terms he uses contain his campaign slogan and words like: "poll", "campaign", "president", "support", and "New Hampshire". So, we have to group this already quite similar group of talks into more distinct sub-groups. After running scikit-learn's k-means clustering algorithm 3000 times, with 2000 different randomized initial cluster centers and 4 groups, the most meaningful* terms were analyzed in order to create the following speech categories:</p> 
 
-<p><span id="bigimportantr">Immigration & Hillary Clinton:</span> <span id="important">Immigration, workers, program, foreign, Hillary/Hillary Clinton/Clinton, American, lower, record, obvious, highly</span><br>
+<p><span id="bigimportantr">Immigration & workers</span> <span id="important">Immigration, workers, foreign, program, American, highly, ending, report, rates, percent</span><br>
 
-<span id="bigimportantb">Stuff:</span> <span id="important">know, very, people, because, country, look, Great, like, right, many</span><br>
+<span id="bigimportantb">Stuff:</span> <span id="important">very, know, people, because, look, like, right, happening, many, meaning</span><br>
 
-<span id="bigimportantr">Conservative people:</span> <span id="important">Cruz/Ted Cruz/Ted, life, issued, pro, like Ronald Reagan/like Ronald/Ronald Reagan/Ronald/Reagan, woman, conservative, pro life, lie, federal</span><br>
+<span id="bigimportantr">Conservative stuff:</span> <span id="important">life, Ted, issued, conservative, woman, lie, National, courts, person, position</span><br>
 
-<span id="bigimportantb">Make America Great Again:</span> <span id="important">American/America, border, Great, people, president, state, Israel, Iran, government, China</span></p>
+<span id="bigimportantb">American border:</span> <span id="important">American, border, people, family, time, very, polling, China, state, government</span></p>
 
 
 <p>*"don't" and "I've" were not considered to have any meaning, and therefore not included in defining each cluster theme, despite being in the top ten most important words for the "Stuff" category</p>
