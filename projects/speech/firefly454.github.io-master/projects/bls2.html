@@ -1,0 +1,189 @@
+---
+layout: default
+title: Working with data from the Bureau of Labor Statistics, part 2
+---
+<div class="blurb">
+<h2>Working with data from the Bureau of Labor Statistics, part 2</h2>
+<a href="/projects/bls.html">See part 1 of Working with data from the Bureau of Labor Statistics</a><br>
+<a href="#final_pictures">Skip to final pictures</a>
+
+<h3>Job Openings and Labor Turnover Survey</h3>
+For the second part of this section, I'll give an example of working with one of the BLS's coded survey files.
+Specifically, I want to see which industries are laying off the most people, and which industries have the
+biggest hiring gaps. In order to do this, I can turn to the BLS's survey on Job Openings and Labor Turnover.
+The corresponding files can be found <a href="http://download.bls.gov/pub/time.series/jt/">here</a>, on this
+relatively plain looking subpage:<br><br>
+<img src="bls_images/bls_JOLT1.png" alt="BLS JOLT files" width="100%"><br><br>
+
+The majority of the data on the BLS website comes in such a format. This may look a bit strange and intimidating 
+at first, but it's actually quite simple to navigate and understand. The first file you should read is "jt.txt",
+which gives a thorough description of the survey as well as descriptions of all the other files in the folder.
+From there, we can see which file contains the data we want (in this case, it is "jt.data.0.Current.txt"). The first
+couple of lines of that file look like this:<br><br>
+<img src="bls_images/bls_2_text.png" alt="original text file" width="100%"><br><br>
+
+The headings of this tab-delimited file are: "series_id", "year", "period", "value", and "footnote_code". The latter
+4 columns are easy enough to figure out. However, what is "series_id"? If we go back to "jt.txt", we'll find the
+following explanation:
+<ul>
+  <li>first 2 characters: survey abbreviation</li>
+  <li>next 1 character: seasonal adjustment (S-seasonally adjusted figures, U-unadjusted)</li>
+  <li>next 6 characters: industry code</li>
+  <li>next 2 characters: region code (NE-Northeast, SO-South, W-West, MW-Midwest, 00-Total US)</li>
+  <li>next 2 characters: data element code (JO-Job openings, HI-Hires, LD-Layoffs and discharges, OS-other separations, 
+    QU-quits, TS-total separations)</li>
+  <li>last 1 character: rate level code (R-rate, L-level in thousands)</li>
+</ul>
+So, for example, the series_id <strong>JTS000000NEJOR</strong> can be broken out into:<br><br>
+survey abbreviation = <strong>JT</strong> ("Job openings and labor turnover survey")<br>
+seasonal = <strong>S</strong> (seasonally adjusted figures)<br>
+industry code = <strong>000000</strong> (total nonfarm industry)<br>
+region code = <strong>NE</strong> (northeast region)<br>
+data element code = <strong>JO</strong> (job openings)<br>
+rate level code = <strong>R</strong> (rate)
+
+<h3>Choosing a single level of industry to work with</h3>
+Industry code refers to the North American Industry Classification System (NAICS), which is the
+system that we were introducted to in <a href="/projects/bls.html">part 1</a>.
+Some of the industries that are represented in the file are: 
+<ul>
+  <li>000000 - Total nonfarm</li>
+  <li>100000 - Total private</li>
+  <li>480099 - Transportation, warehousing, and utilities</li>
+  <li>520000 - Finance and insurance</li>
+  <li>510099 - Financial activities</li>
+  <li>900000 - Government</li>
+  <li>920000 - State and local</li>
+  <li>923000 - State and local government education</li>
+</ul>
+
+As in <a href="/projects/bls.html">part 1</a>, we can see that different levels of industry are surveyed in the file. "Total nonfarm" and "Total
+private" are HUGE categories, and only useful when we want to a picture of the total U.S. economy in general. "State and local government 
+education" is a subset of "State and local", while "State
+and local" is a subset of "Government". We can distinguish the different hierarchical levels by the number of trailing
+zeros. There are 5 different NAICS industry levels, ranging from "sectors" whose NAICS codes are
+comprised of 2 digits (e.g. "Construction","Durable goods manufacturing","Information") to the most specific industries
+whose NAICS codes have 6 digits ("Financial activities", "Transportation, warehousing, and utilities"). In this dataset,
+there are 15 2-digit NAICS-coded sectors, 2 3-digit NAICS-coded sub-sectors, 4 6-digit NAICS-coded industry groups,
+and 7 1-digit general categories (e.g. "Government", "Total nonfarm", "Total private"). <br><br>
+Because they are the most represented in 
+the data, we will focus on 
+the 2-digit NAICS-coded sectors/industry groups. By selecting a single level to work with, we can more clearly rank the
+different industries and determine which industries have the most layoffs or the biggest hiring gaps. 
+
+<br><br> Note: I sometimes use
+the terms "industry" and "sector" interchangeably, but will always be referring to a single NAICS level unless otherwise
+stated. Also, the Bureau
+of Labor Statistics uses an additional coding system, SIC (Standard Industrial Classification), which uses 4 digits. Data files
+on the BLS website use either SIC or NAICS, and there are resources that allow you to figure out what the SIC code is
+for a specific NAICS number, and vice versa.
+
+
+<h3>Transforming ugly datafile into clean dataframe</h3>
+Because the text file is very organized, with columns delimited by tabs, getting the data is relatively simple. The only
+tricky part is to separate the series_id into different columns, and even this is a piece of cake:<br><br>
+
+<pre>
+JOLTS_file = "jt.data.0.Current.txt"
+
+# separate first column into multiple columns
+cols=['series_id','year','period','value','footnote_codes']
+DF=pd.read_csv(JOLTS_file,delimiter="\t",names=cols,skiprows=1)
+newcols=DF['series_id'].str.extract('([A-z]{2})([SU]{1})(\d{6})([A-Z0-9]{2})([A-Z]{2})([A-Z]{1})',expand=True)
+newcols.columns=['survey','seasonal','industry','region','dataelement','ratelevel']
+df=DF.join(newcols)
+
+# Set index to datetime column
+df=df[df['period']!="M13"]                                 # remove annual average
+df['period'] = df['period'].map(lambda x: x.lstrip('M'))   # strip "M" in front of each month date
+df['date']=df['year'].map(str)+"-"+df['period']+"-01"      # create new date column
+df['date']=pd.to_datetime(df.date, format="%Y-%m-%d")      # change date column format to datetime
+df=df.set_index('date')                                    # set dataframe index to date
+df.index=df.index.to_datetime()                            # again, set index to datetime format (maybe unnecessary)
+
+# separate first column into multiple columns
+cols=['series_id','year','period','value','footnote_codes']
+DF=pd.read_csv(CE_file,delimiter="\t",names=cols,skiprows=1)
+newcols=DF['series_id'].str.extract('([A-z]{2})([SU]{1})(\d{8})(\d{2})',expand=True)
+newcols.columns=['survey','seasonal','industry','data_type']
+df2=DF.join(newcols)
+
+df2=df2[df2['period']!="M13"]                                 # remove annual average
+df2['period'] = df2['period'].map(lambda x: x.lstrip('M'))   # strip "M" in front of each month date
+df2['date']=df2['year'].map(str)+"-"+df2['period']+"-01"      # create new date column
+df2['date']=pd.to_datetime(df2.date, format="%Y-%m-%d")      # change date column format to datetime
+df2=df2.set_index('date')                                    # set dataframe index to date
+df2.index=df2.index.to_datetime()                            # again, set index to datetime format (maybe unnecessary)
+
+bad_inds=["100000", "000000", "600000","900000","929000","510099","110099","300000","923000","480099","540099","400000","700000"]
+criterion = df['industry'].map(lambda x: x not in bad_inds)
+df = df[criterion]
+</pre>
+<br>
+
+We now have a clean dataframe, that looks like this:<br><br>
+<img src="bls_images/bls2_df.png" alt="dataframe head" width="100%"><br><br>
+<div id="final_pictures">
+<h3>Exploratory analysis</h3>
+We can now use Pandas to manipulate the dataframe, and Matplotlib to make
+pretty, publication-worthy figures.
+
+<h3>Layoffs and discharges</h3>
+Let's look at which industries had the most layoffs and discharges in the dataset. This can be calculated
+in different ways, depending on what interpretation you have of "most". We can look at the average of each industry's
+layoff numbers over the course of January 2008 to February 2016. Similarly, we could compare the average of each industry's 
+layoff rate (in percentage) instead. Or, we could define "most" as in which industry had the
+highest layoff number, or rate, at any given moment. We could even aggregate all of the layoff numbers
+for each industry over the January 2008 to February 2016 period, and then determine which industry laid off the 
+most workers in total. <br><br>
+Let's go with the simplest calculation for now, and find the top 3 industries that had the highest number of layoffs &
+discharges <it>on average</it>. By playing around with our dataframe, we find out that the industries most hard-hit on
+average were "Construction", "Retail trade", and "Accommodation and food services". From 2008 - present, these three industries
+had significantly higher numbers of layoffs and discharges than the other industries. "Construction" had a mass layoff in 
+April 2009, letting 402,000 workers go, while "Accommodation and food services" had a singular mass layoff in April 2015,
+with 295,000 jobs lost.<br><br>
+
+<img src="bls_images/top3_layoffs2.png" alt="top 3 industries in layoffs" width="100%"><br><br>
+
+All three of the aforementioned industries had significantly higher numbers of layoffs and discharges than the other industries
+on average. However, these industries potentially employed more people on average than other industries. A more accurate picture
+of industry health can be found when we look at layoff and discharge
+rates. Here, we see that "Construction" is still the industry with the most layoffs and discharges, but now in terms of percentage. In
+April 2009, the layoff rate reached a peak value of 6.5%. As the Great Recession ended, the construction industry appeared to recover, with its
+layoff and discharge rate gradually decreasing to present day levels of ~3%. While this rate is stil higher than the average of the other
+industries, it is markedly lower than its 2009-2013 figures. In contrast, "Arts, entertainment, and recreation"
+rates of layoffs and discharges remain persistently high, as well as erratic, throughout the entire survey period.<br><br>
+
+<img src="bls_images/top3_layoffs_rate2.png" alt="top 3 industries in layoff rate" width="100%">
+
+<h3>Hiring gap</h3>
+We can calculate an industry's hiring gap by comparing its job openings to its hires. To do so, I created a new
+variable in the dataframe, "hiring gap", which was just an industry's job openings minus its hires, both in terms of
+rates and absolute numbers. When we look at the top three industries with the highest hiring gaps on average, we can
+see that "Health care and social assistance" had hiring gaps in the 100-500,000 range since 2011. In contrast,
+the average hiring gap for the other (non-top 3) industries was below 0 before 2013-2014, meaning that job hires
+outpaced job openings. In the case of the early years of the survey, the below-zero hiring gap is likely dominated by 
+the near or below-zero job growth in most industries.<br><br>
+
+<img src="bls_images/top3_hiring_gaps_numbers2.png" alt="top 3 industries in hiring gaps" width="100%"><br><br>
+
+We can also look at the hiring gap rate among industries. Here, we some some really odd patterns with the Federal
+jobs sector. <br><br>
+<img src="bls_images/top3_hiring_gaps_rate2.png" alt="top 3 industries in hiring gaps rate" width="100%"><br><br>
+
+Let's investigate, by looking at the rates of both job offerings and hires, for the Federal jobs industry.<br><br>
+<img src="bls_images/federal_hires_joboffers2.png" alt="lag in federal jobs" width="100%"><br><br>
+The Federal jobs industry had a sharp spike in job offerings in April 2010, followed by a sharp spike in hires in May 
+2010. This labor pattern results in the odd looking plot in the previous figure. My initial interpretation of this figure
+is that Federal government job openings are filled up very quickly. While this is most obvious in April-May 2010, we can
+also see this same phenomenon occurring in the beginning of 2009 as well. Are Federal government jobs filled quickly because
+of budget and timing characteristics specific to the Federal sector? Or are these labor patterns symptomatic of other
+issues?<br><br>
+<img src="bls_images/federal_labor.png" alt="quirks in federal industry labor" width="100%"><br><br>
+Wow, strange! A month after a burst in hiring employees, the Federal jobs sector then follows with a burst in
+employee layoffs and discharges. This definitely warrants more exploration...
+</div>
+<!--
+<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 654px; height: 742px;'><noscript><a href='http:&#47;&#47;firefly454.github.io&#47;projects&#47;bls2.html'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bl&#47;bls_part2_1&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='654' height='742' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='bls_part2_1&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bl&#47;bls_part2_1&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showTabs' value='y' /></object></div>
+-->
+</div><!-- /.blurb -->

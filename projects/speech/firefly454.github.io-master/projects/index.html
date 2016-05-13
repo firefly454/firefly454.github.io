@@ -1,0 +1,44 @@
+---
+layout: default
+title: Projects
+---
+<div class="blurb">
+        <h3><a href="/incubator/recent_analyses.html">Candidates' Speech Analysis Project</a></h3>
+        Analysis of speech transcripts from Hillary Clinton and Donald Trump! 
+        
+        <h3><a href="bls.html">Working with data from the Bureau of Labor Statistics</a></h3>
+        <a href="bls.html">Part 1: 2014 Census of Fatal Occupational Injuries</a><br>
+        <a href="bls2.html">Part 2: Job Openings and Labor Turnover</a>
+        
+        <h3><a href="loc.html">Exploring the Library of Congress's online archives</a></h3>
+        In progress, will update soon
+        
+        <h3><a href="/projects/project4page.html">Exploratory Data Analysis of Historical Loans</a></h3>
+        
+        This report contains an exploratory analysis of loan data from Prosper. <a href="https://www.prosper.com/">Prosper</a> is 
+        a peer-to-peer lending marketplace in which prospective borrowers post loan listings while investors select specific 
+        listings to then invest in. Investors can select loans based on a variety of factors, such as: the loan amount, the loan 
+        rating, the borrower’s salary, or the borrower’s number of past inquiries. 
+        I investigated this dataset (which ranged from 2006 - 2014) using R and exploratory data analysis techniques, and discovered interesting 
+        relationships between various variables. I also created many beautiful, informative, and revealing plots using the 
+        awesome ggplot library.
+               
+        <h3><a href="/projects/project_5_writeup(1).html">Enron Persons-of-Interest Fraud Classifier</a></h3>
+      In this project, I trained and tested a supervised learning algorithm to classify actual Enron employees as being or not being "persons-of-interest",
+      based on data made public from the infamous Enron corporate scandal.
+
+The whole data project was coded up in Python, and the entire machine learning parts relied on the amazing Scikit-Learn library. Because the dataset was so small, cross-validation was done using Sklearn’s StratifiedShuffleSplit function. 
+In the end, my classifier had recall and precision scores of over 0.3, which is quite impressive given the very small dataset and limited # of features. 
+The tools used in this data science project could be generalized to a wide variety of other classification problems. In particular, any sort of fraud detection problem would utilize similar steps and tools, and would be similar to this 
+problem in the sense that it is also a binary classification problem (something is either fraudulent or not), and the classes are generally very imbalanced (# of fraud cases is most likely much less than the # of real cases).
+
+
+        <h3><a href="/projects/OpenStreetMap_with_MongoDB.html">OpenStreetMap Data Wrangling</a></h3>
+        
+        I imported information on Cambridge, England from <a href="http://www.openstreetmap.org">OpenStreetMap</a>. I first checked 
+        the dataset for validity, accuracy, completeness, consistency, and uniformity, and then cleaned up all of the problems 
+        I found. I then exported the cleaned dataset into a MongoDB database. I queried this new database, asking and answering 
+        questions like, what are the top 10 amenities in Cambridge, or which pubs serve cask/real ale? Everything was coded in 
+        python (using Ipython Notebook).
+        
+</div><!-- /.blurb -->
