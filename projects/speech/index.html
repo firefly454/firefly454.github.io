@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>erica kim's blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="http://firefly454.github.io/">home</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li>
+                        <a class="page-scroll" href="#page-top">Intro</a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a class="page-scroll" href="#proposal">Proposal</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#prev">Methodology</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#comparison">Clinton vs Trump</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#clinton">Clinton Analysis</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Candidates' Speech Analysis Project</h3>
+                    <p>No matter what we talk about, we are talking about ourselves.<br>
+- author Hugh Prather</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="proposal" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Original Project Description and Proposal</h3>
+                    <p>
+What people say is important. We remember people by the famous words they said, whether it be Martin Luther King Jr.'s "I have a dream", to J.F.K.'s, "Ask not what your country can do for you - ask what you can do for your country." In this day and age, what people say is even more important as everything can be recorded and archived indefinitely. We acutely see this in the news - the Huffington Post published an article today (April 17, 2016), titled, "Release of Clinton's Wall Street Speeches Could End Her Candidacy for President."</p>
+
+<p>Thus, I propose to generate a corpus containing speeches, newspaper editorials, interview answers, and so on, labelled by their speakers/writers. With a large enough corpus, I can use an unsupervised machine learning algorithm to quickly cluster the texts into groups. These groups may reveal surprising connections between different people. However, it would be even more interesting to take new texts - the political speeches of current presidential candidates, in particular - and see which cluster each falls into. We could ask AND answer questions like: Is Donald Trump's rhetoric geometrically closer to that of Mother Theresa or Adolf Hitler? As many famous figures give many speeches, I also propose to work with people's individual corpuses. We could then see what the major themes are that create each cluster, and thus are seemingly most important to that person (assuming a politican's talk is genuine). By including the speech's date as a variable, we could even create a timeline showing how themes change with respect to time. Again, current political candidates' speeches would be ideal for such a project - they talk a lot, as well as flip-flop a lot, and using a computer to figure out what they supposedly care about is much easier and more enjoyable than listening to all of that talk!</p>
+
+<p>This project would be interesting to the general public, as it involves famous, notable people, both villainous and (literally) saintly, as well as current politicans. It could even be interactive, by allowing a user to upload something they have written (or any piece of text not in the corpus) and then returning a list of the closest speakers and speeches/texts as well as the most common, important words that led to how the user's text was clustered. Having interesting, interactive visualizations of the relationships between their text and the famous words of others would engage users as well.</p>
+
+<p>For preliminary plots and proof-of-concept, see here.</p>
+
+<p>NOTE: This project is not meant to express any particular political affiliation or intent. My only motivation is to apply machine learning and natural language text processing techniques to a fun and interesting domain.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="prev" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Methodology</h3>
+                    <p>Analyzing every aspect of a politian's way of speaking is a popular hobby these days. From way back in 2007, when then-Senator Barack Obama was celebrated for his deep and resonant Smoker's voice", to the present day's countless articles attacking or defending Hillary Clinton purely on the basis of her speaking tone, Americans are obsessed with the way our leaders talk.</p>
+
+<p>These previous analyses have only been qualitative. Now, however, we can start taking apart the 2016 POTUS candidates' speech patterns based on quantitative metrics. For example, the Wall Street Journal's article, What Speech Patterns Say About the Presidential Candidates, looked at how many unique words they use, on average, and what the total number of words spoken was:<p>
+
+
+
+
+<p>Similarly, the New York Times recent article, Ted Cruz as Beowulf: Matching Candidates With the Books They Sound Like, examined which books each candidates' speech patterns most likely resemble, based on quantifying their speaking styles as complex (e.g. Beowulf) or simple (e.g. Adventures of Huckleberry Finn), and negative (e.g. Ulysses") or positive (e.g. The Divine Comedy: Paradise):</p>
+
+
+<p>Interestingly, while the above analysis found Donald Trump to have relatively positive speech patterns, a different article by the New York Times found the leading Republican candidate to have an "ominous" tone, with "constant repetition of divisive phrases, harsh words and violent imagery."</p>
+
+<p>Such analyses of speech patterns remain incredibly popular and compelling to the general public. The New York Times article on Trump's ominous speaking style garnered 1,392 comments. The above Wall Street Journal article had 1,229 Facebook likes. With almost two dozen televised debates and countless more interviews and speeches, it makes sense to put a magnifying glass to the plethora of words spilling from the candidates' mouths.</p>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Projects Section -->
+    <section id="comparison" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Term useage comparisons between Clinton and Trump</h3>
+                    <p>Analyzing every aspect of a politian's way of speaking is a popular hobby these days. From way back in 2007, when then-Senator Barack Obama was celebrated for his deep and resonant Smoker's voice", to the present day's countless articles attacking or defending Hillary Clinton purely on the basis of her speaking tone, Americans are obsessed with the way our leaders talk.</p>
+
+<p>These previous analyses have only been qualitative. Now, however, we can start taking apart the 2016 POTUS candidates' speech patterns based on quantitative metrics. For example, the Wall Street Journal's article, What Speech Patterns Say About the Presidential Candidates, looked at how many unique words they use, on average, and what the total number of words spoken was:<p>
+
+
+
+
+<p>Similarly, the New York Times recent article, Ted Cruz as Beowulf: Matching Candidates With the Books They Sound Like, examined which books each candidates' speech patterns most likely resemble, based on quantifying their speaking styles as complex (e.g. Beowulf) or simple (e.g. Adventures of Huckleberry Finn), and negative (e.g. Ulysses") or positive (e.g. The Divine Comedy: Paradise):</p>
+
+
+<p>Interestingly, while the above analysis found Donald Trump to have relatively positive speech patterns, a different article by the New York Times found the leading Republican candidate to have an "ominous" tone, with "constant repetition of divisive phrases, harsh words and violent imagery."</p>
+
+<p>Such analyses of speech patterns remain incredibly popular and compelling to the general public. The New York Times article on Trump's ominous speaking style garnered 1,392 comments. The above Wall Street Journal article had 1,229 Facebook likes. With almost two dozen televised debates and countless more interviews and speeches, it makes sense to put a magnifying glass to the plethora of words spilling from the candidates' mouths.</p>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="clinton" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Analysis of Hillary Clinton's Speeches</h3>
+                    <p>Analyzing every aspect of a politian's way of speaking is a popular hobby these days. From way back in 2007, when then-Senator Barack Obama was celebrated for his deep and resonant Smoker's voice", to the present day's countless articles attacking or defending Hillary Clinton purely on the basis of her speaking tone, Americans are obsessed with the way our leaders talk.</p>
+
+<p>These previous analyses have only been qualitative. Now, however, we can start taking apart the 2016 POTUS candidates' speech patterns based on quantitative metrics. For example, the Wall Street Journal's article, What Speech Patterns Say About the Presidential Candidates, looked at how many unique words they use, on average, and what the total number of words spoken was:<p>
+
+
+
+
+<p>Similarly, the New York Times recent article, Ted Cruz as Beowulf: Matching Candidates With the Books They Sound Like, examined which books each candidates' speech patterns most likely resemble, based on quantifying their speaking styles as complex (e.g. Beowulf) or simple (e.g. Adventures of Huckleberry Finn), and negative (e.g. Ulysses") or positive (e.g. The Divine Comedy: Paradise):</p>
+
+
+<p>Interestingly, while the above analysis found Donald Trump to have relatively positive speech patterns, a different article by the New York Times found the leading Republican candidate to have an "ominous" tone, with "constant repetition of divisive phrases, harsh words and violent imagery."</p>
+
+<p>Such analyses of speech patterns remain incredibly popular and compelling to the general public. The New York Times article on Trump's ominous speaking style garnered 1,392 comments. The above Wall Street Journal article had 1,229 Facebook likes. With almost two dozen televised debates and countless more interviews and speeches, it makes sense to put a magnifying glass to the plethora of words spilling from the candidates' mouths.</p>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
