@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>speech analysis</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <style>
+    
+    #red {color: #E24A33;}
+    #blue {color: #348ABD;}
+    #plain {font-size:16px;}
+    #hor-minimalist-a
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 16px;
+    background: #fff;
+    margin: 25px;
+    width: 560px;
+    border-collapse: collapse;
+    text-align: left;
+}
+    #hor-minimalist-a3
+    {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 16px;
+    background: #fff;
+    margin: 40px;
+    width: 750px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+    </style>
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Intro</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    
+                    <li class="page-scroll">
+                        <a href="#clinton">CLINTON TIMELINE</a>
+                    </li>
+                   
+                    <li class="page-scroll">
+                        <a href="#tweet_stats">AT A GLANCE</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="#issues">THE ISSUES</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#timeline">INSULT BOOST</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#predictor">TWEET PREDICTOR</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <img class="img-responsive" src="img/portfolio/twitter_flag.png" alt="">sjdkfljsdkfdjs<br>sdjfk
+                    <div class="intro-text">
+                    sjdlfkjsdlkfjdsk
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="clinton">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Clinton timeline</h2>
+                    <br>
+                    <img class="img-responsive" src="img/portfolio/hillary_logo.jpg" alt=""><br><br>
+                    <img class="img-responsive" src="img/portfolio/hillary_speech_topics.png" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="tweet_stats">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Tweets at a glance...</h2>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <h3>Basic statistics</h3>
+                    <h4><span id="red">Donald Trump has an average 9,913 favorites and 3.683 retweets per tweet.</span></h4>
+
+                    <h4><span id="blue">Hillary Clinton has an average 2,879 favorites and 1,573 retweets per tweet.</span></h4>
+
+                    <h3>The most frequent phrases (and their counts):</h3>
+                     <center>
+                    <table id="hor-minimalist-a">
+                    <tr>
+                    <th><h3>Unique Bi-gram Terms:</h4></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
+                    </tr>
+                    <tr><th><span id="red">Ted Cruz - 109</span></th><th><span id="blue">Donald Trump - 142</span></th></tr>
+                    <tr><th><span id="red">Hillary Clinton - 89</span></th><th>Hillary Clinton - 56</th></tr>
+                    <tr><th><span id="red">Crooked Hillary - 87</span></th><th><span id="blue">gun violence - 52</span></th></tr>
+                    <tr><th>Donald Trump - 83</th><th><span id="blue">health care - 48</span></th></tr>
+                    <tr><th>South Carolina - 59</th><th>White House - 37</th></tr>
+                    <tr><th>New Hampshire - 59</th><th>New Hampshire - 35</th></tr>
+                    <tr><th>New York - 44</th><th>New York - 31</th></tr>
+                    <tr><th>Marco Rubio - 39</th><th>Supreme Court - 30</th></tr>
+                    <tr><th><span id="red">beat Hillary - 29</span></th><th><span id="blue">foreign policy - 23</span></th></tr>
+                    </table>
+
+                    <table id="hor-minimalist-a">
+                    <tr>
+                    <th><h3>Unique 3-grams:</h4></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
+                    </tr>
+                    <tr><th>make america great - 110</th><th><span id="blue">we need to - 37</span></th></tr>
+                    <tr><th>i will be - 110</th><th><span id="blue">we have to - 41</span></th></tr>
+                    <tr><th>thank you for - 71</th><th>the White House - 37</th></tr>
+                    <tr><th>will be interviewed - 52</th><th>a president who - 34</th></tr>
+                    <tr><th><span id="red">crooked Hillary Clinton - 32</span></th><th><span id="blue">Donald Trump is - 28</span></th></tr>
+                    <tr><th><span id="red">lyin' Ted Cruz - 24</span></th><th>need a president - 27</th></tr>
+                    <tr><th><span id="red">goofy Elizabeth Warren - 19</span></th><th><span id="blue">we can't let - 25</span></th></tr>
+                    <tr><th><span id="red">Ted Cruz is - 18</span></th><th><span id="blue">we can't afford - 24</span></th></tr>
+                    
+                    </table>
+
+                    <table id="hor-minimalist-a">
+                    <tr>
+                    <th><h3>Unique 4-grams:</h4></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
+                    </tr>
+                    <tr><th>make america great again - 109</th><th><span id="blue">need a president who - 25</span></th></tr>
+                    <tr><th>i will be interviewed - 39</th><th>should be able to - 11</th></tr>
+                    <tr><th>thank you for your - 33</th><th><span id="blue">the affordable care act - 11</span></th></tr>
+                    <tr><th><span id="red">I am the only - 12</span></th><th>to stand with Hillary - 11</th></tr>
+                    <tr><th><span id="red">I will beat Hillary - 10</span></th><th>we need to make - 10</th></tr>
+                    <tr><th><span id="red">weak on illegal immigration - 10</span></th><th>to be commander in - 10</th></tr>
+                    
+                    </table>
+                    </center>
+                        <br>
+                    <h3>Who are the candidates, and what vision do they hold for themselves?<br>Fill in the blank...</h3>
+                    <h4><span id="red">Trump: "I am the only _____________"</span></h4>
+                    <ul>
+                    <li>
+                     "candidate who is <span id="red">self-funding</span>. While I am given little credit for this by the voters, I am not bought like others!"</li>
+                    <li>"one who is self-funding my campaign. All of the other candidates are bought and paid for by special interests!"</li>
+                    <li>"presidential candidate who will <span id="red">bring jobs back</span> to the U.S.and protect car industry!" </li>
+                    <li>"candidate that is self funding my campaign, I am not bought and paid for!"</li>
+                    <li>"one who can <span id="red">beat Hillary Clinton</span>. I am not a Mitt Romney, who doesn't know how to win. Hillary wants no pa of "Trump""</li>
+                    <li>"Republican who will <span id="red"> get large numbers</span> of Dems and Indies (crossover). I will also get states that no other Republican can get."</li>
+                    <li>"candidate (in many years) who is self-funding his campaign. Lobbyists and $ interests totally control all other candidates!"</li>
+                    <li>"one who will <span id="red">#MAKEAMERICAGREATAGAIN!</span>"</li>
+                    <li>"one who can!"</li>
+                    <li>"one who can fix this. Very sad. Will not happen under my watch! #MakeAmericaGreatAgain"</li>
+                    <li>"candidate self-funding!"</li>
+                    </ul>
+                    <br>
+                    <h4><span id="blue">Clinton: "We need a president who _____________" </span></h4>
+                    <ul>
+                    <li>"'s fighting to <span id="blue">raise incomes</span> for all Americans, not one who tries to profit at their expense."</li>
+                    <li>"will unite leaders around the world to defeat ISIS, not one who insults and alienates them."</li>
+                    <li>"will <span id="blue">take action on gun violence</span> and stand with victims' families against the gun lobby."</li>
+                    <li>"will always put families above the gun lobby. #DemDebate"</li>
+                    <li>"<span id="blue">can bring people together.</span>"</li>
+                    <li>"doesn’t just rail against trade."</li>
+                    <li>"knows how to compete against the rest of the world and win."</li>
+                    <li>"will help break down all the barriers holding Americans back, not just some." -Hillary"</li>
+                    <li>"will make <span id="blue">comprehensive immigration reform</span> a top priority and keep families together."</li>
+                    <li>"will provide leadership that’s strong, sma, and steady. The last thing we need are leaders who incite more fear."</li>
+                    <li>"knows how to make government work."</li>
+                    <li>"will tackle all the issues we face, from systemic racism to LGBT discrimination."</li>
+                    <li>"will fight for all Americans, not just those at the top."</li>
+                    <li>"will make <span id="blue">quality higher education</span> a reality for every American."</li>
+                    <li>"will always, always put American families over the gun lobby."</li>
+                    <li>"can do all aspects of the job...I'm ready to take it on."</li>
+                    <li>"will stand up to the gun lobby. Add your name if you agree"</li>
+                    <li>"<span id="blue">can take on Republicans 
+                    </span>and get the job done."</li>
+                    <li>"gets things done"</li></ul>
+                    <br>
+<!--
+                    <h4><span id="red">Trump: "_____________ * weak on illegal immigration * _____________"</span></h4>
+                    <ul>
+                    <li>
+                    "Ohio is losing jobs to Mexico, now losing Ford (and many others). Kasich is ***. We need strong borders now!"</li>
+<li>Rubio is ***, with the worst voting record in the U.S. Senate in many years. He will never MAKE AMERICA GREAT AGAIN!"</li>
+
+<li>"Ted Cruz only talks tough on immigration now because he did so badly in S.C. He is in favor of amnesty and ***"</li>
+<li>
+"Remember that Marco Rubio is very ***. South Carolina needs strength as illegals and Syrians pour in. Don't allow it"</li> 
+<li>"@FoxNews is really staing to campaign hard for marcorubio. #fairandbalancedmyass"  He is ***!"</li>
+<li>"Jeb Bush is desperate - strongly in favor of #CommonCore and very ***."</li>
+<li>"Hillary Clinton is ***, among many other things. She is strong on corruption - corruption is what she's best at!"</li>
+<li>"@HillaryClinton is *** & totally incompetent as a manager and leader - no strength or stamina to be #POTUS!"</li> -->
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section id="issues">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>The Issues</h2>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <span id="plain">Tweets were classified by the presence/absence of specific topic keywords. Click on an issues icon to see how frequently or not each candidate tweeted about that specfic issue. The more tweets we see, the more we can assume that that issue is IMPORTANT to the candidate. Each tweet is plotted along with its retweet count and its favorite count - both which measure how receptive a tweet was.</span>
+                   
+                </div>
+            </div>
+            <div class="row">
+            <center>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#guncontrol" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+
+                                <i class="fa fa-search-plus fa-3x">
+                                </i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/weapon.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#abortion" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/people.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#immigration" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/tool.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#criminal_justice" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/people-1.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#money" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/tool-1.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#national_defense" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/transport.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#climate_change" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/globe.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#healthcare" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/medical-1.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#higher_education" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/people-2.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <section id="timeline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>The Insult Boost</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <h3>A few observations...</h3>
+                    <h4>Most retweeted & favorited tweets:</h4>
+                    
+                    <p><span id="blue">Clinton: "Delete your account." </span>[618,368 favorites; 481,099 retweets]</p>
+                    
+                    <p><span id="red">Trump: "How long did it take your staff of 823 people to think that up--and where are your 33,000 emails that you deleted?" </span>[285,060 favorites; 171,296 retweets]</p>
+
+                    <!--<p><span id="blue">Clinton: "Hi." </span>[79,865 favorites; 35,880 retweets]</p>
+
+                    <p><span id="red">Trump: "Happy #CincoDeMayo! The best taco bowls are made in Trump Tower Grill. I love Hispanics!" </span>[112,958 favorites; 83,972 retweets]</p>
+
+                    <p><span id="blue">Clinton: "To every little girl who dreams big: Yes, you can be anything you want-even president. Tonight is for you. -H" </span>[73,657 favorites; 38,939 retweets]</p>
+
+                    <p><span id="red">Trump: "Is President Obama going to finally mention the words radical Islamic terrorism? If he doesn't he should immediately resign in disgrace!" </span>[90,429 favorites; 39,614 retweets]</p>
+                    <br>-->
+                    <br><br>
+                    <h3> Do direct insults and negative remarks increase likes and retweets?</h3>
+                    
+                    <center>
+                    <table id="hor-minimalist-a3">
+                    <tr>
+                    <th><h4><span id="red">Trump</span></h4></th>
+                    <th><h5>tweets referencing<br>Hillary Clinton</h5></th>
+                    <th><h5>tweets NOT referencing<br> Hillary Clinton</h5></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>number of tweets:</th>
+                    <th>254</th>
+                    <th>2,993</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>percentage of all tweets:</th>
+                    <th>7.8%</th>
+                    <th>92.2%</th><th></th></tr>
+                    <tr><th><span id="red">average # of retweets:</span></th>
+                    <th>15,564</th><th>9,433</th></tr>
+                    <tr><th><span id="red">average # of favorites:</span></th>
+                    <th>6,079</th><th>3,480</th><th></th></tr>
+
+                    </table></center>
+                    <h4>Differences in favorite and retweet counts are both statistically significant (6.1E-23, 1.2E-18).<span id="red"> There is a statistically measureable gain in favorites and retweets</span> for Donald Trump when a tweet directly comments on Hillary Clinton</h4></center>
+
+                    <center>
+                    <table id="hor-minimalist-a3">
+                    <tr>
+                    <th><h4><span id="blue">Clinton</span></h4></th>
+                    <th><h5>tweets referencing<br>Donald Trump</h5></th>
+                    <th><h5>tweets NOT referencing<br> Donald Trump</h5></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>number of tweets:</th>
+                    <th>204</th>
+                    <th>3,020</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>percentage of all tweets:</th>
+                    <th>6.3%</th>
+                    <th>93.7%</th><th></th></tr>
+                    <tr><th><span id="blue">average # of retweets:</span></th>
+                    <th>2,366</th><th>1,520</th></tr>
+                    <tr><th><span id="blue">average # of favorites:</span></th>
+                    <th>3,860</th><th>2,813</th><th></th></tr>
+
+                    </table></center>
+                    <h4>Differences in favorite and retweet counts are both NOT statistically significant (0.208, 0.182). In general, <span id="blue"> it does not pay off for Hillary Clinton to directly address Donald Trump</span></h4>
+
+
+                    
+
+
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="#" class="btn btn-lg btn-outline">
+                        <i class="fa fa-download"></i> Download Theme
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="predictor">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Tweet Predictor</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p>Do you sound more like Donald Trump or Hillary Clinton? Type in a tweet, and we'll tell you with our tweet predictor engine!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        By Erica J. Kim. <br><br>
+                        Issues icons were designed by Freepik and distributed by Flaticon
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Issues Descriptions -->
+    <div class="portfolio-modal modal fade" id="guncontrol" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Gun control</h2>
+                            <br>
+
+                            <img src="img/portfolio/guncontrolfav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/guncontrolrt.png" class="img-responsive img-centered" alt="">
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="abortion" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Abortion</h2>
+                            
+                        <br>
+
+                            <img src="img/portfolio/abortionfav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/abortionrt.png" class="img-responsive img-centered" alt="">
+                            
+                            
+
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="portfolio-modal modal fade" id="immigration" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Immigration</h2>
+                            <br>
+
+                            <img src="img/portfolio/immigrationfav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/immigrationrt.png" class="img-responsive img-centered" alt="">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="criminal_justice" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Criminal Justice</h2>
+                            <br>
+
+                            <img src="img/portfolio/criminal_justicefav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/criminal_justicert.png" class="img-responsive img-centered" alt="">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="portfolio-modal modal fade" id="money" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Jobs and the Economy</h2>
+                            <br>
+
+                            <img src="img/portfolio/moneyfav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/moneyrt.png" class="img-responsive img-centered" alt="">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="national_defense" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>National Defense</h2>
+                            <br>
+
+                            <img src="img/portfolio/national_defensefav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/national_defensert.png" class="img-responsive img-centered" alt="">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="climate_change" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Climate Change</h2>
+                            <br>
+
+                            <img src="img/portfolio/climate_changefav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/climate_changert.png" class="img-responsive img-centered" alt="">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="healthcare" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Health Care</h2>
+                            <br>
+
+                            <img src="img/portfolio/healthcarefav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/healthcarert.png" class="img-responsive img-centered" alt="">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="higher_education" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Higher Education</h2>
+                            <br>
+
+                            <img src="img/portfolio/higher_educationfav.png" class="img-responsive img-centered" alt="">
+                            <br>
+                            <img src="img/portfolio/higher_educationrt.png" class="img-responsive img-centered" alt="">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/freelancer.min.js"></script>
+
+</body>
+
+</html>
