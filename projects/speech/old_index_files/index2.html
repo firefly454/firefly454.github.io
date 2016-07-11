@@ -27,7 +27,6 @@
     
     #red {color: #E24A33;}
     #blue {color: #348ABD;}
-    #grey {color: gray;}
     #important {font-weight: bold;}
     #bigimportantr {font-size: 18px;
         font-weight: bold;
@@ -48,7 +47,8 @@
     #tiny{
         font-size:8px;
     }   
-       #hor-minimalist-a
+
+    #hor-minimalist-a
 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 16px;
@@ -68,6 +68,7 @@
     border-collapse: collapse;
     text-align: left;
 }
+
 </style>
 </head>
 
@@ -102,26 +103,13 @@
                     </li>
                     
                     <li>
-                        <a class="page-scroll" href="#comparison">Trump vs. Clinton</a>
+                        <a class="page-scroll" href="#comparison">Speech Analysis</a>
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="#clinton">Speeches!</a>
+                        <a class="page-scroll" href="#twitter">Tweet Analysis</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#tweets">
-                        Tweets!</a>
-                    </li>
-
-                    <li>
-                        <a class="page-scroll" href="#insult">
-                        Favorites Boost</a>
-                    </li>
-
-                    <li>
-                        <a class="page-scroll" href="#issues">
-                        Important Issues?</a>
-                    </li>
+                    
                    
                     <li>
                         <a class="page-scroll" href="#code">
@@ -148,13 +136,24 @@ What people say is important. We remember people by the famous words they said, 
 
 <p>Analyzing every aspect of a politian's way of speaking is a popular hobby these days. From way back in 2007, when then-Senator Barack Obama was celebrated for his deep and resonant Smoker's voice", to the present day's countless articles attacking or defending Hillary Clinton purely on the basis of her speaking tone, Americans are obsessed with the way our leaders talk.</p>
 
-<p>These previous analyses have only been qualitative. Now, however, we can start taking apart the 2016 POTUS candidates' speech patterns based on quantitative metrics.</p>
+<p>These previous analyses have only been qualitative. Now, however, we can start taking apart the 2016 POTUS candidates' speech patterns based on quantitative metrics. For example, the Wall Street Journal's article, What Speech Patterns Say About the Presidential Candidates, looked at how many unique words they use, on average, and what the total number of words spoken was:<p>
+
+<br><center><img src="speech_imgs/wsj_wordup.jpg" alt="wsj" width="50%"></center><br>
+
+
+<p>Similarly, the New York Times recent article, Ted Cruz as Beowulf: Matching Candidates With the Books They Sound Like, examined which books each candidates' speech patterns most likely resemble, based on quantifying their speaking styles as complex (e.g. Beowulf) or simple (e.g. Adventures of Huckleberry Finn), and negative (e.g. Ulysses") or positive (e.g. The Divine Comedy: Paradise):</p>
+
+<br><center><img src="speech_imgs/nytimes_candidates_books.png" alt="wsj" width="100%"></center><br>
+
+<p>Interestingly, while the above analysis found Donald Trump to have relatively positive speech patterns, a different article by the New York Times found the leading Republican candidate to have an "ominous" tone, with "constant repetition of divisive phrases, harsh words and violent imagery."</p>
+
+<p>Such analyses of speech patterns remain incredibly popular and compelling to the general public. The New York Times article on Trump's ominous speaking style garnered 1,392 comments. The above Wall Street Journal article had 1,229 Facebook likes. With almost two dozen televised debates and countless more interviews and speeches, it makes sense to put a magnifying glass to the plethora of words spilling from the candidates' mouths.</p>
                 </div>
             </div>
         </div>
     </section>
 
-   
+
 
     <!-- Projects Section -->
     <section id="methodology" class="white-section">
@@ -195,9 +194,6 @@ see the transcripts to Hillary Clinton's paid Wall Street speeches, which are st
 <li><a href="http://cnnpressroom.blogs.cnn.com/2016/03/29/full-rush-transcript-donald-trump-cnn-milwaukee-republican-presidential-town-hall/">Donald Trump, CNN Milwaukee Republican Presidential Town Hall</a></li>
 <li><a href="http://abcnews.go.com/Politics/video/donald-trumps-speech-super-tuesday-37325330">ABC News: Donald Trump's Super Tuesday Speech</a></li></ul>
 
-<h4 id="TRUMP">Collecting tweets</h4>
-<p>Tweets were gathered using Python's Tweepy library.
-
 
 
                 </div>
@@ -206,11 +202,12 @@ see the transcripts to Hillary Clinton's paid Wall Street speeches, which are st
     </section>
 
 <!-- Projects Section -->
-    <section id="comparison" class="white-section">
+    <section id="comparison" class="grey-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                <center><h3>Trump vs. Clinton - a clash of words</h3></center>
+                <center><h2>Speech Analysis</h2></center>
+                <h3>Trump vs. Clinton - a clash of words</h3>
                     <center>
 <br><img src="speech_imgs/hillary_talking.png" width="80%"><br><br>
 <img src="speech_imgs/donald_talking.png" width="80%"><br>
@@ -219,8 +216,8 @@ see the transcripts to Hillary Clinton's paid Wall Street speeches, which are st
 <p>
 Considering that Trump's logo is: <span id="red">Make America Great Again</span>, it's no surprise that most of those words are in the top ten words list.
 </p>
-<br><br><br>
-<h4>How frequent do candidates mention specific terms?</h4>
+
+<h3>How frequent do candidates mention specific terms?</h3>
 
 <center><br>
 <img src="speech_imgs/HCDT_abortion.png" alt="abortion" width="60%"><br><br>
@@ -230,28 +227,14 @@ Considering that Trump's logo is: <span id="red">Make America Great Again</span>
 </center>
 
 
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="clinton" class="white-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <center><h3>Analysis of Hillary Clinton's Words</h3><br>
+                    <center><h3>Analysis of Hillary Clinton's Words</h3>
 
                     
 <img src="speech_imgs/hillary_logo.jpg" alt="hillary logo" width="85%"><br>
-<span id="tiny">image source: <a href="http://www.fastcodesign.com/3044980/the-internet-freaks-out-over-hillarys-campaign-logo">www.fastcodesign.com</a></span></center><br><br>
-<h4>9 Categories of Speech Topics</h4>
-<!--
+<span id="tiny">image source: <a href="http://www.fastcodesign.com/3044980/the-internet-freaks-out-over-hillarys-campaign-logo">www.fastcodesign.com</a></span>
+</center>
 
-
-                    <p>All of Clinton's 490 speeches in the corpus are clustered into 9 groups. These groups are found automatically by scikit-learn's k-means clustering algorithm, solely based on the terms in each speech. After running the algorithm 1000 times, with 800 different randomized initial cluster centers, the speeches were found to consistently group into the same 9 categories. By getting the ten most meaningful* terms of each group, I could distinguish the primary topic of each group. These are:</p>-->
+                    <p>All of Clinton's 490 speeches in the corpus are clustered into 9 groups. These groups are found automatically by scikit-learn's k-means clustering algorithm, solely based on the terms in each speech. After running the algorithm 1000 times, with 800 different randomized initial cluster centers, the speeches were found to consistently group into the same 9 categories. By getting the ten most meaningful* terms of each group, I could distinguish the primary topic of each group. These are:</p>
 
 <p>
 <span id="bigimportantr">History, culture, and honor:</span> <span id="important">imagine, history, cultural, past, White House, honored, celebrate, historic, save, century</span><br>
@@ -274,7 +257,7 @@ Considering that Trump's logo is: <span id="red">Make America Great Again</span>
 
 <span id="bigimportantr">Democracy & human rights:
 </span> <span id="important">democracies, human, society, human right, girls, government, educated, unites, conferences, voice, economic</span></p>
-<!--
+
 <p>*"lot", "got", "DR", and "let" were not considered to have any meaning, and therefore not included in defining each cluster theme, despite some of these terms being in the top ten most important words for the Domestic & social issues cluster, Economy cluster, and Elections & politics cluster.</p>
 
 <h4>Looking at Clinton's speech topics through the years</h4>
@@ -284,15 +267,14 @@ Considering that Trump's logo is: <span id="red">Make America Great Again</span>
 <p>We can look at a single speech topic, and then go across the plot to see how often she speaks about that topic.
 For example, <span id="blue">Healthcare reform</span> was a very important issue for Hillary Clinton when she was First Lady and chair of the taskforce devising the Clinton health care plan of 1993, i.e. Hillarycare. This topic was also important during the 2008 POTUS election, when both she and then-senator Barack Obama both spoke at length of the need for healthcare reform. In contrast, healthcare reform is an issue Hillary Clinton does not talk at all about in the current 2016 POTUS election. The Affordable Care Act is already in effect, so healthcare reform is not an important issue in this election for a democratic candidate like Clinton.</p>
 
-<p><span id="important">Hover over any speech topic on the left side of the figure below, to get a fuller description of the topic, an explanation of how its frequency has changed with time, and excerpts from speeches clustered within that topic.</span></p>-->
-<center><br><br>
+<!--<p><span id="important">Hover over any speech topic on the left side of the figure below, to get a fuller description of the topic, an explanation of how its frequency has changed with time, and excerpts from speeches clustered within that topic.</span></p>-->
+<center>
 <img src="speech_imgs/hillary_speech_topics.png" alt="hillary timeline" width="110%">
 </center><br>
 
 <p>Let's look at histograms of the speech categories during each of Hillary Clinton's roles.</p>
 <center>
 <img src="speech_imgs/firstlady_bar.png" alt="bar charts" width="110%">
-<!--
 </center>
 <h4>2016 Election Hot Issues</h4>
 
@@ -302,20 +284,9 @@ For example, <span id="blue">Healthcare reform</span> was a very important issue
 <img src="speech_imgs/jobs_ratio.png" alt="jobs jobs jobs" width="110%"><br><br>
 <img src="speech_imgs/immigr_ratio.png" alt="immigration" width="110%"><br><br>
 <img src="speech_imgs/climat_ratio.png" alt="climate change" width="110%"><br><br>
-<img src="speech_imgs/school_ratio.png" alt="family" width="110%"><br><br>-->
+<img src="speech_imgs/school_ratio.png" alt="family" width="110%"><br><br>
 
 
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-
- <section id="trump" class="white-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
                     <center>
                     <h3>Analysis of Donald Trump's Words</h3>
                     <img src="speech_imgs/donald_logo.png" alt="donald logo" width="85%"><br>
@@ -344,26 +315,27 @@ For example, <span id="blue">Healthcare reform</span> was a very important issue
         </div>
     </section>
 
-<section id="tweets" class="white-section">
+<section id="twitter" class="white-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
 
-                    <center><h3>Tweets!</h3></center><br></center>
-                    
-
-                    <h4>Basic statistics</h4>
+                    <center><h3>Tweet Analysis</h3></center>
+                    <h3>Basic statistics</h3>
                     <h4><span id="red">Donald Trump has an average 9,913 favorites and 3.683 retweets per tweet.</span></h4>
 
-                    <h4><span id="blue">Hillary Clinton has an average 2,879 favorites and 1,573 retweets per tweet.</span></h4><br><br>
+                    <h4><span id="blue">Hillary Clinton has an average 2,879 favorites and 1,573 retweets per tweet.</span></h4>
 
-                    <h4>The most frequent phrases (and their counts):</h4>
-                     
+                    <h3>The most frequent phrases (and their counts):</h3>
+                     <center>
                     <table id="hor-minimalist-a">
-                    
                     <tr>
-                    <th><h4><span id="grey">Unique Bi-gram Terms:</span><br></th>
-                    <th><h4><br></th>
+                    <th><h3>Unique Bi-gram Terms:</h4></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
                     </tr>
                     <tr><th><span id="red">Ted Cruz - 109</span></th><th><span id="blue">Donald Trump - 142</span></th></tr>
                     <tr><th><span id="red">Hillary Clinton - 89</span></th><th>Hillary Clinton - 56</th></tr>
@@ -375,12 +347,15 @@ For example, <span id="blue">Healthcare reform</span> was a very important issue
                     <tr><th>Marco Rubio - 39</th><th>Supreme Court - 30</th></tr>
                     <tr><th><span id="red">beat Hillary - 29</span></th><th><span id="blue">foreign policy - 23</span></th></tr>
                     </table>
-                   
+
                     <table id="hor-minimalist-a">
-                    
                     <tr>
-                    <th><h4><span id="grey">Unique 3-gram terms</span><br></th>
+                    <th><h3>Unique 3-grams:</h4></th>
                     <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
                     </tr>
                     <tr><th>make america great - 110</th><th><span id="blue">we need to - 37</span></th></tr>
                     <tr><th>i will be - 110</th><th><span id="blue">we have to - 41</span></th></tr>
@@ -392,11 +367,15 @@ For example, <span id="blue">Healthcare reform</span> was a very important issue
                     <tr><th><span id="red">Ted Cruz is - 18</span></th><th><span id="blue">we can't afford - 24</span></th></tr>
                     
                     </table>
-                    
+
                     <table id="hor-minimalist-a">
-                    
-                    <th><h4><span id="grey">Unique 4-grams</span><br></th>
-                    <th><br></th>
+                    <tr>
+                    <th><h3>Unique 4-grams:</h4></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
                     </tr>
                     <tr><th>make america great again - 109</th><th><span id="blue">need a president who - 25</span></th></tr>
                     <tr><th>i will be interviewed - 39</th><th>should be able to - 11</th></tr>
@@ -408,7 +387,7 @@ For example, <span id="blue">Healthcare reform</span> was a very important issue
                     </table>
                     </center>
                         <br>
-                    <h4>Who are the candidates, and what vision do they hold for themselves?<br>Fill in the blank...</h4>
+                    <h3>Who are the candidates, and what vision do they hold for themselves?<br>Fill in the blank...</h3>
                     <h4><span id="red">Trump: "I am the only _____________"</span></h4>
                     <ul>
                     <li>
@@ -449,37 +428,74 @@ For example, <span id="blue">Healthcare reform</span> was a very important issue
                     <li>"gets things done"</li></ul>
                     <br>
 
-                    <img src="speech_imgs/DT_cand.png" alt="hillary_tweets" width="75%"><br><br><br><br>
+                    <h3>Example of issues plot:</h3>
+                    <p>We can categorize tweets into issues, using a simple (but effective!) classifier that depends upon binary classification. Let's look at some example plots:</p>
+                            <br>
+                            <img src="speech_imgs/guncontrolfav.png" class="img-responsive img-centered" alt="">
+                            
+                            <br>
+                            <br>
+                            <br>
+                            <img src="speech_imgs/moneyfav.png" class="img-responsive img-centered" alt="">
+                           
 
-                    <img src="speech_imgs/HC_cand.png" alt="hillary_tweets" width="75%"><br><br></center>
+
+                    <br><br>
+                    <h3> Do direct insults and negative remarks increase likes and retweets?</h3>
                     
-                    
+                    <center>
+                    <table id="hor-minimalist-a3">
+                    <tr>
+                    <th><h4><span id="red">Trump</span></h4></th>
+                    <th><h5>tweets referencing<br>Hillary Clinton</h5></th>
+                    <th><h5>tweets NOT referencing<br> Hillary Clinton</h5></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>number of tweets:</th>
+                    <th>254</th>
+                    <th>2,993</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>percentage of all tweets:</th>
+                    <th>7.8%</th>
+                    <th>92.2%</th><th></th></tr>
+                    <tr><th><span id="red">average # of retweets:</span></th>
+                    <th>15,564</th><th>9,433</th></tr>
+                    <tr><th><span id="red">average # of favorites:</span></th>
+                    <th>6,079</th><th>3,480</th><th></th></tr>
 
-<section id="insult" class="white-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+                    </table></center>
+                    <h4>Differences in favorite and retweet counts are both statistically significant (6.1E-23, 1.2E-18).<span id="red"> There is a statistically measureable gain in favorites and retweets</span> for Donald Trump when a tweet directly comments on Hillary Clinton</h4></center>
 
-                    <center><h3>Favorites Boosts?</h3></center><br><center>
-                    <img src="speech_imgs/insult_boost.png" alt="hillary_tweets" width="75%"><br><br></center>
+                    <center>
+                    <table id="hor-minimalist-a3">
+                    <tr>
+                    <th><h4><span id="blue">Clinton</span></h4></th>
+                    <th><h5>tweets referencing<br>Donald Trump</h5></th>
+                    <th><h5>tweets NOT referencing<br> Donald Trump</h5></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>number of tweets:</th>
+                    <th>204</th>
+                    <th>3,020</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>percentage of all tweets:</th>
+                    <th>6.3%</th>
+                    <th>93.7%</th><th></th></tr>
+                    <tr><th><span id="blue">average # of retweets:</span></th>
+                    <th>2,366</th><th>1,520</th></tr>
+                    <tr><th><span id="blue">average # of favorites:</span></th>
+                    <th>3,860</th><th>2,813</th><th></th></tr>
 
-                    <br><br><center>
-                    <img src="speech_imgs/obama_boost.png" alt="hillary_tweets" width="75%"><br><br></center>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </table></center>
+                    <h4>Differences in favorite and retweet counts are both NOT statistically significant (0.208, 0.182). In general, <span id="blue"> it does not pay off for Hillary Clinton to directly address Donald Trump</span></h4>
 
-
-<section id="issues" class="white-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    
-                    <center><h3>What are the REAL election issues?</h3></center><br><center>
-                    <img src="speech_imgs/HCDT_issues.png" alt="hillary_tweets" width="85%"><br><br><br><br>
-                    <img src="speech_imgs/HCDT_issues2.png" alt="hillary_tweets" width="85%"><br><br></center>
+                            
                 </div>
             </div>
         </div>
@@ -491,7 +507,7 @@ For example, <span id="blue">Healthcare reform</span> was a very important issue
                 <div class="col-lg-12">
 
                     <center><h3>Code</h3></center>
-                    I will post this shortly. Everything was done in Python, with the help of BeautifulSoup, Matplotlib, Seaborn, Pandas, Scikit-Learn, and Scipy.
+                    I will post this shortly. Everything was done in Python, with the help of BeautifulSoup, Matplotlib, and Scikit-learn.
                 </div>
             </div>
         </div>

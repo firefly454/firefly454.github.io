@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>erica kim's blog</title>
+
+    
+<!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <style>
+    
+    #red {color: #E24A33;}
+    #blue {color: #348ABD;}
+    #important {font-weight: bold;}
+    #bigimportantr {font-size: 18px;
+        font-weight: bold;
+        color: #E24A33;}
+    #bigimportantb {font-size: 18px;
+        font-weight: bold;
+        color: #348ABD;}
+    #reallyimportantb{
+        font-size:26px;
+        font-weight:bold;
+        color: #348ABD;
+    }
+    #reallyimportantr{
+        font-size:26px;
+        font-weight:bold;
+        color: #E24A33;
+    }
+    #tiny{
+        font-size:8px;
+    }  
+    #plain {font-size:16px;}
+    #hor-minimalist-a
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 16px;
+    background: #fff;
+    margin: 25px;
+    width: 560px;
+    border-collapse: collapse;
+    text-align: left;
+}
+    #hor-minimalist-a3
+    {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 16px;
+    background: #fff;
+    margin: 40px;
+    width: 750px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+    </style>
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" class="index">
+    
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Intro</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top">Intro</a>
+                    </li>
+
+                    
+                    <li class="page-scroll">
+                        <a href="#methodology">METHODS</a>
+                    </li>
+                   
+                    <li class="page-scroll">
+                        <a href="#comparison">SPEECHES</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="#twitter">TWEETS</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#code">CODE</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <center>
+                    <h3>Candidates' Speech Analysis Project</h3>
+                    <h5><p>No matter what we talk about, we are talking about ourselves.<br>
+- author Hugh Prather</p></h5></center>
+                    <p>
+What people say is important. We remember people by the famous words they said, whether it be Martin Luther King Jr.'s "I have a dream", to J.F.K.'s, "Ask not what your country can do for you - ask what you can do for your country." In this day and age, what people say is even more important as everything can be recorded and archived indefinitely. </p>
+
+<p>Analyzing every aspect of a politian's way of speaking is a popular hobby these days. From way back in 2007, when then-Senator Barack Obama was celebrated for his deep and resonant Smoker's voice", to the present day's countless articles attacking or defending Hillary Clinton purely on the basis of her speaking tone, Americans are obsessed with the way our leaders talk.</p>
+
+<p>These previous analyses have only been qualitative. Now, however, we can start taking apart the 2016 POTUS candidates' speech patterns based on quantitative metrics. For example, the Wall Street Journal's article, What Speech Patterns Say About the Presidential Candidates, looked at how many unique words they use, on average, and what the total number of words spoken was:<p>
+
+<br><center><img src="speech_imgs/wsj_wordup.jpg" alt="wsj" width="50%"></center><br>
+
+
+<p>Similarly, the New York Times recent article, Ted Cruz as Beowulf: Matching Candidates With the Books They Sound Like, examined which books each candidates' speech patterns most likely resemble, based on quantifying their speaking styles as complex (e.g. Beowulf) or simple (e.g. Adventures of Huckleberry Finn), and negative (e.g. Ulysses") or positive (e.g. The Divine Comedy: Paradise):</p>
+
+<br><center><img src="speech_imgs/nytimes_candidates_books.png" alt="wsj" width="100%"></center><br>
+
+<p>Interestingly, while the above analysis found Donald Trump to have relatively positive speech patterns, a different article by the New York Times found the leading Republican candidate to have an "ominous" tone, with "constant repetition of divisive phrases, harsh words and violent imagery."</p>
+
+<p>Such analyses of speech patterns remain incredibly popular and compelling to the general public. The New York Times article on Trump's ominous speaking style garnered 1,392 comments. The above Wall Street Journal article had 1,229 Facebook likes. With almost two dozen televised debates and countless more interviews and speeches, it makes sense to put a magnifying glass to the plethora of words spilling from the candidates' mouths.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Projects Section -->
+    <section id="methodology" class="white-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <center><h2>Methods</h2></center><br>
+                    <p>First, speeches, interviews, responses, statements, and various other first-person dialogues from both Clinton and Trump were collected from various internet sources, in order to create a "speech corpus" for each person. The main text of each speech was collected, as well as each speech's title and date. Each text was then tokenized into separate, distinct words; each word in the text was then stemmed into its root word (e.g. "immigration" gets transformed to its root: "immigr"). Stemming allows us to consider all the variants of a word as identical to one another (e.g. "immigration", "immigrant", "immigrants", and "immigrate" are all basically the same). A dictionary for each candidate was then created, based on all of the unique word roots within each candidate's corpus. Each speech could then be represented as an array, with each element of the array representing a different word root, and the value of each element representing the frequency of that word within the speech. If a word's frequency was above a maximum frequency threshold or below a minimum frequency threshold, then the word was excluded from the analysis. For both of their corpuses, the max and min thresholds were set to 70% and 20%. Such thresholds are useful for filtering out noise, but of course, other max and min values could be chosen. Afterwards, sklearn's K-means clustering algorithm was implemented, with >1000 iterations and >1000 initial cluster centers. Because of the large difference in the number of speeches between the two corpses, 9 clusters were chosen for Clinton while 4 clusters were chosen for Trump. Again, using other values for the number of clusters parameter is possible.</p><br>
+
+<h4>Creating Clinton's Speech Corpus</h4>
+<p>While Hillary Clinton has been in the public eye for many years and thus given many public talks, these transcripts are unfortunately not in a single place. I was able to gather 490 unique transcripts by scraping the following websites:
+<ul>
+<li><a href="https://clinton3.nara.gov/"><span id="blue">Welcome to the White House</span></a></li>
+<li><a href="https://www.hillaryclinton.com/speeches/page/"><span id="blue">HillaryClinton.com</span></a></li>
+<li><a href="http://www.womenspeecharchive.org/women/profile/speech/index.cfm?ProfileID=65&SpeechID=365"><span id="blue">Women Speech Archive</span></a></li>
+<li><a href="http://www.presidency.ucsb.edu"><span id="blue">The American Presidency Project</span></a></li>
+</ul>
+
+<p>The speeches span from May 31 1969, when she gave the Wellesley College Student Commencement Address, to April 26 2016, when she gave remarks on American manufacturing and improving the economy. However, most of the transcripts come from three distinct periods: First Lady (1993-1997), the 2008 Presidential Election, and the current 2016 Presidential Election. During her tenures as Senator of New York and Secretary of State, I could not find as many publicly available transcripts. However, they are undoubtedly archived somewhere, and will eventually be included into the final results.</p> 
+
+<p>Due to the controversay of using her <a href="https://www.hillaryclinton.com/hillarys-emails-four-sentences/"><span id="blue">private email account,</span></a> the State Department also publicly released nearly 7,000 pages of Clinton's (heavily redacted) emails from her time as Secretary of State. While I did not include these in the current analysis, it would be interesting to compare her private emails to her public statements. What would also be interesting is to
+see the transcripts to Hillary Clinton's paid Wall Street speeches, which are still garnering news today (e.g. <a href="http://www.chicagotribune.com/news/opinion/editorials/ct-hillary-clinton-speeches-goldman-sachs-edit-0429-jm-20160428-story.html"><span id="blue">Chicago Tribune: What Hillary Clinton said behind closed doors</span></a>).</p><br>
+
+<h4 id="TRUMP">Creating Trump's Speech Corpus</h4>
+
+<p>Like Hillary Clinton, Donald Trump has been a famous and public figure for several years now. Unlike Hillary Clinton, however, Trump is primarily a businessman, and the 2016 Presidential election is his first real foray into the public spotlight. Thus, he has given much less formal speeches than Clinton. I was able to gather 32 unique transcripts of speeches, statements, and interviews given by Trump, ranging from March 2013 to present time. These transcripts came from scraping the following websites:</p>
+<ul>
+<li><a href="https://www.donaldjtrump.com/"><span id="red">www.DonaldJTrump.com</span></a></li>
+<li><a href="http://www.presidency.ucsb.edu"><span id="red">The American Presidency Project</span></a></li>
+<li><a href="http://www.p2016.org"><span id="red">P2016 Race for the White House</span></a></li></ul>
+<p>I also scraped individual transcripts from:</p>
+<ul>
+<li><a href="http://www.nytimes.com/2016/03/27/us/politics/donald-trump-transcript.html?_r=0"><span id="red">The New York Times: Donald Trump Expounds on His Foreign Policy Views</span></a></li>
+<li><a href="https://www.washingtonpost.com/news/post-politics/wp/2016/02/20/transcript-donald-trumps-victory-speech-after-the-south-carolina-gop-primary/"><span id="red">The Washington Post: Trump&#39;s victory speech after the South Carolina GOP primary</span></a></li>
+<li><a href="https://www.washingtonpost.com/blogs/post-partisan/wp/2016/03/21/a-transcript-of-donald-trumps-meeting-with-the-washington-post-editorial-board/?tid=a_inl"><span id="red">A transcript of Donald Trump&#39;s meeting with The Washington Post editorial board</span></a></li>
+<li><a href="https://www.washingtonpost.com/news/post-politics/wp/2016/04/02/transcript-donald-trump-interview-with-bob-woodward-and-robert-costa/"><span id="red">The Washington Post: Donald Trump interview with Bob Woodward and Robert Costay</span></a></li>
+<li><a href="http://www.foxnews.com/transcript/2015/10/18/donald-trump-talks-taxes-trade-11-and-why-takes-personal-shots-at-political/"><span id="red">Fox News Sunday: Donald Trump talks taxes, trade, 9/11 and why he takes personal shots at political rivals"</span></a></li>
+<li><a href="http://cnnpressroom.blogs.cnn.com/2016/03/29/full-rush-transcript-donald-trump-cnn-milwaukee-republican-presidential-town-hall/"><span id="red">Donald Trump, CNN Milwaukee Republican Presidential Town Hall</span></a></li>
+<li><a href="http://abcnews.go.com/Politics/video/donald-trumps-speech-super-tuesday-37325330"><span id="red">ABC News: Donald Trump's Super Tuesday Speech</span></a></li></ul>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Projects Section -->
+    <section id="comparison" class="grey-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <center><h2>Speech Analysis</h2></center>
+                <h3>Trump vs. Clinton - a clash of words</h3>
+                    <center>
+<br><img src="speech_imgs/hillary_talking.png" width="80%"><br><br>
+<img src="speech_imgs/donald_talking.png" width="80%"><br>
+</center><br>
+
+<p>
+Considering that Trump's logo is: <span id="red">Make America Great Again</span>, it's no surprise that most of those words are in the top ten words list.
+</p>
+
+<h3>How frequent do candidates mention specific terms?</h3>
+
+<center><br>
+<img src="speech_imgs/HCDT_abortion.png" alt="abortion" width="60%"><br><br>
+<img src="speech_imgs/HCDT_guns.png" alt="guns" width="60%"><br><br>
+<img src="speech_imgs/HCDT_countries.png" alt="countries" width="60%"><br><br>
+<img src="speech_imgs/HCDT_know.png" alt="know" width="60%"><br><br>
+</center>
+
+
+                    <center><h3>Analysis of Hillary Clinton's Words</h3>
+
+                    
+<img src="speech_imgs/hillary_logo.jpg" alt="hillary logo" width="85%"><br>
+<span id="tiny">image source: <a href="http://www.fastcodesign.com/3044980/the-internet-freaks-out-over-hillarys-campaign-logo">www.fastcodesign.com</a></span>
+</center>
+
+                    <p>All of Clinton's 490 speeches in the corpus are clustered into 9 groups. These groups are found automatically by scikit-learn's k-means clustering algorithm, solely based on the terms in each speech. After running the algorithm 1000 times, with 800 different randomized initial cluster centers, the speeches were found to consistently group into the same 9 categories. By getting the ten most meaningful* terms of each group, I could distinguish the primary topic of each group. These are:</p>
+
+<p>
+<span id="bigimportantr">History, culture, and honor:</span> <span id="important">imagine, history, cultural, past, White House, honored, celebrate, historic, save, century</span><br>
+
+<span id="bigimportantb">Education:</span> <span id="important">schools, teachers, educated, students, parents, public, child, learn, kids, programs</span><br>
+
+<span id="bigimportantr">Elections & politics:</span> <span id="important">vote, Obama, campaigns, Democrats, election, fight, winning, health, Republican, parties</span><br>
+
+<span id="bigimportantb">Economy:</span> <span id="important">tax, paying, economy, company, energy, college, health, workers, invest</span><br>
+
+<span id="bigimportantr">Iraq War & the Bush Administration:</span>
+<span id="important">Iraq, war, military, security, administration, policies, Bush, strategy, threats, government, fail</span><br>
+
+<span id="bigimportantb">Healthcare reform:</span> <span id="important">health, health care, insurance, costs, plans, hospital, medical,reform, doctors, nurses</span><br>
+
+<span id="bigimportantr">Peace & security:</span><span id="important"> peace, security, United States, developments, efforts, threats, attack, regions, government, partner</span><br>
+
+<span id="bigimportantb">Domestic & social issues:</span><span id="important"> parents, child, schools, mother, violence, young people, programs, health, problems, read</span><br>
+
+
+<span id="bigimportantr">Democracy & human rights:
+</span> <span id="important">democracies, human, society, human right, girls, government, educated, unites, conferences, voice, economic</span></p>
+
+<p>*"lot", "got", "DR", and "let" were not considered to have any meaning, and therefore not included in defining each cluster theme, despite some of these terms being in the top ten most important words for the Domestic & social issues cluster, Economy cluster, and Elections & politics cluster.</p>
+
+<h4>Looking at Clinton's speech topics through the years</h4>
+
+<p>By plotting each speech in a scatterplot, with the speech date on the x-axis and the speech category on the y-axis, we can visualize how Clinton's speech topics change with time. The lines distinguish the different roles Hillary Clinton had at different time periods: First Lady of the White House (January 1993 to January 2001), New York State Senator (January 2001 to January 2007), 2008 Presidential Election candidate (January 2007 - June 2008), Secretary of State (January 2009 - Febraury 2013), and 2016 Presidential Election candidate (April 2015 - present). </p>
+
+<p>We can look at a single speech topic, and then go across the plot to see how often she speaks about that topic.
+For example, <span id="blue">Healthcare reform</span> was a very important issue for Hillary Clinton when she was First Lady and chair of the taskforce devising the Clinton health care plan of 1993, i.e. Hillarycare. This topic was also important during the 2008 POTUS election, when both she and then-senator Barack Obama both spoke at length of the need for healthcare reform. In contrast, healthcare reform is an issue Hillary Clinton does not talk at all about in the current 2016 POTUS election. The Affordable Care Act is already in effect, so healthcare reform is not an important issue in this election for a democratic candidate like Clinton.</p>
+
+<!--<p><span id="important">Hover over any speech topic on the left side of the figure below, to get a fuller description of the topic, an explanation of how its frequency has changed with time, and excerpts from speeches clustered within that topic.</span></p>-->
+<center>
+<img src="speech_imgs/hillary_speech_topics.png" alt="hillary timeline" width="110%">
+</center><br>
+
+<p>Let's look at histograms of the speech categories during each of Hillary Clinton's roles.</p>
+<center>
+<img src="speech_imgs/firstlady_bar.png" alt="bar charts" width="110%">
+</center>
+<h4>2016 Election Hot Issues</h4>
+
+<p>We can count the number of times Clinton uses words or phrases specific to a particular topic, as a proxy for how important that topic is to her. If we divide the number of times a word is spoken during a speech by the total number of words in that speech, we get that word's "percent useage". Let's look at how different words' percent useages change with time.</p>
+
+<img src="speech_imgs/terrorist_ratio.png" alt="terrorism" width="110%"><br><br>
+<img src="speech_imgs/jobs_ratio.png" alt="jobs jobs jobs" width="110%"><br><br>
+<img src="speech_imgs/immigr_ratio.png" alt="immigration" width="110%"><br><br>
+<img src="speech_imgs/climat_ratio.png" alt="climate change" width="110%"><br><br>
+<img src="speech_imgs/school_ratio.png" alt="family" width="110%"><br><br>
+
+
+                    <center>
+                    <h3>Analysis of Donald Trump's Words</h3>
+                    <img src="speech_imgs/donald_logo.png" alt="donald logo" width="85%"><br>
+<span id="tiny">image source: <a href="http://www.zazzle.com/donald+trump+campaign+posters">www.zazzle.com</a></span>
+</center>
+
+<h4>4 Categories of Speech Topics</h4>
+
+<p>Clustering Donald Trump's transcripts, in this project, is difficult for a few reasons. First, he really has only publicly spoken in the past 2 years, and 99% (if not 100%) of these speeches and interviews are related to the 2016 presidential election. For instance, some of the most frequent terms he uses contain his campaign slogan and words like: "poll", "campaign", "president", "support", and "New Hampshire". So, we have to group this already quite similar group of talks into more distinct sub-groups. After running scikit-learn's k-means clustering algorithm 3000 times, with 2000 different randomized initial cluster centers and 4 groups, the most meaningful* terms were analyzed in order to create the following speech categories:</p> 
+
+<p><span id="bigimportantr">Immigration & workers</span> <span id="important">Immigration, workers, foreign, program, American, highly, ending, report, rates, percent</span><br>
+
+<span id="bigimportantb">Stuff:</span> <span id="important">very, know, people, because, look, like, right, happening, many, meaning</span><br>
+
+<span id="bigimportantr">Conservative stuff:</span> <span id="important">life, Ted, issued, conservative, woman, lie, National, courts, person, position</span><br>
+
+<span id="bigimportantb">American border:</span> <span id="important">American, border, people, family, time, very, polling, China, state, government</span></p>
+
+
+<p>*"don't" and "I've" were not considered to have any meaning, and therefore not included in defining each cluster theme, despite being in the top ten most important words for the "Stuff" category</p>
+
+<h4>How do Trump's speech topics change with time?</h4>
+<p>Because the timespan of the speeches in Trump's corpus is very short, with the oldest speech dating back to only March 15, 2013, it is not informative to see how the topics change with time. If Donald Trump remains politically active, however, then this will obviously change!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="twitter" class="white-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <center><h2>Tweet Analysis</h2>
+                    <img class="img-responsive" src="img/portfolio/twitter_flag.png" alt=""><br>
+                    </center>
+                    <h3>Basic statistics</h3>
+                    <h4><span id="red">Donald Trump has an average 9,913 favorites and 3.683 retweets per tweet.</span></h4>
+
+                    <h4><span id="blue">Hillary Clinton has an average 2,879 favorites and 1,573 retweets per tweet.</span></h4>
+
+                    <h3>The most frequent phrases (and their counts):</h3>
+                     <center>
+                    <table id="hor-minimalist-a">
+                    <tr>
+                    <th><h3>Unique Bi-gram Terms:</h4></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
+                    </tr>
+                    <tr><th><span id="red">Ted Cruz - 109</span></th><th><span id="blue">Donald Trump - 142</span></th></tr>
+                    <tr><th><span id="red">Hillary Clinton - 89</span></th><th>Hillary Clinton - 56</th></tr>
+                    <tr><th><span id="red">Crooked Hillary - 87</span></th><th><span id="blue">gun violence - 52</span></th></tr>
+                    <tr><th>Donald Trump - 83</th><th><span id="blue">health care - 48</span></th></tr>
+                    <tr><th>South Carolina - 59</th><th>White House - 37</th></tr>
+                    <tr><th>New Hampshire - 59</th><th>New Hampshire - 35</th></tr>
+                    <tr><th>New York - 44</th><th>New York - 31</th></tr>
+                    <tr><th>Marco Rubio - 39</th><th>Supreme Court - 30</th></tr>
+                    <tr><th><span id="red">beat Hillary - 29</span></th><th><span id="blue">foreign policy - 23</span></th></tr>
+                    </table>
+
+                    <table id="hor-minimalist-a">
+                    <tr>
+                    <th><h3>Unique 3-grams:</h4></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
+                    </tr>
+                    <tr><th>make america great - 110</th><th><span id="blue">we need to - 37</span></th></tr>
+                    <tr><th>i will be - 110</th><th><span id="blue">we have to - 41</span></th></tr>
+                    <tr><th>thank you for - 71</th><th>the White House - 37</th></tr>
+                    <tr><th>will be interviewed - 52</th><th>a president who - 34</th></tr>
+                    <tr><th><span id="red">crooked Hillary Clinton - 32</span></th><th><span id="blue">Donald Trump is - 28</span></th></tr>
+                    <tr><th><span id="red">lyin' Ted Cruz - 24</span></th><th>need a president - 27</th></tr>
+                    <tr><th><span id="red">goofy Elizabeth Warren - 19</span></th><th><span id="blue">we can't let - 25</span></th></tr>
+                    <tr><th><span id="red">Ted Cruz is - 18</span></th><th><span id="blue">we can't afford - 24</span></th></tr>
+                    
+                    </table>
+
+                    <table id="hor-minimalist-a">
+                    <tr>
+                    <th><h3>Unique 4-grams:</h4></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th><h4><span id="red">Trump<br></th>
+                    <th><h4><span id="blue">Clinton<br></th>
+                    </tr>
+                    <tr><th>make america great again - 109</th><th><span id="blue">need a president who - 25</span></th></tr>
+                    <tr><th>i will be interviewed - 39</th><th>should be able to - 11</th></tr>
+                    <tr><th>thank you for your - 33</th><th><span id="blue">the affordable care act - 11</span></th></tr>
+                    <tr><th><span id="red">I am the only - 12</span></th><th>to stand with Hillary - 11</th></tr>
+                    <tr><th><span id="red">I will beat Hillary - 10</span></th><th>we need to make - 10</th></tr>
+                    <tr><th><span id="red">weak on illegal immigration - 10</span></th><th>to be commander in - 10</th></tr>
+                    
+                    </table>
+                    </center>
+                        <br>
+                    <h3>Who are the candidates, and what vision do they hold for themselves?<br>Fill in the blank...</h3>
+                    <h4><span id="red">Trump: "I am the only _____________"</span></h4>
+                    <ul>
+                    <li>
+                     "candidate who is <span id="red">self-funding</span>. While I am given little credit for this by the voters, I am not bought like others!"</li>
+                    <li>"one who is self-funding my campaign. All of the other candidates are bought and paid for by special interests!"</li>
+                    <li>"presidential candidate who will <span id="red">bring jobs back</span> to the U.S.and protect car industry!" </li>
+                    <li>"candidate that is self funding my campaign, I am not bought and paid for!"</li>
+                    <li>"one who can <span id="red">beat Hillary Clinton</span>. I am not a Mitt Romney, who doesn't know how to win. Hillary wants no pa of "Trump""</li>
+                    <li>"Republican who will <span id="red"> get large numbers</span> of Dems and Indies (crossover). I will also get states that no other Republican can get."</li>
+                    <li>"candidate (in many years) who is self-funding his campaign. Lobbyists and $ interests totally control all other candidates!"</li>
+                    <li>"one who will <span id="red">#MAKEAMERICAGREATAGAIN!</span>"</li>
+                    <li>"one who can!"</li>
+                    <li>"one who can fix this. Very sad. Will not happen under my watch! #MakeAmericaGreatAgain"</li>
+                    <li>"candidate self-funding!"</li>
+                    </ul>
+                    <br>
+                    <h4><span id="blue">Clinton: "We need a president who _____________" </span></h4>
+                    <ul>
+                    <li>"'s fighting to <span id="blue">raise incomes</span> for all Americans, not one who tries to profit at their expense."</li>
+                    <li>"will unite leaders around the world to defeat ISIS, not one who insults and alienates them."</li>
+                    <li>"will <span id="blue">take action on gun violence</span> and stand with victims' families against the gun lobby."</li>
+                    <li>"will always put families above the gun lobby. #DemDebate"</li>
+                    <li>"<span id="blue">can bring people together.</span>"</li>
+                    <li>"doesn’t just rail against trade."</li>
+                    <li>"knows how to compete against the rest of the world and win."</li>
+                    <li>"will help break down all the barriers holding Americans back, not just some." -Hillary"</li>
+                    <li>"will make <span id="blue">comprehensive immigration reform</span> a top priority and keep families together."</li>
+                    <li>"will provide leadership that’s strong, sma, and steady. The last thing we need are leaders who incite more fear."</li>
+                    <li>"knows how to make government work."</li>
+                    <li>"will tackle all the issues we face, from systemic racism to LGBT discrimination."</li>
+                    <li>"will fight for all Americans, not just those at the top."</li>
+                    <li>"will make <span id="blue">quality higher education</span> a reality for every American."</li>
+                    <li>"will always, always put American families over the gun lobby."</li>
+                    <li>"can do all aspects of the job...I'm ready to take it on."</li>
+                    <li>"will stand up to the gun lobby. Add your name if you agree"</li>
+                    <li>"<span id="blue">can take on Republicans 
+                    </span>and get the job done."</li>
+                    <li>"gets things done"</li></ul>
+                    <br>
+
+                    
+
+                    <!-- Portfolio Grid Section -->
+    <section id="issues">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>The Issues</h2>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <span id="plain">Tweets were classified by the presence/absence of specific topic keywords. Click on an issues icon to see how frequently or not each candidate tweeted about that specfic issue. The more tweets we see, the more we can assume that that issue is IMPORTANT to the candidate. Each tweet is plotted along with its retweet count and its favorite count - both which measure how receptive a tweet was.</span>
+                   
+                </div>
+            </div>
+            <div class="row">
+            <center>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#guncontrol" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+
+                                <i class="fa fa-search-plus fa-3x">
+                                </i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/weapon.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#abortion" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/people.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#immigration" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/tool.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#criminal_justice" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/people-1.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#money" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/tool-1.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#national_defense" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/transport.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#climate_change" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/globe.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#healthcare" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/medical-1.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#higher_education" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/people-2.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+                    <br><br>
+                    <h3> Do direct insults and negative remarks increase likes and retweets?</h3>
+                    
+                    <center>
+                    <table id="hor-minimalist-a3">
+                    <tr>
+                    <th><h4><span id="red">Trump</span></h4></th>
+                    <th><h5>tweets referencing<br>Hillary Clinton</h5></th>
+                    <th><h5>tweets NOT referencing<br> Hillary Clinton</h5></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>number of tweets:</th>
+                    <th>254</th>
+                    <th>2,993</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>percentage of all tweets:</th>
+                    <th>7.8%</th>
+                    <th>92.2%</th><th></th></tr>
+                    <tr><th><span id="red">average # of retweets:</span></th>
+                    <th>15,564</th><th>9,433</th></tr>
+                    <tr><th><span id="red">average # of favorites:</span></th>
+                    <th>6,079</th><th>3,480</th><th></th></tr>
+
+                    </table></center>
+                    <h4>Differences in favorite and retweet counts are both statistically significant (6.1E-23, 1.2E-18).<span id="red"> There is a statistically measureable gain in favorites and retweets</span> for Donald Trump when a tweet directly comments on Hillary Clinton</h4></center>
+
+                    <center>
+                    <table id="hor-minimalist-a3">
+                    <tr>
+                    <th><h4><span id="blue">Clinton</span></h4></th>
+                    <th><h5>tweets referencing<br>Donald Trump</h5></th>
+                    <th><h5>tweets NOT referencing<br> Donald Trump</h5></th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>number of tweets:</th>
+                    <th>204</th>
+                    <th>3,020</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                    <th>percentage of all tweets:</th>
+                    <th>6.3%</th>
+                    <th>93.7%</th><th></th></tr>
+                    <tr><th><span id="blue">average # of retweets:</span></th>
+                    <th>2,366</th><th>1,520</th></tr>
+                    <tr><th><span id="blue">average # of favorites:</span></th>
+                    <th>3,860</th><th>2,813</th><th></th></tr>
+
+                    </table></center>
+                    <h4>Differences in favorite and retweet counts are both NOT statistically significant (0.208, 0.182). In general, <span id="blue"> it does not pay off for Hillary Clinton to directly address Donald Trump</span></h4>
+
+                            
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="code" class="white-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <center><h3>Code</h3></center>
+                    I will post this shortly. Everything was done in Python, with the help of BeautifulSoup, Matplotlib, and Scikit-learn.
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Issues Descriptions -->
+    <div class="portfolio-modal modal fade" id="guncontrol" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Gun control</h2>
+                            <br>
+
+                            <img src="img/portfolio/guncontrolfav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/guncontrolrt.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="abortion" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Abortion</h2>
+                            
+                        <br>
+
+                            <img src="img/portfolio/abortionfav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/abortionrt.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="portfolio-modal modal fade" id="immigration" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Immigration</h2>
+                            <br>
+
+                            <img src="img/portfolio/immigrationfav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/immigrationrt.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="criminal_justice" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Criminal Justice</h2>
+                            <br>
+
+                            <img src="img/portfolio/criminal_justicefav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/criminal_justicert.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="portfolio-modal modal fade" id="money" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Jobs and the Economy</h2>
+                            <br>
+
+                            <img src="img/portfolio/moneyfav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/moneyrt.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="national_defense" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>National Defense</h2>
+                            <br>
+
+                            <img src="img/portfolio/national_defensefav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/national_defensert.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="climate_change" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Climate Change</h2>
+                            <br>
+
+                            <img src="img/portfolio/climate_changefav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/climate_changert.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="healthcare" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Health Care</h2>
+                            <br>
+
+                            <img src="img/portfolio/healthcarefav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/healthcarert.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="higher_education" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Higher Education</h2>
+                            <br>
+
+                            <img src="img/portfolio/higher_educationfav.png" class="img-responsive img-centered" alt="" width="70%">
+                            <br>
+                            <img src="img/portfolio/higher_educationrt.png" class="img-responsive img-centered" alt="" width="70%">
+                            
+                            
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+  
+
+</body>
+
+</html>
